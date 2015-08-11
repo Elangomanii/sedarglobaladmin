@@ -34,24 +34,25 @@
 		    <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
 		      <thead>
 			    <tr>
+				<th>Drag Here</th>
 				<th>Name</th>
 				<th>Description</th>
 				<th>Image Name</th>
+				<th>Position</th>
                                 <th>Brand Image</th>
 				<th>Action</th>
+				
 			        
 			    </tr>
 			</thead>
-			<tbody>
-			   <?php
-			    
-			    foreach($brandsView as $row)
-						{
-					    ?>
-			    <tr class="even gradeC">
+			<tbody class="handles list" id="sortable">
+			   <?php foreach($brandsView as $row){ ?>
+			    <tr class="even gradeC" id="<?php echo $row['id'] ?>">
+			        <td><span><i class="fa fa-refresh fa-5x"></span></td>
 				<td><?php echo $row['name']; ?></td>					    
 				<td><?php echo $row['desc']; ?></td>
                                 <td><?php echo $row['nameImage']; ?></td>
+				<td><?php echo $row['position']; ?></td>
 				<td><?php echo $row['brandImage']; ?></td>
 				
 				<td>
@@ -83,7 +84,14 @@
 
 </body>
 </html>
-
+<style>
+    
+    .handles span {
+	    cursor: move;
+    }
+</style>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui-1.10.4.custom.min.js"></script>
+<!--<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dragscript.js"></script>-->
 <script>
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
@@ -95,4 +103,27 @@ $('#form_validation').on('click', '#delete_box', function(e) {
                 }    
             });
  });
+</script>
+<script>
+$(function() {
+    $('#sortable').sortable({
+        axis: 'y',
+        opacity: 0.7,
+        handle: 'span',
+        update: function(event, ui) {
+            var list_sortable = $(this).sortable('toArray').toString();
+    		//alert(list_sortable);
+		// change order in the database using Ajax
+            $.ajax({
+                url: 'http://localhost/Global_Admin/GlobalController/repositionBrandOrder',
+                type: 'POST',
+                data: {position:list_sortable},
+                success: function(data) {
+                   //alert(data);
+                }
+		
+            });
+        }
+    }); // fin sortable
+});
 </script>

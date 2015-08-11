@@ -70,6 +70,24 @@ class GlobalController extends CI_Controller
 
     //Elango controller Start
     //2.ProjectOverview start
+    //REPOSITION PROJECT IMG FUNCTIONS STARTS
+     public function repositionProjectImages()
+    {
+	//$businessId=$this->session->userdata('businessId');
+	$list_order = $_POST['position'];
+	$list = explode(',' , $list_order);
+	$i = 1;
+	foreach($list as $id)
+	{
+	    $sql= "UPDATE about_project_img SET position='$i' WHERE id ='$id'" ;	
+	    $result[]=$this->db->query($sql);
+	    $i++;
+	    $query[]=$sql;
+	    //echo $sql."<br>";
+	}
+	//print_r($query);
+    }
+    //REPOSITION PROJECT IMG FUNCTIONS ENDS
     
 	  public function Project_Overview()
     {
@@ -120,6 +138,24 @@ class GlobalController extends CI_Controller
     }
     //Project Overview end
     //3.Client overview start
+    //REPOSITION CLIENT IMAGE FUNCTION STARTS
+     public function repositionClientImages()
+    {
+	
+	$list_order = $_POST['position'];
+	$list = explode(',' , $list_order);
+	$i = 1;
+	foreach($list as $id)
+	{
+	    $sql= "UPDATE about_client_img SET position='$i' WHERE id ='$id'" ;	
+	    $result[]=$this->db->query($sql);
+	    $i++;
+	    $query[]=$sql;
+	    //echo $sql."<br>";
+	}
+	print_r($query);
+    }
+     //REPOSITION CLIENT IMAGE FUNCTION ENDS
       public function Client_Overview()
     {
 	if(isset($_POST["Save"])){
@@ -306,6 +342,24 @@ class GlobalController extends CI_Controller
     }
     //7.BRANDS NEW START
     //VIEW
+    //REPOSITION BRANDS FUNCTIONS STARTS
+     public function repositionBrandOrder()
+    {
+	//$businessId=$this->session->userdata('businessId');
+	$list_order = $_POST['position'];
+	$list = explode(',' , $list_order);
+	$i = 1;
+	foreach($list as $id)
+	{
+	    $sql= "UPDATE brands SET position='$i' WHERE id ='$id'" ;	
+	    $result[]=$this->db->query($sql);
+	    $i++;
+	    $query[]=$sql;
+	    //echo $sql."<br>";
+	}
+	print_r($query);
+    }
+    //REPOSITION BRANDS FUNCTIONS ENDS
   public function BrandsNew_View()
     {
 	$data['brandsView']= $this->GlobalModel->getbrandsView();

@@ -38,22 +38,22 @@
 		    <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
 		      <thead>
 			    <tr>
+				<th>Drag Here</th>
 				<th data-class="expand">Image</th>
+				<th>Position</th>
 				<th data-hide="phone,tablet">Description</th>
 				
 				<th>Action</th>
 			        
 			    </tr>
 			</thead>
-			<tbody>
-			     <?php
-			    
-			    foreach($clientImage as $row)
-						{
-					    ?>
-			    <tr class="even gradeC">
-				<td><?php echo $row['aboutClientImg']; ?></td>					    
-				<td><?php echo $row['aboutClientTitle']; ?></td>	
+			<tbody class="handles list" id="sortable"><span>
+			     <?php foreach($clientImage as $row){?>
+			    <tr class="even gradeC" id="<?php echo $row['id'] ?>">
+			    <td><span><i class="fa fa-refresh fa-5x"></span></td>
+				<td><span><?php echo $row['aboutClientImg']; ?></span></td>
+				<td><span><?php echo $row['position']; ?></span></td>
+				<td><span><?php echo $row['aboutClientTitle']; ?></span></td>	
 				
 				<td>
 				<a href="<?php echo site_url('GlobalController/ClientImage_Edit/'.$row['id'])?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
@@ -84,7 +84,12 @@
 
 </body>
 </html>
-
+<style>
+    
+    .handles span {
+	    cursor: move;
+    }
+</style>
 <script>
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
@@ -96,4 +101,27 @@ $('#form_validation').on('click', '#delete_box', function(e) {
                 }    
             });
  });
+</script>
+<script>
+$(function() {
+    $('#sortable').sortable({
+        axis: 'y',
+        opacity: 0.7,
+        handle: 'span',
+        update: function(event, ui) {
+            var list_sortable = $(this).sortable('toArray').toString();
+    		//alert(list_sortable);
+		// change order in the database using Ajax
+            $.ajax({
+                url: 'http://localhost/Global_Admin/GlobalController/repositionClientImages',
+                type: 'POST',
+                data: {position:list_sortable},
+                success: function(data) {
+                   //alert(data);
+                }
+		
+            });
+        }
+    }); // fin sortable
+});
 </script>

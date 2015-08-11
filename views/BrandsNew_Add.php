@@ -32,14 +32,20 @@
 		 <legend>Add The Content</legend>
 		 <div class="row">
 		    <div class="col-md-7">
-				 <div class="col-md-12">
+			<!--<div class="col-md-12">
+			     <h4 class="m-t-0">Position</h4>
+				 </div>-->
+				<!--<div class="col-md-12">
+				    <input type="number" name="position" id="position"  class="form-control input-sm" value="" placeholder="Give The Position Of Your Brand" />
+				</div>-->
+			<div class="col-md-12">
 			     <h4 class="m-t-0">Brand Title</h4>
 				 </div>
 				<div class="col-md-12">
 				    <input type="text" name="name" id="name"  class="form-control input-lg" value="" placeholder="Brand Title" />
 				</div>
 				
-			  <div class="col-md-12">
+			<div class="col-md-12">
 			     <h4 class="m-t-0">Brand Link</h4>
 				 </div>
 				<div class="col-md-12">

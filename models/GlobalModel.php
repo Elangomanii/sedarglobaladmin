@@ -999,7 +999,9 @@ function GetClientOverview($id)
     
 	public function getclientImage()
 	 {
-	     return $this->db->get('about_client_img')->result_array();
+	     //return $this->db->get('about_client_img')->result_array();
+	      $sql="SELECT * FROM about_client_img ORDER BY position";
+	return   $query = $this->db->query($sql)->result_array();
 	 }
 function ClientOverview_Add()
  {
@@ -1015,6 +1017,8 @@ function ClientOverview_Add()
 
 function clientImage_Add ()
  {
+    $sql="SELECT * FROM about_client_img ORDER BY position";
+    $query = $this->db->query($sql)->result_array();
  //multiple image gallery
      $files = $_FILES['image'];
      $c=count($_FILES['image']['size']);
@@ -1041,6 +1045,7 @@ function clientImage_Add ()
      $data= array(
 		      
 	   "aboutClientImg"=>$names,
+	   "position"=>count($query)+1,
 	   "aboutClientTitle"=>$this->input->post("aboutClientTitle")
 	   );
      $this->db->insert("about_client_img",$data);
@@ -1094,16 +1099,20 @@ public function ClientDelete($id)
   $this->db->where("id",$id);
   $this->db->delete("about_client_img");
  }
-//2.Client Overview END
+//Client Overview END
 	
 
 public function getformdata()
  {
-     return $this->db->get('about_project_img')->result_array();
+    // return $this->db->get('about_project_img')->result_array();
+     $sql="SELECT * FROM about_project_img ORDER BY position";
+	return   $query = $this->db->query($sql)->result_array();
  }
 
 function Projectimage_Add()
- {	
+ {
+    $sql="SELECT * FROM about_project_img ORDER BY position";
+	$query = $this->db->query($sql)->result_array();
      //multiple image gallery
      $files = $_FILES['image'];
      $c=count($_FILES['image']['size']);
@@ -1130,6 +1139,7 @@ function Projectimage_Add()
      $data= array(
      
      "projectImage"=>$names,
+     "position"=>count($query)+1,
      "projectImgTitle"=>$this->input->post("projectImgTitle")
      );
      $this->db->insert("about_project_img",$data);
@@ -1458,11 +1468,15 @@ function Brands_Edit($id)
 //6.Brands New	
 public function getbrandsView()
         {
-            return $this->db->get('brands')->result_array();
+	  $sql="SELECT * FROM brands ORDER BY position";
+	return   $query = $this->db->query($sql)->result_array();
+          
         }	
 //Add
 function BrandsNew_Add()
 {
+	$sql="SELECT * FROM brands ORDER BY position";
+	$query = $this->db->query($sql)->result_array();
  //multiple image gallery
        $url=$config['upload_path'] ='uploads/';
 	$config['allowed_types'] = 'gif|jpg|png';
@@ -1485,6 +1499,7 @@ function BrandsNew_Add()
 		       "name"=>$this->input->post("name"),
 		       "desc"=>$this->input->post("desc"),
 		       "linkTitle"=>$this->input->post("linkTitle"),
+		       "position"=>count($query)+1,
 		       'nameImage'=>$data['file_name'],
 		       'BrandImage'=>$data2['file_name']
 		     
