@@ -165,8 +165,7 @@ $('#form_validation').on('click', '[name="status[]"]', function()
     {
 	var $row    = $(this).parents('.odd');
 	var brandsId=$(this).val();
-	//var item_code=$row.find("input[name='print1[]']").val();
-
+	
 
 })
    //*******ON / OFF Status
