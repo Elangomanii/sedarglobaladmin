@@ -34,22 +34,50 @@
 		    <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
 		      <thead>
 			    <tr>
+				<th>Drag Here</th>
 				<th>Name</th>
 				<th>Image</th>
+				<th>Position</th>
 				<th>Action</th>
 			        
 			    </tr>
 			</thead>
-			<tbody>
-			   <?php
-			    
-			    foreach($productCatView as $row)
-						{
-					    ?>
-			    <tr class="even gradeC">
+			<tbody class="handles list" id="sortable">
+			   <?php foreach($productCatView as $row){ ?>
+			    <tr class="odd" id="<?php echo $row['id'] ?>">
+			    <td><span><i class="fa fa-refresh fa-5x"></span></td>
 				<td><?php echo $row['name']; ?></td>
 				<td><?php echo $row['image']; ?></td>
-                                <td>
+				<td><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></td>
+				<!--<td><span><//?php echo $row['position']; ?></span></td>-->
+				<script>
+				$("#status-<?php echo $row['id']; ?>").click(function() {
+				    var productCatId=<?php echo $row['id']; ?>;
+				    $.ajax({
+					type: "POST",
+					dataType: "json",
+					data: {productCatId:productCatId},
+					url: "<?php echo base_url(); ?>GlobalController/ajaxProjectCategoryStatus",
+					success: function(json){
+					    if (json.status=="ENABLED")
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-success");
+					    }
+					    else
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-danger");
+					    }
+					
+					},
+				    });
+				});
+				</script>
+                                
+				<td>
 				<a href="<?php echo site_url('GlobalController/ProductCategory_Edit/'.$row['id'])?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
 				
 				  <a href="<?php echo site_url('GlobalController/ProductCategory_Delete/'.$row['id'])?>" class="btn btn-xs btn-danger" id="delete_box"><i class="fa  fa-trash-o"></i> </a>
@@ -78,7 +106,12 @@
 
 </body>
 </html>
-
+<style>
+    
+    .handles span {
+	    cursor: move;
+    }
+</style>
 <script>
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
@@ -91,3 +124,48 @@ $('#form_validation').on('click', '#delete_box', function(e) {
             });
  });
 </script>
+<script>
+$(function() {
+    $('#sortable').sortable({
+        axis: 'y',
+        opacity: 0.7,
+        handle: 'span',
+        update: function(event, ui) {
+            var list_sortable = $(this).sortable('toArray').toString();
+    		//alert(list_sortable);
+		// change order in the database using Ajax
+            $.ajax({
+                url: 'http://localhost/Global_Admin/GlobalController/repositionProductCategory',
+                type: 'POST',
+                data: {position:list_sortable},
+                success: function(data) {
+                   //alert(data);
+                }
+		
+            });
+        }
+    }); // fin sortable
+});
+</script>
+
+
+
+</script>
+<script>
+    $(document).ready(function() {
+     $("#dataRespTable").DataTable();
+   
+  });
+//********ON / OFF Status
+    $('#form_validation').on('click', '[name="status[]"]', function()
+	{
+	var $row    = $(this).parents('.odd');
+	var productCatId=$(this).val();
+	//var item_code=$row.find("input[name='print1[]']").val();
+
+
+})
+//*******ON / OFF Status
+
+
+  </script>

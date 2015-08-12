@@ -2,7 +2,7 @@
 	<div id="content" class="content">
 		<!-- begin breadcrumb -->
 		<ol class="breadcrumb pull-right">
-		    <li><a href="javascript:;">Project</a></li>
+		    <li><a href="javascript:;">Project Images</a></li>
 		   
 		    <li class="active">Add Your Image Here</li>
 		</ol>
@@ -33,14 +33,13 @@
                              <div class="col-md-6" style="padding:10px; ">
                                 <label>Image Name</label>
                                 <input type="text" name="projectImgTitle" id=""  class="form-control input-md" value="" placeholder="Image Name" />
+				
                             </div>
                             <button type="button" class="pull-right btn btn-primary" onclick="addImage()"><i class="fa  fa-plus"></i></button>
 			</div>
                         <div class="col-md-12" id="gallery">
                             <div class="col-md-4 col-sm-4 col-xs-12 ImageView AdjustPadding" style="padding-bottom:20px;"  >
-                           
-                                
-                                <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
+				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
                                 <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
                                 
                             </div>

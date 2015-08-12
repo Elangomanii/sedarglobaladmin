@@ -322,18 +322,18 @@
 		    </a>		    
 		</li>
 		
-		<li class="has-sub " id="page8">
-		    <a href="<?php echo base_url(); ?>GlobalController/Brands_View">
+		<!--<li class="has-sub " id="page8">
+		    <a href="javascript;">
 			
 			<i class="fa fa-suitcase text-warning"></i> 
 			<span>Explore Brands</span>
 		    </a>
 		    
-		</li>
+		</li>-->
 		
 		
 		
-		<li class="has-sub "id="page9">
+		<li class="has-sub "id="page8">
 		     <a href="<?php echo base_url(); ?>GlobalController/BrandsNew_View">
 			
 			<i class="fa fa-suitcase text-warning"></i> 

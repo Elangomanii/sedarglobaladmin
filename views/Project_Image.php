@@ -31,26 +31,52 @@
                         <a class="btn btn-primary btn-sm " href="<?php echo site_url('GlobalController/ProjectImage_Add')?>"><i class="fa fa-plus fa-1x"></i> <span class="f-s-14 f-w-500">Add </span></a>
                     </p>
                     <div class="table-responsive" style="border: none">
-		    <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
+		    <table id="dataRespTable" class="table table-striped table-bordered nowrap" width="100%">
 		      <thead>
 			    <tr>
 				<th>Drag Here</th>
-				<th data-class="expand">Image</th>
-				<th>Position</th>
-				<th data-hide="phone,tablet">Description</th>
-				
+				<th>Image</th>
+				<!--<th>Position</th>-->
+				<th>Description</th>
+				<th>Status</th>
 				<th>Action</th>
 			        
 			    </tr>
 			</thead>
 			<tbody class="handles list" id="sortable">
 			    <?php foreach($formData as $row){ ?>
-			    <tr class="even gradeC" id="<?php echo $row['id'] ?>">
+			    <tr class="odd" id="<?php echo $row['id'] ?>">
 			    <td><span><i class="fa fa-refresh fa-5x"></span></td>
 				<td><?php echo $row['projectImage']; ?></td>
-				<td><?php echo $row['position']; ?></td>
+				<!--<td><//?php echo $row['position']; ?></td>-->
 				<td><?php echo $row['projectImgTitle']; ?></td>	
-				
+				<td><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></td>
+				<script>
+				$("#status-<?php echo $row['id']; ?>").click(function() {
+				    var projectimageId=<?php echo $row['id']; ?>;
+				    $.ajax({
+					type: "POST",
+					dataType: "json",
+					data: {projectimageId:projectimageId},
+					url: "<?php echo base_url(); ?>GlobalController/ajaxProjectImageStatus",
+					success: function(json){
+					    if (json.status=="ENABLED")
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-success");
+					    }
+					    else
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-danger");
+					    }
+					
+					},
+				    });
+				});
+				</script>
 				<td>
 				<a href="<?php echo site_url('GlobalController/ProjectImage_Edit/'.$row['id'])?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
 				
@@ -119,4 +145,23 @@ $(function() {
         }
     }); // fin sortable
 });
+//********ON / OFF Status
+$('#form_validation').on('click', '[name="status[]"]', function()
+    {
+	var $row    = $(this).parents('.odd');
+	var projectimageId=$(this).val();
+	//var item_code=$row.find("input[name='print1[]']").val();
+
+
+})
+//*******ON / OFF Status
+
+
+
 </script>
+<script>
+   $(document).ready(function() {
+	$("#dataRespTable").DataTable();
+   
+  });
+  </script>

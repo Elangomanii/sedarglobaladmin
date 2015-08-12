@@ -70,6 +70,8 @@ class GlobalController extends CI_Controller
 
     //Elango controller Start
     //2.ProjectOverview start
+    
+    
     //REPOSITION PROJECT IMG FUNCTIONS STARTS
      public function repositionProjectImages()
     {
@@ -85,9 +87,33 @@ class GlobalController extends CI_Controller
 	    $query[]=$sql;
 	    //echo $sql."<br>";
 	}
-	//print_r($query);
+	print_r($query);
     }
     //REPOSITION PROJECT IMG FUNCTIONS ENDS
+    //STATUS ON/OFF
+     public function ajaxProjectImageStatus()
+    {
+	//$businessId=$this->session->userdata('businessId');
+	$id=$_POST["projectimageId"];
+	$result= $this->GlobalModel->getStatusProjectImages($id);
+	
+	if($result[0]['status']=="ENABLED")
+	{
+	   $status="DISABLED"; 
+	}
+	else
+	{
+	    $status="ENABLED";    
+	}
+	$form_data=array(
+		    'status'=>$status
+		    );
+	//$this->db->where('businessId',$businessId);
+	$this->db->where('id',$id);
+	$this->db->update('about_project_img', $form_data);
+	echo'{"status":"'.$status.'","projectimageid":"'.$id.'"}';
+    }
+    //STATUS ON/OFF
     
 	  public function Project_Overview()
     {
@@ -156,6 +182,30 @@ class GlobalController extends CI_Controller
 	print_r($query);
     }
      //REPOSITION CLIENT IMAGE FUNCTION ENDS
+      //STATUS ON/OFF
+     public function ajaxClientImageStatus()
+    {
+	
+	$id=$_POST["clientimageId"];
+	$result= $this->GlobalModel->getStatusClientImages($id);
+	
+	if($result[0]['status']=="ENABLED")
+	{
+	   $status="DISABLED"; 
+	}
+	else
+	{
+	    $status="ENABLED";    
+	}
+	$form_data=array(
+		    'status'=>$status
+		    );
+
+	$this->db->where('id',$id);
+	$this->db->update('about_client_img', $form_data);
+	echo'{"status":"'.$status.'","clientimageid":"'.$id.'"}';
+    }
+    //STATUS ON/OFF
       public function Client_Overview()
     {
 	if(isset($_POST["Save"])){
@@ -360,6 +410,30 @@ class GlobalController extends CI_Controller
 	print_r($query);
     }
     //REPOSITION BRANDS FUNCTIONS ENDS
+    //STATUS ON/OFF
+     public function ajaxbrandsStatus()
+    {
+	
+	$id=$_POST["brandsId"];
+	$result= $this->GlobalModel->getStatusBrandNew($id);
+	
+	if($result[0]['status']=="ENABLED")
+	{
+	   $status="DISABLED"; 
+	}
+	else
+	{
+	    $status="ENABLED";    
+	}
+	$form_data=array(
+		    'status'=>$status
+		    );
+	
+	$this->db->where('id',$id);
+	$this->db->update('brands', $form_data);
+	echo'{"status":"'.$status.'","brandsid":"'.$id.'"}';
+    }
+    //STATUS ON/OFF
   public function BrandsNew_View()
     {
 	$data['brandsView']= $this->GlobalModel->getbrandsView();
@@ -401,6 +475,48 @@ class GlobalController extends CI_Controller
         redirect("GlobalController/BrandsNew_View");
     }
     //8.Product Category START
+     //REPOSITION PRODUCT CATEGORY FUNCTION STARTS
+     public function repositionProductCategory()
+    {
+	
+	$list_order = $_POST['position'];
+	$list = explode(',' , $list_order);
+	$i = 1;
+	foreach($list as $id)
+	{
+	    $sql= "UPDATE productcategory SET position='$i' WHERE id ='$id'" ;	
+	    $result[]=$this->db->query($sql);
+	    $i++;
+	    $query[]=$sql;
+	    //echo $sql."<br>";
+	}
+	print_r($query);
+    }
+     //REPOSITION PRODUCT CATEGORY FUNCTION ENDS
+     //STATUS ON/OFF
+     public function ajaxProjectCategoryStatus()
+    {
+	
+	$id=$_POST["productCatId"];
+	$result= $this->GlobalModel->getStatusProductCategory($id);
+	
+	if($result[0]['status']=="ENABLED")
+	{
+	   $status="DISABLED"; 
+	}
+	else
+	{
+	    $status="ENABLED";    
+	}
+	$form_data=array(
+		    'status'=>$status
+		    );
+	
+	$this->db->where('id',$id);
+	$this->db->update('productcategory', $form_data);
+	echo'{"status":"'.$status.'","productcatid":"'.$id.'"}';
+    }
+    //STATUS ON/OFF
     //VIEW
   public function ProductCategory_View()
     {
@@ -443,6 +559,30 @@ class GlobalController extends CI_Controller
     } 
     //9.News
     //VIEW
+      //STATUS ON/OFF
+     public function ajaxNewsStatus()
+    {
+	
+	$id=$_POST["newsId"];
+	$result= $this->GlobalModel->getStatusNews($id);
+	
+	if($result[0]['status']=="ENABLED")
+	{
+	   $status="DISABLED"; 
+	}
+	else
+	{
+	    $status="ENABLED";    
+	}
+	$form_data=array(
+		    'status'=>$status
+		    );
+	
+	$this->db->where('id',$id);
+	$this->db->update('news', $form_data);
+	echo'{"status":"'.$status.'","newsid":"'.$id.'"}';
+    }
+    //STATUS ON/OFF
     public function News_View()
 	{
 	    $data['newsView']= $this->GlobalModel->getnewsView();

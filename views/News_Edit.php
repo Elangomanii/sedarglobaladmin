@@ -64,7 +64,7 @@
                                     <div class="col-md-4 col-sm-4 col-xs-12 ImageView AdjustPadding" style="padding-bottom:20px;"  >
                                         <img src="<?php echo site_url('uploads/'.$row['imageInside']);?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px; width: 200px;" >
                                         <input type="file" id="preview" name="image" class="col-md-12 "onchange="attachment(this);" >
-                                          <input type="hidden" name="getimage" value="<?php echo $row['imageInside'];?>">
+                                          <input type="hidden" name="getimage1" value="<?php echo $row['imageInside'];?>">
                                             <!--<div class="input-group" style="padding:10px;">
                                             <span class="input-group-btn">
                                             <span class="btn btn-primary btn-file">

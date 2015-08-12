@@ -39,22 +39,46 @@
 		      <thead>
 			    <tr>
 				<th>Drag Here</th>
-				<th data-class="expand">Image</th>
-				<th>Position</th>
-				<th data-hide="phone,tablet">Description</th>
-				
+				<th>Image</th>
+				<!--<th>Position</th>-->
+				<th>Description</th>
 				<th>Action</th>
-			        
 			    </tr>
 			</thead>
 			<tbody class="handles list" id="sortable"><span>
 			     <?php foreach($clientImage as $row){?>
-			    <tr class="even gradeC" id="<?php echo $row['id'] ?>">
+			    <tr class="odd" id="<?php echo $row['id'] ?>">
 			    <td><span><i class="fa fa-refresh fa-5x"></span></td>
 				<td><span><?php echo $row['aboutClientImg']; ?></span></td>
-				<td><span><?php echo $row['position']; ?></span></td>
-				<td><span><?php echo $row['aboutClientTitle']; ?></span></td>	
-				
+				<!--<td><span><//?php echo $row['position']; ?></span></td>-->
+				<td><span><?php echo $row['aboutClientTitle']; ?></span></td>
+				<td><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></td>
+				<script>
+				$("#status-<?php echo $row['id']; ?>").click(function() {
+				    var clientimageId=<?php echo $row['id']; ?>;
+				    $.ajax({
+					type: "POST",
+					dataType: "json",
+					data: {clientimageId:clientimageId},
+					url: "<?php echo base_url(); ?>GlobalController/ajaxClientImageStatus",
+					success: function(json){
+					    if (json.status=="ENABLED")
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-success");
+					    }
+					    else
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-danger");
+					    }
+					
+					},
+				    });
+				});
+				</script>
 				<td>
 				<a href="<?php echo site_url('GlobalController/ClientImage_Edit/'.$row['id'])?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
 				
@@ -125,3 +149,21 @@ $(function() {
     }); // fin sortable
 });
 </script>
+<script>
+    //********ON / OFF Status
+$('#form_validation').on('click', '[name="status[]"]', function()
+    {
+	var $row    = $(this).parents('.odd');
+	var clientimageId=$(this).val();
+	//var item_code=$row.find("input[name='print1[]']").val();
+
+
+})
+//*******ON / OFF Status
+</script>
+<script>
+   $(document).ready(function() {
+	$("#dataRespTable").DataTable();
+   
+  });
+  </script>

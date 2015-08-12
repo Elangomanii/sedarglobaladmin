@@ -38,8 +38,9 @@
 				<th>Name</th>
 				<th>Description</th>
 				<th>Image Name</th>
-				<th>Position</th>
+				<!--<th>Position</th>-->
                                 <th>Brand Image</th>
+				<th>Status</th>
 				<th>Action</th>
 				
 			        
@@ -47,14 +48,40 @@
 			</thead>
 			<tbody class="handles list" id="sortable">
 			   <?php foreach($brandsView as $row){ ?>
-			    <tr class="even gradeC" id="<?php echo $row['id'] ?>">
+			    <tr class="odd" id="<?php echo $row['id'] ?>">
 			        <td><span><i class="fa fa-refresh fa-5x"></span></td>
 				<td><?php echo $row['name']; ?></td>					    
 				<td><?php echo $row['desc']; ?></td>
                                 <td><?php echo $row['nameImage']; ?></td>
-				<td><?php echo $row['position']; ?></td>
+				<!--<td><//?php echo $row['position']; ?></td>-->
 				<td><?php echo $row['brandImage']; ?></td>
-				
+				<td><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></td>
+				<script>
+				$("#status-<?php echo $row['id']; ?>").click(function() {
+				    var brandsId=<?php echo $row['id']; ?>;
+				    $.ajax({
+					type: "POST",
+					dataType: "json",
+					data: {brandsId:brandsId},
+					url: "<?php echo base_url(); ?>GlobalController/ajaxbrandsStatus",
+					success: function(json){
+					    if (json.status=="ENABLED")
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-success");
+					    }
+					    else
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-danger");
+					    }
+					
+					},
+				    });
+				});
+				</script>
 				<td>
 				<a href="<?php echo site_url('GlobalController/BrandsNew_Edit/'.$row['id'])?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
 				
@@ -87,7 +114,7 @@
 <style>
     
     .handles span {
-	    cursor: move;
+	    cursor: -webkit-grab; cursor: -moz-grab;
     }
 </style>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui-1.10.4.custom.min.js"></script>
@@ -127,3 +154,21 @@ $(function() {
     }); // fin sortable
 });
 </script>
+<script>
+    
+   $(document).ready(function() {
+	$("#dataRespTable").DataTable();
+    });
+   
+   //********ON / OFF Status
+$('#form_validation').on('click', '[name="status[]"]', function()
+    {
+	var $row    = $(this).parents('.odd');
+	var brandsId=$(this).val();
+	//var item_code=$row.find("input[name='print1[]']").val();
+
+
+})
+   //*******ON / OFF Status
+
+  </script>

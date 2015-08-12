@@ -991,7 +991,7 @@ function GetClientOverview($id)
   $sql="SELECT * FROM clientoverview";
   return $query = $this->db->query($sql)->result_array();
  }
-   function clientOverviewDetails()
+	function clientOverviewDetails()
 	{
 	 $this->db->where('id',1);
 	 return $this->db->get("clientoverview")->result_array();
@@ -999,10 +999,18 @@ function GetClientOverview($id)
     
 	public function getclientImage()
 	 {
-	     //return $this->db->get('about_client_img')->result_array();
-	      $sql="SELECT * FROM about_client_img ORDER BY position";
+	    
+	$sql="SELECT * FROM about_client_img ORDER BY position";
 	return   $query = $this->db->query($sql)->result_array();
 	 }
+	 //ON/OFF STATUS FUNCTION
+	public function getStatusclientImages($id)
+	  {
+	      
+	      $sql="SELECT * FROM about_client_img where id=$id";
+	      return $query = $this->db->query($sql)->result_array();
+	  }
+	  //ON/OFF STATUS FUNCTION
 function ClientOverview_Add()
  {
      $data = array(
@@ -1046,6 +1054,7 @@ function clientImage_Add ()
 		      
 	   "aboutClientImg"=>$names,
 	   "position"=>count($query)+1,
+	   "status"=>"ENABLED",
 	   "aboutClientTitle"=>$this->input->post("aboutClientTitle")
 	   );
      $this->db->insert("about_client_img",$data);
@@ -1108,7 +1117,12 @@ public function getformdata()
      $sql="SELECT * FROM about_project_img ORDER BY position";
 	return   $query = $this->db->query($sql)->result_array();
  }
-
+ public function getStatusProjectImages($id)
+    {
+	//$businessId=$this->session->userdata('businessId');
+	$sql="SELECT * FROM about_project_img where id=$id";
+        return $query = $this->db->query($sql)->result_array();
+    }
 function Projectimage_Add()
  {
     $sql="SELECT * FROM about_project_img ORDER BY position";
@@ -1135,11 +1149,19 @@ function Projectimage_Add()
 	 }	
      }
      $names= implode(',', $name_array);
-     
+//     if($this->input->post("status")!="ENABLED")
+//	{
+//	    $status="DISABLED";
+//	}
+//	else
+//	{
+//	    $status="ENABLED";
+//	}
      $data= array(
      
      "projectImage"=>$names,
      "position"=>count($query)+1,
+     "status"=>"ENABLED",
      "projectImgTitle"=>$this->input->post("projectImgTitle")
      );
      $this->db->insert("about_project_img",$data);
@@ -1471,7 +1493,15 @@ public function getbrandsView()
 	  $sql="SELECT * FROM brands ORDER BY position";
 	return   $query = $this->db->query($sql)->result_array();
           
-        }	
+        }
+	 //ON/OFF STATUS FUNCTION
+	public function getStatusBrandNew($id)
+	  {
+	      
+	      $sql="SELECT * FROM brands where id=$id";
+	      return $query = $this->db->query($sql)->result_array();
+	  }
+	  //ON/OFF STATUS FUNCTION
 //Add
 function BrandsNew_Add()
 {
@@ -1500,6 +1530,7 @@ function BrandsNew_Add()
 		       "desc"=>$this->input->post("desc"),
 		       "linkTitle"=>$this->input->post("linkTitle"),
 		       "position"=>count($query)+1,
+		       "status"=>"ENABLED",
 		       'nameImage'=>$data['file_name'],
 		       'BrandImage'=>$data2['file_name']
 		     
@@ -1561,12 +1592,24 @@ function BrandsNew_Edit($id)
     }
 //7.Product Category Start
 public function getProductCategoryView()
-        {
-            return $this->db->get('productCategory')->result_array();
-        }
+    {
+       // return $this->db->get('productCategory')->result_array();
+       $sql="SELECT * FROM productCategory ORDER BY position";
+    return   $query = $this->db->query($sql)->result_array();
+    }
+    // ON OFF FUNCTION
+public function getStatusProductCategory($id)
+   {
+       
+       $sql="SELECT * FROM productcategory where id=$id";
+       return $query = $this->db->query($sql)->result_array();
+   }
+   //ON OFF FUNCTION
 //Add
 function ProductCategory_Add()
 {
+    $sql="SELECT * FROM productcategory ORDER BY position";
+    $query = $this->db->query($sql)->result_array();
  //multiple image gallery
         $url=$config['upload_path'] ='uploads/';
 	$config['allowed_types'] = 'gif|jpg|png';
@@ -1577,6 +1620,8 @@ function ProductCategory_Add()
 	
           $data= array(
 		       "name"=>$this->input->post("name"),
+		       "position"=>count($query)+1,
+		       "status"=>"ENABLED",
 		       "image"=>$data['file_name']
 		       );
     $this->db->insert("productCategory",$data);
@@ -1619,6 +1664,14 @@ function ProductCategory_Edit($id)
 	$this->db->delete("productCategory");	
     }
 //7.News
+    // ON OFF FUNCTION
+    public function getStatusNews($id)
+       {
+	   
+	   $sql="SELECT * FROM news where id=$id";
+	   return $query = $this->db->query($sql)->result_array();
+       }
+   //ON OFF FUNCTION
      public function getnewsView()
         {
             return $this->db->get('news')->result_array();
@@ -1646,11 +1699,14 @@ function ProductCategory_Edit($id)
 			     "newsType"=>$this->input->post("newsType"),
 			     "newsImage"=>$data['file_name'],
 			     'imageInside'=>$data2['file_name'],
+			     "status"=>"ENABLED",
 			     "newsDescription"=>$this->input->post("newsDesc"),
 			     "contentDesc"=>$this->input->post("contentDesc"),
 			     "subTitle"=>$this->input->post("subTitle")
 			     );
 	  $this->db->insert("news",$data);
+	  //print_r($data);
+	  //  exit; 
       }
 //EDIT
 function GetNewsEdit($id)
@@ -1676,6 +1732,7 @@ function News_Edit($id)
 	if($_FILES['imagename']['name']=="")
     	{
     	    $path2=$this->input->post('getimage1');
+	   
 	}	
 	else
 	{
@@ -1697,6 +1754,8 @@ function News_Edit($id)
 		       );
 		  $this->db->where("id",$id);
                   $this->db->update("news",$data);
+	    //print_r($data);
+	    //exit; 
 }
 //DELETE
     public function News_Delete($id)

@@ -37,6 +37,7 @@
 				<th>News Type</th>
 				<th>News Desc</th>
 				<th>NewsImage </th>
+				<th>Status</th>
                                 <th>Action</th>
                             </tr>
 			</thead>
@@ -46,11 +47,37 @@
 			    foreach($newsView as $row)
 						{
 					    ?>
-			    <tr class="even gradeC">
+			    <tr class="odd">
 				<td><?php echo $row['newsType'];?></td>					    
 				<td><?php echo $row['newsDescription'];?></td>
                                 <td><?php echo $row['newsImage'];?></td>
-                                <td>
+				<td><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></td>
+                                <script>
+				$("#status-<?php echo $row['id']; ?>").click(function() {
+				    var newsId=<?php echo $row['id']; ?>;
+				    $.ajax({
+					type: "POST",
+					dataType: "json",
+					data: {newsId:newsId},
+					url: "<?php echo base_url(); ?>GlobalController/ajaxNewsStatus",
+					success: function(json){
+					    if (json.status=="ENABLED")
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-success");
+					    }
+					    else
+					    {
+						$("#status-<?php echo $row['id']; ?>").html(json.status);
+						$("#status-<?php echo $row['id']; ?>").removeAttr("class");
+						$("#status-<?php echo $row['id']; ?>").attr("class","btn btn-danger");
+					    }
+					},
+				    });
+				});
+				</script>
+				<td>
 				<a href="<?php echo site_url('GlobalController/News_Edit/'.$row['id'])?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
 				
 				  <a href="<?php echo site_url('GlobalController/News_Delete/'.$row['id'])?>" class="btn btn-xs btn-danger" id="delete_box"><i class="fa  fa-trash-o"></i> </a>
@@ -91,3 +118,21 @@ $('#form_validation').on('click', '#delete_box', function(e) {
             });
  });
 </script>
+<script>
+    
+   $(document).ready(function() {
+	$("#dataRespTable").DataTable();
+    });
+   
+   //********ON / OFF Status
+$('#form_validation').on('click', '[name="status[]"]', function()
+    {
+	var $row    = $(this).parents('.odd');
+	var newsId=$(this).val();
+	//var item_code=$row.find("input[name='print1[]']").val();
+
+
+})
+   //*******ON / OFF Status
+
+  </script>
