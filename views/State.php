@@ -42,8 +42,8 @@
 				<th data-class="expand">State Code</th>
 				<th data-class="expand">state Description</th>
 				<th data-class="expand">country Code</th>
-				<th data-class="expand">Latitude</th>
-				<th data-class="expand">Longitude</th>
+		<!--		<th data-class="expand">Latitude</th>
+				<th data-class="expand">Longitude</th>-->
 				<th>Action</th>
 			        
 			    </tr>
@@ -51,11 +51,11 @@
 			<tbody>
 			    <?php foreach($state as $row) { ?>
 			    <tr>
-				<td><?php echo $row['stateName']?></td>					    
-				<td><?php echo $row['stateCode']?></td>
-				<td><?php echo $row['countryCode']?></td>
-				<td><?php echo $row['latitude']?></td>
-				<td><?php echo $row['longitude']?></td>
+				<td><?php echo $row['StateName']?></td>					    
+				<td><?php echo $row['StateCode']?></td>
+				<td><?php echo $row['CountryCode']?></td>
+<!--				<td><?php //echo $row['latitude']?></td>
+				<td><?php //echo $row['longitude']?></td>-->
 				
 				<td>
 				<a href="<?php echo site_url('GlobalController/globalstateEdit/'.$row['id']);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>

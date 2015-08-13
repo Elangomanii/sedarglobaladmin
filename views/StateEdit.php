@@ -37,28 +37,28 @@
                         
                          <div class="col-md-6">
                             <h5 class="m-t-0">State Name</h5>
-                            <input class="form-control input-sm" name="stateName" type="text" value="<?php echo $statedit[0]['stateName']?>" placeholder="TYPE YOUR OWN TITLE">
+                            <input class="form-control input-sm" name="stateName" type="text" value="<?php echo $statedit[0]['StateName']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 			 <div class="col-md-6">
                             <h5 class="m-t-0">State Code</h5>
-                            <input class="form-control input-sm" name="stateCode" type="text" value="<?php echo $statedit[0]['stateCode']?>" placeholder="TYPE YOUR OWN TITLE">
+                            <input class="form-control input-sm" name="stateCode" type="text" value="<?php echo $statedit[0]['StateCode']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 			  <div class="col-md-6">
                             <h5 class="m-t-0">Country Code</h5>
-                            <input class="form-control input-sm" name="countryCode" type="text" value="<?php echo $statedit[0]['countryCode']?>" placeholder="TYPE YOUR OWN TITLE">
+                            <input class="form-control input-sm" name="countryCode" type="text" value="<?php echo $statedit[0]['CountryCode']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 
 		    </div>
 		    <div class="row">
 			
-			 <div class="col-md-6">
+	<!--		 <div class="col-md-6">
                             <h5 class="m-t-0">Latitude</h5>
                             <input class="form-control input-sm" name="latitude" type="text" value="<?php echo $statedit[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 			 <div class="col-md-6">
                             <h5 class="m-t-0">Longitude</h5>
                             <input class="form-control input-sm" name="longitude" type="text" value="<?php echo $statedit[0]['longitude']?>" placeholder="TYPE YOUR OWN TITLE">
-                          </div>
+                          </div>-->
 			
 		    </div>
 			<div class="pager form-group">

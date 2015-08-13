@@ -35,8 +35,8 @@
 		      <thead>
 			    <tr>
 				<th data-class="expand">Title</th>
-				<th data-class="expand">latitude</th>
-				<th data-class="expand">longitude</th>
+				<th data-class="expand">Country</th>
+				<th data-class="expand">State</th>
 				
 				<th data-class="expand">Image</th>
 				<th>Action</th>
@@ -47,8 +47,8 @@
 			    <?php foreach($getStory as $row) { ?>
 			    <tr>
 				<td><?php echo $row['title']?></td>					    
-				<td><?php echo $row['latitude']?></td>
-				<td><?php echo $row['longitude']?></td>
+				<td><?php echo $row['country']?></td>
+				<td><?php echo $row['state']?></td>
 				
 				<td><?php echo $row['image']?></td>
 				

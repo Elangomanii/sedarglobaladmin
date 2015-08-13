@@ -1,6 +1,8 @@
 <?php
-//print_r($getStory[0]);
 //
+//print"<pre>";
+//
+//print_r($getStory[0]);
 //exit;
 ?>
 	<div id="content" class="content">
@@ -32,20 +34,44 @@
 		</div>
 		<div class="panel-body" id="form_validation">
 		  <form action="<?php echo base_url('GlobalController/globalStoreEdit/'.$getStory[0]['id']); ?>" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">
-                  <legend>Change latitude and longitude</legend>
+		    <legend>Change address</legend>
                     <div class="row">
-                        
-                         <div class="col-md-6">
-                            <h5 class="m-t-0">Latitude</h5>
-                            <input class="form-control input-sm" name="latitude" type="text" value="<?php echo $getStory[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
-                          </div>
-			 <div class="col-md-6">
-                            <h5 class="m-t-0">Longitude</h5>
-                            <input class="form-control input-sm" name="longitude" type="text" value="<?php echo $getStory[0]['longitude']?>" placeholder="TYPE YOUR OWN TITLE">
-                          </div>
+			    <div class="col-md-4">
+                            <h5 class="m-t-0">Country</h5>
 
+			    <select class="form-control" id="country" name="country">
+				<option>select Country</option>
+			    <?php foreach ($country as $row) {?>
+				<option value="<?php echo $row['CountryCode']?>" <?php if($row['CountryCode'] == $getStory[0]['country']) echo "selected"; ?>><?php echo $row['CountryName']?></option>
+				
+				<?php }?>
+			    </select>
+
+			    </div>
+			    <div class="col-md-4">
+                            <h5 class="m-t-0">State</h5>
+
+			    <select class="form-control" id="state" name="state">
+				<option>select State</option>
+				<?php foreach ($state as $row) {?>
+				<option value="<?= $row['StateCode']?>"><?= $row['StateName']?></option>
+				<?php }?>
+				 </select>
+
+			    </div>
+			    <div class="col-md-4">
+                            <h5 class="m-t-0">City</h5>
+
+			    <select class="form-control" id="city" name="city">
+				<option>select City</option>
+				<?php foreach ($city as $row) {?>
+				<option value="<?= $row['CityCode']?>"><?= $row['CityName']?></option>
+				<?php }?>
+				 </select>
+			    
+                        </div>
 		    </div>
-		    
+
 		    <legend>Change address</legend>
                     <div class="row">
 
@@ -73,16 +99,21 @@
                           </div>
 		    </div>
 			 <p></p>
-                     <legend>Click the imgage to change</legend>
-                    <div class="row">
-                         <div class="col-md-4">
-                            <h5 class="m-t-0">Image information</h5>
-                            <input class="form-control input-sm" name="title" type="text" value="<?php echo $getStory[0]['title']?>" placeholder="TYPE YOUR OWN TITLE">  
-			    <p></p>
-			    <input class="form-control input-sm" name="imagedescription" type="text" value="<?php echo $getStory[0]['imagedescription']?>" placeholder="TYPE YOUR OWN TITLE">  
-			 <p></p>
-			 </div>
+			 
+			 <legend>Change image for Store</legend>
+			<div class="row">
+			<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
+                        <div class="col-md-12">
+                            <div class="col-md-4 viewer AdjustPadding" style="padding-bottom:20px;"  >
+				<img src="<?php echo site_url('uploads/'.$getStory[0]['textImage']);?>" class="col-md-12 previewimage" style="height: 185px;" >
+				    <input type="file" id="previewer" name="imagetext" class="col-md-12 "onchange="attachmenter(this);" >
+					<input type="hidden" id="previewer" name="oldimagee" value="<?php echo $getStory[0]['textImage']?>" >
+                            </div>
+                        </div>
                     </div>
+		    </div>
+			 
+			 
 		     <legend>Click the imgage to add extra <button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
 		   
                         
@@ -187,47 +218,88 @@
 </body>
 </html>
 
+<script>
+    $(document).ready(function () {
+	
+	getState(statecode);
+	getcity(citycode);
+
+	});
+   
+   
+   
+   var statecode= "<?php echo $getStory[0]['country']; ?>";
+   var citycode= "<?php echo $getStory[0]['state']; ?>";
+
+    function getState(statecode) {
+	
+	$.ajax({
+	
+	type:'post',
+	url: "<?=site_url('GlobalController/getState');?>",
+	data:{statecode:statecode},
+	success: function (response){
+	
+	$('#state').html(response);
+	}
+	
+    });
+	
+    }
+
+    function getcity(citycode) {
+	
+	$.ajax({
+	
+	type:'post',
+	url: "<?=site_url('GlobalController/getCity');?>",
+	data:{citycode:citycode},
+	success: function (response){
+	
+	$('#city').html(response);
+	}
+	
+    });
+	
+    }
+    
+    
+     $('#country').change(function() { 
+    var codecountry=$(this).find("option:selected").val();
+
+    $.ajax({
+	
+	type:'post',
+	url: "<?=site_url('GlobalController/findState');?>",
+	data:{codecountry:codecountry},
+	success: function (response){
+	
+	$('#state').html(response);
+	}
+	
+    });
+   });
+    
+    $('#state').change(function() { 
+    var codestate=$(this).find("option:selected").val();
+
+    $.ajax({
+	
+	type:'post',
+	url: "<?=site_url('GlobalController/findcity');?>",
+	data:{codestate:codestate},
+	success: function (response){
+	
+	$('#city').html(response);
+	}
+	
+    });
+   });
+    
+</script>
 
 <script>
 
-//    function PreviewImage() {
-//    var image =document.getElementById("storyimage").value;
-//    $('#storyimage-1').val(image);
-//    //alert('ahi');
-//      var oFReader = new FileReader();
-//          oFReader.readAsDataURL(document.getElementById("storyimage").files[0]);
-//   
-//          oFReader.onload = function (oFREvent) {
-//      var data1=document.getElementById("show_image").src = oFREvent.target.result;
-//           
-//          };
-//    };
-//    
-//     function PreviewImage2() {
-//    var image =document.getElementById("storyimage2").value;
-//    $('#storyimage-2').val(image);
-//    //alert('ahi');
-//      var oFReader = new FileReader();
-//          oFReader.readAsDataURL(document.getElementById("storyimage2").files[0]);
-//   
-//          oFReader.onload = function (oFREvent) {
-//      var data1=document.getElementById("show_image2").src = oFREvent.target.result;
-//           
-//          };
-//    };
-//    
-//
-//    $('#adder').click(function() {
-//	var $template = $('#shoeee'),
-//	$clone = $template.clone().removeClass('hide').insertBefore($template);
-////reeee();
-//   });
-//   
-//    function reeee(){
-//	alert('erer');
-//	var $row=$('#remover').parent().closest('#shoeee');
-//	$row.remove();
-//    }
 function attachments()
     {
 	
@@ -252,6 +324,17 @@ function attachments()
     
     };
     };
+    
+     function attachmenter($this) {
+    var imgval=$('#previewer').val();
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL($this.files[0]);
+    oFReader.onload = function (oFREvent) {
+    $($this).parents('.viewer').find('img').attr("src",  oFREvent.target.result);
+    
+    };
+    };
+    
     
 </script>
 

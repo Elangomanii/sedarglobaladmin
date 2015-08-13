@@ -33,34 +33,34 @@
 		</div>
 		<div class="panel-body" id="form_validation">
 		    <p>
-                        <a class="btn btn-primary btn-sm " href="<?php echo site_url('GlobalController/stateAdder')?>"><i class="fa fa-plus fa-1x"></i> <span class="f-s-14 f-w-500">Add </span></a>
+                        <a class="btn btn-primary btn-sm " href="<?php echo site_url('GlobalController/cityAdder')?>"><i class="fa fa-plus fa-1x"></i> <span class="f-s-14 f-w-500">Add </span></a>
                     </p>
                     <div class="table-responsive" style="border: none">
 		    <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
 		      <thead>
 			    <tr>
+				<th data-class="expand">City Code</th>
+				<th data-class="expand">State Description</th>
 				<th data-class="expand">State Code</th>
-				<th data-class="expand">state Description</th>
 				<th data-class="expand">country Code</th>
-				<th data-class="expand">Latitude</th>
-				<th data-class="expand">Longitude</th>
 				<th>Action</th>
 			        
 			    </tr>
 			</thead>
 			<tbody>
-			    <?php foreach($state as $row) { ?>
+			    <?php foreach($city as $row) { ?>
 			    <tr>
-				<td><?php echo $row['stateName']?></td>					    
-				<td><?php echo $row['stateCode']?></td>
-				<td><?php echo $row['countryCode']?></td>
-				<td><?php echo $row['latitude']?></td>
-				<td><?php echo $row['longitude']?></td>
+				<td><?php echo $row['CityName']?></td>					    
+				<td><?php echo $row['CityCode']?></td>
+				<td><?php echo $row['StateCode']?></td>
+				<td><?php echo $row['CountryCode']?></td>
+<!--				<td><?php //echo $row['latitude']?></td>
+				<td><?php //echo $row['longitude']?></td>-->
 				
 				<td>
-				<a href="<?php echo site_url('GlobalController/globalstateEdit/'.$row['id']);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
+				<a href="<?php echo site_url('GlobalController/globalcityEdit/'.$row['id']);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
 				
-				  <a href="<?php echo site_url('GlobalController/globalstateDelete/'.$row['id']);?>" class="btn btn-xs btn-danger"><i class="fa  fa-trash-o"></i> </a>
+				  <a href="<?php echo site_url('GlobalController/globalcityDelete/'.$row['id']);?>" class="btn btn-xs btn-danger"><i class="fa  fa-trash-o"></i> </a>
     
 				</td>
 			    </tr>

@@ -1,7 +1,7 @@
 	<!-- begin #content -->
 <?php
 	//print"<pre>";
-	//print_r($getSlider);
+	//print_r($country);
 	//print"<pre>";
 	//exit;
 	?>
@@ -50,10 +50,10 @@
 			<tbody>
 			    <?php foreach($country as $row) { ?>
 			    <tr>
-				<td><?php echo $row['countryName']?></td>					    
-				<td><?php echo $row['countryCode']?></td>
-				<td><?php echo $row['latitude']?></td>
-				<td><?php echo $row['longitude']?></td>
+				<td><?php echo $row['CountryName']?></td>					    
+				<td><?php echo $row['CountryCode']?></td>
+				<td><?php echo $row['Latitude']?></td>
+				<td><?php echo $row['Longitude']?></td>
 				
 				<td>
 				<a href="<?php echo site_url('GlobalController/globalcountryEdit/'.$row['id']);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>

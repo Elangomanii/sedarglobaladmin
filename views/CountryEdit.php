@@ -37,11 +37,11 @@
                         
                          <div class="col-md-6">
                             <h5 class="m-t-0">Country Name</h5>
-                            <input class="form-control input-sm" name="countryName" type="text" value="<?php echo $countryedit[0]['countryName']?>" placeholder="TYPE YOUR OWN TITLE">
+                            <input class="form-control input-sm" name="countryName" type="text" value="<?php echo $countryedit[0]['CountryName']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 			 <div class="col-md-6">
                             <h5 class="m-t-0">Country Code</h5>
-                            <input class="form-control input-sm" name="CountryCode" type="text" value="<?php echo $countryedit[0]['countryCode']?>" placeholder="TYPE YOUR OWN TITLE">
+                            <input class="form-control input-sm" name="CountryCode" type="text" value="<?php echo $countryedit[0]['CountryCode']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 
 		    </div>
@@ -49,11 +49,11 @@
 			
 			 <div class="col-md-6">
                             <h5 class="m-t-0">Latitude</h5>
-                            <input class="form-control input-sm" name="latitude" type="text" value="<?php echo $countryedit[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
+                            <input class="form-control input-sm" name="latitude" type="text" value="<?php echo $countryedit[0]['Latitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 			 <div class="col-md-6">
                             <h5 class="m-t-0">Longitude</h5>
-                            <input class="form-control input-sm" name="longitude" type="text" value="<?php echo $countryedit[0]['longitude']?>" placeholder="TYPE YOUR OWN TITLE">
+                            <input class="form-control input-sm" name="longitude" type="text" value="<?php echo $countryedit[0]['Longitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 			
 		    </div>

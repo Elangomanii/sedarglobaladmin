@@ -50,14 +50,14 @@
 		    </div>
 		    <div class="row">
 			
-			 <div class="col-md-6">
+<!--			 <div class="col-md-6">
                             <h5 class="m-t-0">Latitude</h5>
                             <input class="form-control input-sm" name="latitude" type="text" value="<?php //echo $getStory[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 			 <div class="col-md-6">
                             <h5 class="m-t-0">Longitude</h5>
                             <input class="form-control input-sm" name="longitude" type="text" value="<?php //echo $getStory[0]['longitude']?>" placeholder="TYPE YOUR OWN TITLE">
-                          </div>
+                          </div>-->
 			
 		    </div>
 			<div class="pager form-group">
