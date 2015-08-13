@@ -964,6 +964,87 @@ class GlobalController extends CI_Controller
     }
     
     
+          function findState()
+    {
+	$cntCode=$_POST['codecountry'];
+	$sql="SELECT * FROM ourstate where CountryCode='$cntCode'";
+	$query = $this->db->query($sql)->result_array();
+	?>
+	 <option>Select State</option>
+	 <?php
+	foreach($query as $row)
+	{
+	    ?>
+	   
+	    <option value="<?php echo $row['StateCode']?>"> <?php echo $row['StateName']?> </option>
+	    <?php 
+	}
+    }
+	
+    function findcity()
+    {
+	
+	$statCode=$_POST['codestate'];
+	$sql="SELECT * FROM ourcity where StateCode='$statCode'";
+	$query = $this->db->query($sql)->result_array();
+
+		?>
+	 <option>Select City</option>
+	 <?php
+	foreach($query as $row)
+	{
+	    ?>
+	   
+	    <option value="<?php echo $row['CityCode']?>"> <?php echo $row['CityName']?> </option>
+	    <?php 
+	}
+	
+	
+    }
+    
+    function getState()
+    {
+	
+	$statCode=$_POST['statecode'];
+	$sql="SELECT * FROM ourstate where CountryCode='$statCode'";
+	$query = $this->db->query($sql)->result_array();
+
+	?>
+
+	 <?php
+	foreach($query as $row)
+	{
+	    ?>
+	    <option value="<?php echo $row['StateCode']?>" <?php if($row['StateCode'] == $statCode) echo "selected"; ?>> <?php echo $row['StateName']?> </option>
+	    <?php 
+	}
+	
+	
+	
+    }
+    
+     function getCity()
+    {
+	
+	$cityCode=$_POST['citycode'];
+	$sql="SELECT * FROM ourcity where StateCode='$cityCode'";
+	$query = $this->db->query($sql)->result_array();
+
+		?>
+
+	 <?php
+	foreach($query as $row)
+	{
+	    ?>
+	    
+	    <option value="<?php echo $row['StateCode']?>" <?php if($row['CityCode'] == $cityCode)  echo "selected";  ?>> <?php echo $row['CityName']?> </option>
+	    <?php 
+	}
+	
+	
+	
+    }
+    
     ////////////////////////////////////////////////Hakkaim controller End*****************************************************
    
     //////////////////////////////////////////////////Selva Controller start*****************************************************

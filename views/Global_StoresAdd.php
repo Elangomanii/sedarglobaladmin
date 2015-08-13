@@ -30,76 +30,102 @@
 		    </div>
 		    <h4 class="panel-title">View </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body" id="form_validationn">
 		  <form action="<?php echo base_url(); ?>GlobalController/globalStoreAdd" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">
 		    
 		    <legend>Change address</legend>
                     <div class="row">
 			    <div class="col-md-4">
-                            <h5 class="m-t-0">Country</h5>
-
-			    <select class="form-control" id="country" name="country">
-				<option>select Country</option>
-			    <?php foreach ($country as $row) {?>
-				<option value="<?php echo $row['CountryCode']?>"><?php echo $row['CountryName']?></option>
-				
-				<?php }?>
-			    </select>
-
+				<div class="form-group">
+				    <label for="inputEmail" class="col-md-2">Country</label>
+					<div class="col-md-12">
+					<select class="form-control" id="country" name="country">
+					<option>select Country</option>
+					<?php foreach ($country as $row) {?>
+					<option value="<?php echo $row['CountryCode']?>"><?php echo $row['CountryName']?></option>
+					<?php }?>
+				    </select>
+				</div>
 			    </div>
-			    <div class="col-md-4">
-                            <h5 class="m-t-0">State</h5>
+			    </div>
 
+			   <div class="col-md-4">
+				<div class="form-group">
+			    <label for="inputEmail" class="col-md-2">State</label>
+			    <div class="col-md-12">
 			    <select class="form-control" id="state" name="state">
 				<option>select State</option>
 				<?php foreach ($state as $row) {?>
 				<option value="<?= $row['StateCode']?>"><?= $row['StateName']?></option>
 				<?php }?>
 				 </select>
-
 			    </div>
-			    <div class="col-md-4">
-                            <h5 class="m-t-0">City</h5>
-
+			    </div>
+			    </div>
+			   
+			   <div class="col-md-4">
+				<div class="form-group">
+			    <label for="inputEmail" class="col-md-2">City</label>
+			    <div class="col-md-12">
 			    <select class="form-control" id="city" name="city">
 				<option>select City</option>
 				<?php foreach ($city as $row) {?>
 				<option value="<?= $row['CityCode']?>"><?= $row['CityName']?></option>
 				<?php }?>
 				 </select>
-			    
-                        </div>
-		    </div>
-
+			    </div>
+			    </div>
+			   </div>
+		    </div>	    
+		    
+		    
 		    <legend>Change address</legend>
                     <div class="row">
 
 			    <div class="col-md-4">
-                            <h5 class="m-t-0">Address title</h5>
+				<div class="form-group">
+                            <label class="col-md-6">Address title</label>
+			    <div class="col-md-12">
                             <input class="form-control input-sm" name="address1" type="text" value="<?php //echo $getStory[0]['address title']?>" placeholder="TYPE YOUR OWN TITLE">
 			    </div>
-			    <div class="col-md-4">
-                            <h5 class="m-t-0">Address#1</h5>
+			    </div>
+			    </div>
+			   <div class="col-md-4">
+				<div class="form-group">
+                            <label class="col-md-2">Address#1</label>
+			    <div class="col-md-12">
                             <input class="form-control input-sm" name="address2" type="text" value="<?php //echo $getStory[0]['address1']?>" placeholder="TYPE YOUR OWN TITLE">
 			    </div>
+				</div>
+			   </div>
 			    <div class="col-md-4">
-                            <h5 class="m-t-0">Address#2</h5>
+				<div class="form-group">
+                            <label class="col-md-2">Address#2</label>
+			    <div class="col-md-12">
                             <input class="form-control input-sm" name="address3" type="text" value="<?php //echo $getStory[0]['address2']?>" placeholder="TYPE YOUR OWN TITLE">
-
+			    </div>
+				</div>
                         </div>
 		    </div>
 			<div class="row">
-			<div class="col-md-4">
-                            <h5 class="m-t-0">Fax</h5>
+			 <div class="col-md-4">
+				<div class="form-group">
+                            <label class="col-md-2">Fax</label>
+			    <div class="col-md-12">
                             <input class="form-control input-sm" name="fax" type="text" value="<?php //echo $getStory[0]['fax']?>" placeholder="TYPE YOUR OWN TITLE">
 			 </div>
-			 <div class="col-md-4">
-                            <h5 class="m-t-0">Phone Number</h5>
+				</div>
+			 </div>
+			  <div class="col-md-4">
+				<div class="form-group">
+                            <label class="col-md-6">Phone Number</label>
+			    <div class="col-md-12">
                             <input class="form-control input-sm" name="phone" type="text" value="<?php //echo $getStory[0]['phone']?>" placeholder="TYPE YOUR OWN TITLE">
 			 </div>
+				</div>
+			  </div>
 			 </div>
-			 <p></p>
-			 
+
 			<legend>Change image for Store</legend>
 			<div class="row">
 			<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
@@ -115,12 +141,14 @@
 		     <legend>Click the imgage to add extra <button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
 		    <div class="row">
 		    <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
-			<div class="page-title">
-                             <div class="col-md-4" style="padding:10px; ">
-                                <label>Image Name</label>
+			<div class="col-md-4">
+				<div class="form-group">
+                             <!--<div class="col-md-4" style="padding:10px; ">-->
+                                <label class="col-md-6">Image Name</label>
+				<div class="col-md-12">
                                 <input type="text" name="description" class="form-control input-md" value="" placeholder="Image Name" />
                             </div>
-                            
+				</div>
 			</div>
                         <div class="col-md-12" id="gallery">
                             <div class="col-md-4 ImageViewer AdjustPadding" style="padding-bottom:20px;"  >
@@ -288,4 +316,79 @@ $('#dummy1').val(imgval);
     
 </script>
 
- 
+ <script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            country: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    }
+                }
+            },
+            state: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            },
+	     city: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            },
+	     address1: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            },
+	     address2: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            },
+	     address3: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            },
+	    fax: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            },
+	    phone: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
