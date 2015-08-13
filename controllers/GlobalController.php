@@ -664,7 +664,7 @@ class GlobalController extends CI_Controller
       public function State()
     {
 	//$data['getStory']=$this->GlobalModel->getStores1();
-	$data['state']=$this->GlobalModel->getState();
+	$data['state']=$this->GlobalModel->gettState();
 	$this -> load -> view('header');
 	$this -> load -> view('State',$data);
     }
@@ -697,6 +697,66 @@ class GlobalController extends CI_Controller
 	
     }
     
+    function globalstateDelete($id)
+    {
+	$this->db->where('id', $id);
+	$this->db->delete('ourstate');
+	
+	redirect(base_url()."GlobalController/State");   
+	
+    }
+    
+    
+    function City()
+    {
+	
+	$data['city']=$this->GlobalModel->getCityy();
+	$this -> load -> view('header');
+	$this -> load -> view('City',$data);
+
+	
+    }
+    
+    function cityAdder()
+    {
+	
+	if(isset($_POST['save']))
+	{
+	$this->GlobalModel->pushcity();
+	redirect(base_url()."GlobalController/City");
+	}
+	$this->load->view('header');
+	$this->load->view('cityAdder',$data);
+
+	
+	
+    }
+    function globalcityEdit($id)
+    {
+	
+	$data['cityget']=$this->GlobalModel->cityget($id);
+	if(isset($_POST['update']))
+	{
+	    
+	 $this->GlobalModel->updatecity($id);
+	redirect(base_url()."GlobalController/City");   
+	    
+	}
+	$this -> load -> view('header');
+	$this -> load -> view('cityEdit',$data);
+	
+	
+    }
+    function globalcityDelete($id)
+    {
+	$this->db->where('id', $id);
+	$this->db->delete('ourcity');
+	
+	redirect(base_url()."GlobalController/city");   
+	
+	
+    }
+    
     
     public function Global_Stores()
     {
@@ -717,6 +777,7 @@ class GlobalController extends CI_Controller
     {
 	 $result['country']=$this->GlobalModel->getcountry();
 	 $result['state']=$this->GlobalModel->getstate();
+	 $result['city']=$this->GlobalModel->getcity();
 	 
 	if(isset($_POST['save']))
 	{
@@ -729,16 +790,24 @@ class GlobalController extends CI_Controller
     
     function globalStoreEdit($id)
     {
+	
+	$data['country']=$this->GlobalModel->getcountry();
+	$data['state']=$this->GlobalModel->getstate();
+	$data['city']=$this->GlobalModel->getcity();
+	 
 	$data['getStory']=$this->GlobalModel->getStores($id);
 	if(isset($_POST['update']))
 	{
 	    $this->GlobalModel->putStores($id);
 	    redirect(base_url()."GlobalController/Global_Stores");
 	}
+	
+	
 	//print"<pre>";
 	//print_r($data);
 	//print"<pre>";
 	//exit;
+	
 	$this -> load -> view('header');
 	$this -> load -> view('GlobalstoreEdit',$data);
 	
