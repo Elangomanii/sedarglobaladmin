@@ -115,17 +115,17 @@ class GlobalController extends CI_Controller
     }
     //STATUS ON/OFF
     
-	  public function Project_Overview()
-    {
-	if(isset($_POST["Save"])){
-	      $this->GlobalModel->ProjectOverview_Add();  
-	    }
-	$data['Project']=$this->GlobalModel->projectOverviewDetails();   
-	$this -> load -> view('header');
-	$this -> load -> view('Project_Overview', $data);
-	//$this -> load -> view('footer');
-    }
-    
+    public function Project_Overview()
+	{
+	    if(isset($_POST["Save"])){
+		  $this->GlobalModel->ProjectOverview_Add();  
+		}
+	    $data['Project']=$this->GlobalModel->projectOverviewDetails();   
+	    $this -> load -> view('header');
+	    $this -> load -> view('Project_Overview', $data);
+	    //$this -> load -> view('footer');
+	}
+	    
      public function Project_Image()
     {
 	$data['formData']= $this->GlobalModel->getformdata();
@@ -1226,40 +1226,17 @@ class GlobalController extends CI_Controller
     //sedar user page end
     
     //Sedar contact page Start	
-	public function sedarContactAdd()
+	 public function contact()
 	{
-	    if($this->input->post('submit_form')=='Save')
-	    {	
-		$this->GlobalModel->sedarContactAdd();
-		redirect("GlobalController/sedarContactView");
-	    }
-	    
+	    if(isset($_POST["Save"])){
+		  $this->GlobalModel->contact();  
+		}
+	    $data['contact']=$this->GlobalModel->contactDetails();   
 	    $this -> load -> view('header');
-	    $this -> load -> view('sedarContact');
+	    $this -> load -> view('contact', $data);
 	    //$this -> load -> view('footer');
 	}
-	public function sedarContactView()
-	{
-	    $data['contact'] = $this->GlobalModel->sedarContactView();	
-	    $this -> load -> view('header');
-	    $this -> load -> view('sedarContactView',$data);
-	}
-	 public function sedarContactEdit($id)
-	{
-	    if($this->input->post('submit_form')=='update')
-	    {	
-		$this->GlobalModel->sedarContactUpdate($id);
-		redirect("GlobalController/sedarContactView");
-	    }
-	    $data['contact'] = $this->GlobalModel->sedarContactEdit($id);	
-	    $this->load->view('header');
-	    $this->load->view('sedarContactEdit',$data);
-	}
-	function contactDelete($id)
-	{
-		$this->GlobalModel->contactDelete($id);
-		redirect("GlobalController/sedarContactView");
-	}
+	 
 	
     //Sedar contact page End
     

@@ -42,3 +42,13 @@ height: 46px;
 .media-object {
     height: 128px;
 }
+
+.modal-footerz {
+    border-top-color: #e2e7eb;
+    padding: 14px 95px 13px;
+}
+.modal-footerz {
+    border-top: 1px solid #e5e5e5;
+    padding: 15px;
+    text-align: start;
+}

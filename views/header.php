@@ -245,7 +245,7 @@
 		
 		
 		<li class="has-sub" id="page1">
-		    <a href="<?php echo base_url(); ?>GlobalController/sedarContactView">
+		    <a href="<?php echo base_url(); ?>GlobalController/contact">
 			
 			<i class="fa fa-align-left text-warning"></i> 
 			<span>Contact</span>

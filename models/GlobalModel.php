@@ -22,8 +22,7 @@ class GlobalModel extends CI_Model {
 	 );
 	  $this->db->where('id',1);
 	return $this->db->update("about_us",$data);
-	 print_r($data);
-	 exit;
+	
      }
      
       function globalAuthentication()
@@ -84,26 +83,7 @@ class GlobalModel extends CI_Model {
 	   );
 	   $this->db->insert("about_project_img",$data);	    
        }
-       function sedarContactAdd()
-       {
-	   //echo 'hai';
-	   //exit();
-	   $data = array(
-		       "country"=>$this->input->post("sedarCountry"),
-		       "location"=>$this->input->post("sedarLocation"),
-		       "postBox"=>$this->input->post("sedarPoBox"),
-		       "telephone"=>$this->input->post("sedarTelephone"),
-		       "fax"=>$this->input->post("sedarFax"),
-		       "email"=>$this->input->post("sedarEmail"),
-		       "website"=>$this->input->post("sedarWebsite")			
-		       );
-	 
-	   $this->db->insert("contact",$data);
-	   //echo '<pre>';
-	   //print_r($data);
-	   //echo '</pre>';
-	   //exit();            
-       }
+      
        function sedarUserAdd()
        {
 	   $data = array(
@@ -114,38 +94,8 @@ class GlobalModel extends CI_Model {
 	   $this->db->insert("user",$data);
 	   
        }
-       function sedarContactView()
-       {
-	   return $this->db->get("contact")->result_array();
-       //exit();
-       }
        
-       function sedarContactEdit($id)
-       {
-	   $this->db->where("id","$id");
-	   return  $this->db->get("contact")->result_array();
-       }
-       function sedarContactUpdate($id)
-       {
-	   $data = array(
-		       "country"=>$this->input->post("sedarCountry"),
-		       "location"=>$this->input->post("sedarLocation"),
-		       "postBox"=>$this->input->post("sedarPoBox"),
-		       "telephone"=>$this->input->post("sedarTelephone"),
-		       "fax"=>$this->input->post("sedarFax"),
-		       "email"=>$this->input->post("sedarEmail"),
-		       "website"=>$this->input->post("sedarWebsite")			
-		       );
-	 
-	   $this->db->where("id","$id");
-	   $this->db->update("contact",$data);
-       }
-       function contactDelete($id)
-	{
-	    $this->db->where("id",$id);
-	    $this->db->delete("contact");
-        
-	}
+    
 	//sedar user View Start
        function sedarUserView()
 	{
@@ -172,6 +122,28 @@ class GlobalModel extends CI_Model {
 	    $this->db->delete("user");
 	}
 	//sedar user View End
+	
+//CONTACT PAGE START
+
+     function contactDetails()
+     {
+      $this->db->where('id',1);
+      return $this->db->get("contact")->result_array();
+     }
+     function contact()
+     {
+	 $data = array(
+	     
+	     "contactTitle"=>$this->input->post("contactTitle"),
+	     "contactSubTitle"=>$this->input->post("contactSubTitle"),
+	     "description"=>$this->input->post("description")
+	 );
+	  $this->db->where('id',1);
+	return $this->db->update("contact",$data);
+	
+     }
+
+//CONTACT PAGE END
 	
 	///////////////////////////////////SELVA MODEL START*********************************************************************
 	

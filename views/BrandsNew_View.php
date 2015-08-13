@@ -49,13 +49,13 @@
 			<tbody class="handles list" id="sortable">
 			   <?php foreach($brandsView as $row){ ?>
 			    <tr class="odd" id="<?php echo $row['id'] ?>">
-			        <td><span><i class="fa fa-refresh fa-5x"></span></td>
-				<td><?php echo $row['name']; ?></td>					    
-				<td><?php echo $row['desc']; ?></td>
-                                <td><?php echo $row['nameImage']; ?></td>
+			        <!--<td><span><i class="fa fa-refresh fa-5x"></span></td>-->
+				<td><span><?php echo $row['name']; ?></span></td>					    
+				<td><span><?php echo $row['desc']; ?></span></td>
+                                <td><span><?php echo $row['nameImage']; ?></span></td>
 				<!--<td><//?php echo $row['position']; ?></td>-->
-				<td><?php echo $row['brandImage']; ?></td>
-				<td><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></td>
+				<td><span><?php echo $row['brandImage']; ?></span></td>
+				<td><span><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></span></td>
 				<script>
 				$("#status-<?php echo $row['id']; ?>").click(function() {
 				    var brandsId=<?php echo $row['id']; ?>;
@@ -113,7 +113,7 @@
 </html>
 <style>
     
-    .handles span {
+    .handles tr {
 	    cursor: -webkit-grab; cursor: -moz-grab;
     }
 </style>
