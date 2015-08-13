@@ -374,7 +374,17 @@
 				<li><a href="<?php echo base_url(); ?>GlobalController/City">City</a></li>
 		   </ul>
 		</li>
-	
+		
+		<li class="has-sub" id="page7">
+		    <a href="#">
+			
+			<i class="fa fa-align-left text-warning"></i> 
+			<span>Stores</span>
+		    </a>
+		    <ul class="sub-menu">
+				<li><a href="<?php echo base_url(); ?>GlobalController/Global_Stores">View Store</a></li>
+		   </ul>
+		</li>
 		
 		
 		<?php //} ?>

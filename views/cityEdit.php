@@ -100,7 +100,7 @@ function attachments()
     
     function attachment($this) {
   var imgval=$('#preview').val();
-$('.getter').val(imgval);
+    $('.getter').val(imgval);
     var oFReader = new FileReader();
     oFReader.readAsDataURL($this.files[0]);
     oFReader.onload = function (oFREvent) {

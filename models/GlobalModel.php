@@ -401,207 +401,207 @@ class GlobalModel extends CI_Model {
 	
 	///////////////////////////////////HAKKIM MODEL START*********************************************************************
 	
-       function getcountry()
+//       function getcountry()
+//	
+//	{
+//	    $sql="SELECT * FROM ourcountry";
+//	    return $query = $this->db->query($sql)->result_array();
+//
+//	}
+//       function pushcountry()
+//	{
+//	    
+//	    $data = array(
+//	    "countryName"=>$this->input->post("countryName"),
+//	    "CountryCode"=>$this->input->post("CountryCode"),
+//	    "latitude"=>$this->input->post("latitude"),
+//	    "longitude"=>$this->input->post("longitude"),
+//	    );
+//	    $this->db->insert("ourcountry",$data);
+//	}
+//       function countryget($id)
+//	{
+//	    
+//	$this->db->where("id","$id");
+//	return $this->db->get("ourcountry")->result_array(); 
+//	    
+//	}
+//       function updatecountry($id)
+//	{
+//	    $data = array(
+//	    "countryName"=>$this->input->post("countryName"),
+//	    "CountryCode"=>$this->input->post("CountryCode"),
+//	    "latitude"=>$this->input->post("latitude"),
+//	    "longitude"=>$this->input->post("longitude"),
+//	    );
+//	    $this->db->where("id",$id);
+//	    $this->db->update("ourcountry",$data);
+//	    
+//	}
+//	
+//       function getState()
+//	
+//	{
+//	    $sql="SELECT * FROM outstate";
+//	    return $query = $this->db->query($sql)->result_array();
+//	    
+//	}
+//	
+//       function pushstate()
+//	{
+//	    
+//	    $data = array(
+//	    "stateName"=>$this->input->post("stateName"),
+//	    "stateCode"=>$this->input->post("stateCode"),
+//	    "countryCode"=>$this->input->post("countryCode"),
+//	    "latitude"=>$this->input->post("latitude"),
+//	    "longitude"=>$this->input->post("longitude"),
+//	    );
+//	    $this->db->insert("outstate",$data);
+//	}
+//	
+//       function stateget($id)
+//	{
+//	    
+//	$this->db->where("id","$id");
+//	return $this->db->get("outstate")->result_array(); 
+//	    
+//	}
+//	
+//       function updatestate($id)
+//	{
+//	    $data = array(
+//	    "stateName"=>$this->input->post("stateName"),
+//	    "stateCode"=>$this->input->post("stateCode"),
+//	    "countryCode"=>$this->input->post("countryCode"),
+//	    "latitude"=>$this->input->post("latitude"),
+//	    "longitude"=>$this->input->post("longitude"),
+//	    );
+//	    //print_r($data);
+//	    //exit;
+//	    $this->db->where("id",$id);
+//	    $this->db->update("outstate",$data);
+//	    
+//	}
+//	
 	
-	{
-	    $sql="SELECT * FROM ourcountry";
-	    return $query = $this->db->query($sql)->result_array();
-
-	}
-       function pushcountry()
-	{
-	    
-	    $data = array(
-	    "countryName"=>$this->input->post("countryName"),
-	    "CountryCode"=>$this->input->post("CountryCode"),
-	    "latitude"=>$this->input->post("latitude"),
-	    "longitude"=>$this->input->post("longitude"),
-	    );
-	    $this->db->insert("ourcountry",$data);
-	}
-       function countryget($id)
-	{
-	    
-	$this->db->where("id","$id");
-	return $this->db->get("ourcountry")->result_array(); 
-	    
-	}
-       function updatecountry($id)
-	{
-	    $data = array(
-	    "countryName"=>$this->input->post("countryName"),
-	    "CountryCode"=>$this->input->post("CountryCode"),
-	    "latitude"=>$this->input->post("latitude"),
-	    "longitude"=>$this->input->post("longitude"),
-	    );
-	    $this->db->where("id",$id);
-	    $this->db->update("ourcountry",$data);
-	    
-	}
+//       function getStores($id)
+//	{
+//	    
+//	    $sql="select * from store_image where id='$id'";
+//	    return $result=$this->db->query($sql)->result_array();
+//	       
+//	}
+//	
+//       function getStores1()
+//	{
+//	    
+//	    $sql="select * from store_image";
+//	    return $result=$this->db->query($sql)->result_array();
+//	       
+//	}
+//	
+//	
+//       function putStores($id)
+//	{
+//	   $files = $_FILES['image'];
+//	    
+//	    $c=count($_FILES['image']['size']);
+//	    for($i=0; $i<$c; $i++)
+//	    {
+//	    if($files['name'][$i]!=""){
+//	    $config['upload_path'] = 'uploads/';
+//	    $config['allowed_types'] = 'gif|jpg|png';
+//	    $_FILES['image']['name'] = $files['name'][$i];
+//	    $_FILES['image']['type'] = $files['type'][$i];
+//	    $_FILES['image']['tmp_name'] = $files['tmp_name'][$i];
+//	    $_FILES['image']['error'] = $files['error'][$i];
+//	    $_FILES['image']['size'] = $files['size'][$i];
+//	    $this->load->library('upload', $config);
+//	    $this->upload->initialize($config);
+//	    $this->upload->do_upload('image');
+//	    $data = $this->upload->data();
+//	    $name_array[] = $data['file_name'];
+//	    }
+//	    else {
+//
+//		$name_array[] = $_POST['oldimage'][$i];
+//		}
+//	    
+//	    }
+//	    
+//	    $names= implode(',', $name_array);
+//	    $data= array(
+//	       
+//	"image"=>$names,
+//	"title"=>$this->input->post("title"),
+//	"latitude"=>$this->input->post("latitude"),
+//	"longitude"=>$this->input->post("longitude"),
+//	"addresstitle"=>$this->input->post("address1"),
+//	"address1"=>$this->input->post("address2"),
+//	"address2"=>$this->input->post("address3"),
+//	"fax"=>$this->input->post("fax"),
+//	"phone"=>$this->input->post("phone"),
+//	"description"=>$this->input->post("description"),
+//	"imagedescription"=>$this->input->post("imagedescription")
+//	   );
+//	//print_r($data);
+//	//exit;
+//	$result1=$this->db->where('id',$id);
+//          $result= $this->db->update('store_image',$data);
+//	}
 	
-       function getState()
-	
-	{
-	    $sql="SELECT * FROM outstate";
-	    return $query = $this->db->query($sql)->result_array();
-	    
-	}
-	
-       function pushstate()
-	{
-	    
-	    $data = array(
-	    "stateName"=>$this->input->post("stateName"),
-	    "stateCode"=>$this->input->post("stateCode"),
-	    "countryCode"=>$this->input->post("countryCode"),
-	    "latitude"=>$this->input->post("latitude"),
-	    "longitude"=>$this->input->post("longitude"),
-	    );
-	    $this->db->insert("outstate",$data);
-	}
-	
-       function stateget($id)
-	{
-	    
-	$this->db->where("id","$id");
-	return $this->db->get("outstate")->result_array(); 
-	    
-	}
-	
-       function updatestate($id)
-	{
-	    $data = array(
-	    "stateName"=>$this->input->post("stateName"),
-	    "stateCode"=>$this->input->post("stateCode"),
-	    "countryCode"=>$this->input->post("countryCode"),
-	    "latitude"=>$this->input->post("latitude"),
-	    "longitude"=>$this->input->post("longitude"),
-	    );
-	    //print_r($data);
-	    //exit;
-	    $this->db->where("id",$id);
-	    $this->db->update("outstate",$data);
-	    
-	}
-	
-	
-       function getStores($id)
-	{
-	    
-	    $sql="select * from store_image where id='$id'";
-	    return $result=$this->db->query($sql)->result_array();
-	       
-	}
-	
-       function getStores1()
-	{
-	    
-	    $sql="select * from store_image";
-	    return $result=$this->db->query($sql)->result_array();
-	       
-	}
-	
-	
-       function putStores($id)
-	{
-	   $files = $_FILES['image'];
-	    
-	    $c=count($_FILES['image']['size']);
-	    for($i=0; $i<$c; $i++)
-	    {
-	    if($files['name'][$i]!=""){
-	    $config['upload_path'] = 'uploads/';
-	    $config['allowed_types'] = 'gif|jpg|png';
-	    $_FILES['image']['name'] = $files['name'][$i];
-	    $_FILES['image']['type'] = $files['type'][$i];
-	    $_FILES['image']['tmp_name'] = $files['tmp_name'][$i];
-	    $_FILES['image']['error'] = $files['error'][$i];
-	    $_FILES['image']['size'] = $files['size'][$i];
-	    $this->load->library('upload', $config);
-	    $this->upload->initialize($config);
-	    $this->upload->do_upload('image');
-	    $data = $this->upload->data();
-	    $name_array[] = $data['file_name'];
-	    }
-	    else {
-
-		$name_array[] = $_POST['oldimage'][$i];
-		}
-	    
-	    }
-	    
-	    $names= implode(',', $name_array);
-	    $data= array(
-	       
-	"image"=>$names,
-	"title"=>$this->input->post("title"),
-	"latitude"=>$this->input->post("latitude"),
-	"longitude"=>$this->input->post("longitude"),
-	"addresstitle"=>$this->input->post("address1"),
-	"address1"=>$this->input->post("address2"),
-	"address2"=>$this->input->post("address3"),
-	"fax"=>$this->input->post("fax"),
-	"phone"=>$this->input->post("phone"),
-	"description"=>$this->input->post("description"),
-	"imagedescription"=>$this->input->post("imagedescription")
-	   );
-	//print_r($data);
-	//exit;
-	$result1=$this->db->where('id',$id);
-          $result= $this->db->update('store_image',$data);
-	}
-	
-       function storesImage()
-	{
-		    
-	  //multiple image gallery
-	    $files = $_FILES['image'];
-
-	    $c=count($_FILES['image']['size']);
-	    for($i=0; $i<$c; $i++)
-	    {
-	    if($files['name'][$i]!=""){
-	    $config['upload_path'] = 'uploads/';
-	    $config['allowed_types'] = 'gif|jpg|png';
-	    $_FILES['image']['name'] = $files['name'][$i];
-	    $_FILES['image']['type'] = $files['type'][$i];
-	    $_FILES['image']['tmp_name'] = $files['tmp_name'][$i];
-	    $_FILES['image']['error'] = $files['error'][$i];
-	    $_FILES['image']['size'] = $files['size'][$i];
-	    $this->load->library('upload', $config);
-	    $this->upload->initialize($config);
-	    $this->upload->do_upload('image');
-	    $data = $this->upload->data();
-	    $name_array[] = $data['file_name'];
-	    }
-	   
-	    }
-	    $names= implode(",", $name_array);
-	    $data= array(
-	       
-	   "image"=>$names,
-	   "title"=>$this->input->post("title"),
-	   "latitude"=>$this->input->post("latitude"),
-	    "longitude"=>$this->input->post("longitude"),
-	    "addresstitle"=>$this->input->post("address1"),
-	    "address1"=>$this->input->post("address2"),
-	    "address2"=>$this->input->post("address3"),
-	    "fax"=>$this->input->post("fax"),
-	    "phone"=>$this->input->post("phone"),
-	    "description"=>$this->input->post("description"),
-	     "city"=>$this->input->post("country"),
-	      "state"=>$this->input->post("state"),
-	    "imagedescription"=>$this->input->post("imgdesciption")
-	   );
-	    //print"<pre>";
-	    //print_r($data);
-	    //print"<pre>";
-	    //exit;
-	    
-	    $this->db->insert("store_image",$data);
-	    
-	    
-	}
+//       function storesImage()
+//	{
+//		    
+//	  //multiple image gallery
+//	    $files = $_FILES['image'];
+//
+//	    $c=count($_FILES['image']['size']);
+//	    for($i=0; $i<$c; $i++)
+//	    {
+//	    if($files['name'][$i]!=""){
+//	    $config['upload_path'] = 'uploads/';
+//	    $config['allowed_types'] = 'gif|jpg|png';
+//	    $_FILES['image']['name'] = $files['name'][$i];
+//	    $_FILES['image']['type'] = $files['type'][$i];
+//	    $_FILES['image']['tmp_name'] = $files['tmp_name'][$i];
+//	    $_FILES['image']['error'] = $files['error'][$i];
+//	    $_FILES['image']['size'] = $files['size'][$i];
+//	    $this->load->library('upload', $config);
+//	    $this->upload->initialize($config);
+//	    $this->upload->do_upload('image');
+//	    $data = $this->upload->data();
+//	    $name_array[] = $data['file_name'];
+//	    }
+//	   
+//	    }
+//	    $names= implode(",", $name_array);
+//	    $data= array(
+//	       
+//	   "image"=>$names,
+//	   "title"=>$this->input->post("title"),
+//	   "latitude"=>$this->input->post("latitude"),
+//	    "longitude"=>$this->input->post("longitude"),
+//	    "addresstitle"=>$this->input->post("address1"),
+//	    "address1"=>$this->input->post("address2"),
+//	    "address2"=>$this->input->post("address3"),
+//	    "fax"=>$this->input->post("fax"),
+//	    "phone"=>$this->input->post("phone"),
+//	    "description"=>$this->input->post("description"),
+//	     "city"=>$this->input->post("country"),
+//	      "state"=>$this->input->post("state"),
+//	    "imagedescription"=>$this->input->post("imgdesciption")
+//	   );
+//	    //print"<pre>";
+//	    //print_r($data);
+//	    //print"<pre>";
+//	    //exit;
+//	    
+//	    $this->db->insert("store_image",$data);
+//	    
+//	    
+//	}
 	
        function getslider()
 	{
