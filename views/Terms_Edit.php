@@ -4,8 +4,8 @@
 		<!-- begin breadcrumb -->
 		<ol class="breadcrumb pull-right">
 		    
-		    <li><a href="javascript:;">Client</a></li>
-		    <li class="active">Client Overview</li>
+		    <li><a href="javascript:;">Terms</a></li>
+		    <li class="active">Terms </li>
 		</ol>
 		<!-- end breadcrumb -->
 		<!-- begin page-header -->
@@ -24,7 +24,7 @@
 			<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
 			<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 		    </div>
-		    <h4 class="panel-title">Client Overview </h4>
+		    <h4 class="panel-title">Terms </h4>
 		</div>
 		<div class="panel-body" id="form_validation">
 		
@@ -36,14 +36,14 @@
 			     <h3 class="m-t-0">Terms Title</h3>
 				 </div>
 				<div class="col-md-12">
-				    <input type="text" name="terms_title" id="aboutTitle"  class="form-control input-lg" value="<?php echo $Terms[0]['title']?>" placeholder="Overview Title" />
+				    <input type="text" name="title" id="aboutTitle"  class="form-control input-lg" value="<?php echo $Terms[0]['title']?>" placeholder="Overview Title" />
 				</div>
 				
 				 <div class="col-md-12">
 			     <h3 class="m-t-0">Terms link</h3>
 				 </div>
 				<div class="col-md-12">
-				    <input type="text" name="title_link" id="aboutTitle"  class="form-control input-lg" value="<?php echo $Terms[0]['linkTitle']?>" placeholder="Overview Title" />
+				    <input type="text" name="linkTitle" id="aboutTitle"  class="form-control input-lg" value="<?php echo $Terms[0]['linkTitle']?>" placeholder="Overview Title" />
 				</div>					
 				
 
@@ -52,7 +52,7 @@
 			    <h4 class="m-t-0">Terms Description</h4>
 			    </div>
 				<div class="col-md-12">
-				<textarea id="aboutDescription" name="terms_description" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"><?php echo $Terms[0]['description']?> </textarea>
+				<textarea id="aboutDescription" name="description" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"><?php echo $Terms[0]['description']?> </textarea>
 				</div>
 		    </div>
 		</div>

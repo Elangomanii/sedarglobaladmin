@@ -998,46 +998,46 @@ class GlobalController extends CI_Controller
     //*************************************************************Terms And Condition Start********************************************************//
     
 	//View Function Start
-	function TermsAndCondition_View()
+	function Terms_View()
 	{
-	    $data['TermsAndCondition']=$this->GlobalModel->GetTermsAndConditionTable();
+	    $data['Terms']=$this->GlobalModel->GetTermsAndConditionTable();
 	    $this->load->view('header');
-	    $this->load->view('TermsAndCondition_View',$data);
+	    $this->load->view('Terms_View',$data);
 	}
 	//View Function End
 	
 	//Add Function Start
-	function TermsAndCondition_Add()
+	function Terms_Add()
 	{
 	    if(isset ($_POST["Save"]))
 	    {
-		$this->GlobalModel->TermsAndConditionInsert();
-		redirect("GlobalController/TermsAndCondition_View");
+		$this->GlobalModel->Terms_Add();
+		redirect("GlobalController/Terms_View");
 	    }	
 	    $this->load->view('header');
-	    $this->load->view('TermsAndCondition_Add');
+	    $this->load->view('Terms_Add');
 	}
 	//Add Function End
 	
 	//Edit Function Start
-	function TermsAndCondition_Edit($id)
+	function Terms_Edit($id)
 	{
 	    if(isset ($_POST["Update"]))
 	    {
-		$this->GlobalModel->TermsAndCondition_Edit($id);
-		redirect("GlobalController/TermsAndCondition_View");
+		$this->GlobalModel->Terms_Edit($id);
+		redirect("GlobalController/Terms_View");
 	    }
-	    $data['TermsAndCondition']=$this->GlobalModel->TermsAndConditionTableRow($id);
+	    $data['Terms']=$this->GlobalModel->TermsAndConditionTableRow($id);
 	    $this -> load -> view('header');
-	    $this -> load -> view('TermsAndCondition_Edit',$data);	
+	    $this -> load -> view('Terms_Edit',$data);	
 	}
 	//Edit Function End
 	
 	//Delete Function Start
-	function TermsAndCondition_Delete($id)
+	function Terms_Delete($id)
 	{
-	    $this->GlobalModel->TermsAndCondition_Delete($id);
-	    redirect("GlobalController/TermsAndCondition_View");
+	    $this->GlobalModel->Terms_Delete($id);
+	    redirect("GlobalController/Terms_View");
 	}    
 	//Delete Function End
 	

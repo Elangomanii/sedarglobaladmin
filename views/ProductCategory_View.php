@@ -34,10 +34,10 @@
 		    <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
 		      <thead>
 			    <tr>
-				<th>Drag Here</th>
+				<!--<th>Drag Here</th>-->
 				<th>Name</th>
 				<th>Image</th>
-				<th>Position</th>
+				<!--<th>Position</th>-->
 				<th>Action</th>
 			        
 			    </tr>
@@ -45,10 +45,10 @@
 			<tbody class="handles list" id="sortable">
 			   <?php foreach($productCatView as $row){ ?>
 			    <tr class="odd" id="<?php echo $row['id'] ?>">
-			    <td><span><i class="fa fa-refresh fa-5x"></span></td>
-				<td><?php echo $row['name']; ?></td>
-				<td><?php echo $row['image']; ?></td>
-				<td><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></td>
+			   <!-- <td><span><i class="fa fa-refresh fa-5x"></span></td>-->
+				<td><span><?php echo $row['name']; ?></span></td>
+				<td><span><?php echo $row['image']; ?></span></td>
+				<td><span><button <?php if($row['status']=="ENABLED") echo 'class="btn btn-success"'; else  echo 'class="btn btn-danger"';  ?> name="status[]" id="status-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></button></span></td>
 				<!--<td><span><//?php echo $row['position']; ?></span></td>-->
 				<script>
 				$("#status-<?php echo $row['id']; ?>").click(function() {
@@ -106,10 +106,11 @@
 
 </body>
 </html>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui-1.10.4.custom.min.js"></script>
 <style>
     
-    .handles span {
-	    cursor: move;
+    .handles tr {
+	    cursor: -webkit-grab; cursor: -moz-grab;
     }
 </style>
 <script>
@@ -124,6 +125,7 @@ $('#form_validation').on('click', '#delete_box', function(e) {
             });
  });
 </script>
+
 <script>
 $(function() {
     $('#sortable').sortable({

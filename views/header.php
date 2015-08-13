@@ -292,18 +292,12 @@
 		
 		
 		
-		<li class="has-sub "id="page5">
-		   <a href="javascript:;">
-			<b class="caret pull-right"></b>
-			<i class="fa fa-suitcase text-warning"></i> 
-			<span>Footer Menu</span>
-		    </a>
-		  <ul class="sub-menu">
-				<li><a href="<?php echo base_url(); ?>GlobalController/Faq_View">FAQ</a></li>
-				<li><a href="<?php echo base_url(); ?>GlobalController/FeedBack_View">Feed Back</a></li>
-				<li><a href="<?php echo base_url(); ?>GlobalController/PrivacyPolicy_View">Privacy Policy</a></li>
-				<li><a href="<?php echo base_url(); ?>GlobalController/TermsAndCondition_View">Terms & Conditions</a></li>
-		   </ul>
+		<li class="has-sub" id="page6">
+		    <a href="<?php echo base_url(); ?>GlobalController/Terms_View">
+			
+			<i class="fa fa-align-left text-warning"></i> 
+			<span>Terms</span>
+		    </a>		    
 		</li>
 		
 		<li class="has-sub" id="page6">

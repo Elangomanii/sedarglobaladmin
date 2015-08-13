@@ -251,27 +251,29 @@ class GlobalModel extends CI_Model {
     
     
     //Add Function Start
-       function TermsAndConditionInsert()
+       function Terms_Add()
 	{
 	    $data= array(
-			 "terms_condition_title"=>$this->input->post("terms_condition_title"),
-			 "terms_condition_description"=>$this->input->post("terms_condition_description")
+			 "title"=>$this->input->post("title"),
+			 "linkTitle"=>$this->input->post("linkTitle"),
+			 "description"=>$this->input->post("description")
 			 );
 	    $this->db->insert("terms",$data);
 	    return $this->db->get('terms')->result_array();
 	}
 	
-       function TermsAndCondition_Edit($id)
+       function Terms_Edit($id)
 	{
 	    $this->db->where("id",$id);
 	    $data= array(
-			 "terms_condition_title"=>$this->input->post("terms_condition_title"),
-			 "terms_condition_description"=>$this->input->post("terms_condition_description")
+			 "title"=>$this->input->post("title"),
+			 "linkTitle"=>$this->input->post("linkTitle"),
+			 "description"=>$this->input->post("description")
 			 );
 	    $this->db->update("terms",$data);
 	}
 	
-       function TermsAndCondition_Delete($id)
+       function Terms_Delete($id)
 	{
 	    $this->db->where("id",$id);
 	    $this->db->delete("terms");	
@@ -905,7 +907,7 @@ class GlobalModel extends CI_Model {
 		
 		"menu"=>$_POST['title'],
 		"menuType"=>$_POST['type'],
-		"menuLink"=>$_POST['url'],
+		"menuLink"=>base_url('SedarCtr')."/".$_POST['url'],
 	    );
 
 	     $this->db->insert("menu",$data);

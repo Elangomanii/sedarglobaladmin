@@ -36,20 +36,20 @@
 			     <h3 class="m-t-0">Terms Title</h3>
 				 </div>
 				<div class="col-md-12">
-				    <input type="text" name="terms_title" id="aboutTitle"  class="form-control input-lg" value="" placeholder="Overview Title" />
+				    <input type="text" name="title" id="aboutTitle"  class="form-control input-lg" value="" placeholder="Terms Title" />
 				</div>
 				 <div class="col-md-12">
 			     <h3 class="m-t-0">Terms link</h3>
 				 </div>
 				<div class="col-md-12">
-				    <input type="text" name="title_link" id="aboutTitle"  class="form-control input-lg" value="" placeholder="Overview Title" />
+				    <input type="text" name="linkTitle" id="aboutTitle"  class="form-control input-lg" value="" placeholder="Terms link" />
 				</div>				
 			    <div class="col-md-12">
 				 <p></p>
 			    <h4 class="m-t-0">Terms Description</h4>
 			    </div>
 				<div class="col-md-12">
-				<textarea id="terms_description" name="terms_description" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"> </textarea>
+				<textarea id="description" name="description" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"> </textarea>
 				</div>
 		    </div>
 		</div>
