@@ -261,7 +261,7 @@
 		    </a>
 		   <ul class="sub-menu">
 			<li><a href="<?php echo base_url(); ?>GlobalController/Menu">Menu</a></li>
-			<li><a href="<?php echo base_url(); ?>GlobalController/sliderImageAdd">Slider Images</a></li>
+			<li><a href="<?php echo base_url(); ?>GlobalController/SliderImage">Slider Images</a></li>
 		   </ul>
 		</li>
 		

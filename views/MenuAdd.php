@@ -28,34 +28,34 @@
 		<div class="panel-body" id="form_validation">
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/globalMenuAdd'); ?>"" class="form-horizontal">
 			
-			<legend>Choose the menu to change</legend>
+			<legend>CHOOSE OPTION FOR CHANGE MENU..</legend>
 			    <div class="row">
-				<div class="col-md-6">
+				
+			    <div class="col-md-4">
 				<div class="form-group">
-					<label class="col-md-3 control-label">Menu Title</label>
-				    <div class="col-md-9">
-					<input class="form-control" type="text" name="title" placeholder="Default input">
+					<label class="col-md-4">Menu Title</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="title" placeholder="Default input">
 				    </div>
 				</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 				<div class="form-group">
-					<label class="col-md-3 control-label">Menu Type</label>
-				    <div class="col-md-9">
-					<select class="form-control" name="type">
+					<label class="col-md-4">Menu Type</label>
+				    <div class="col-md-12">
+					<select class="form-control input-sm" name="type">
 					    <option value="Header">Header</option>
 					    <option value="Footer">Footer</option>
 					</select>
 				    </div>
 				</div>
 			    </div>
-			    </div>
-			     <div class="row">
-				<div class="col-md-6">
+
+				<div class="col-md-4">
 				<div class="form-group">
 					<label class="col-md-3 control-label">Menu URL</label>
-				    <div class="col-md-9">
-					<input class="form-control" name="url" type="text" placeholder="Default input">
+				    <div class="col-md-12">
+					<input class="form-control input-sm" name="url" type="text" placeholder="Default input">
 				    </div>
 				</div>
 				</div>
@@ -63,12 +63,11 @@
 			
 			
 			
-			<div class="col-md-offset-3 col-md-6">
-			    <div class="form-group">
-				<label class="col col-4"></label>
-				<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-				<button class="btn btn-md btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
-				<input type="submit" class="btn btn-md btn-success"  name="save" id="submit_but" value="Save" >
+			<div class="pager form-group">
+                             <div class="col-md-7 control-label">
+				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
+				<button class="btn btn-sm btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
+				<input type="submit" class="btn btn-sm btn-success"  name="save" id="submit_but" value="Save" >
 			    </div>
 			</div>
 		    </form>		    
@@ -89,4 +88,41 @@
 </body>
 </html>
 
+<script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            title: {
 
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    }
+                }
+            },
+	     type: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            },
+	    url: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

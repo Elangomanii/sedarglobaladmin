@@ -38,17 +38,18 @@
 		    <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
 		      <thead>
 			    <tr>
-				<th>Drag Here</th>
+				<!--<th>Drag Here</th>-->
 				<th>Image</th>
 				<!--<th>Position</th>-->
 				<th>Description</th>
+				<th>Status</th>
 				<th>Action</th>
 			    </tr>
 			</thead>
 			<tbody class="handles list" id="sortable"><span>
 			     <?php foreach($clientImage as $row){?>
 			    <tr class="odd" id="<?php echo $row['id'] ?>">
-			    <td><span><i class="fa fa-refresh fa-5x"></span></td>
+			    <!--<td><span><i class="fa fa-refresh fa-5x"></span></td>-->
 				<td><span><?php echo $row['aboutClientImg']; ?></span></td>
 				<!--<td><span><//?php echo $row['position']; ?></span></td>-->
 				<td><span><?php echo $row['aboutClientTitle']; ?></span></td>
@@ -110,11 +111,16 @@
 </html>
 <style>
     
-    .handles span {
-	    cursor: move;
+    .handles tr {
+	    cursor: -webkit-grab; cursor: -moz-grab;
     }
 </style>
 <script>
+    
+           $(document).ready(function() {
+ $("#data-table").DataTable();
+    });
+    
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
  //alert();

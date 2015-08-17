@@ -29,35 +29,43 @@
 		<div class="panel-body" id="form_validation">
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Project_Overview/'.$Project[0]['id']); ?>" class="form-horizontal form12">
-		 <legend>Choose the Categories to change</legend>
+		 <legend>CHOOSE OPTION FOR CHANGE PROJECT</legend>
 		 <div class="row">
-		    <div class="col-md-7">
+		   <div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Project Overview Title</label>
 				 <div class="col-md-12">
-			     <h4 class="m-t-0">Project Overview Title</h4>
-				 </div>
-				<div class="col-md-12">
-				    <input type="text" name="aboutTitle" id="Service_Title"  class="form-control input-lg" value="<?php echo $Project[0]['aboutTitle']?>" placeholder="Overview Title" />
+				    <input type="text" name="aboutTitle" id="Service_Title"  class="form-control input-sm" value="<?php echo $Project[0]['aboutTitle']?>" placeholder="Overview Title" />
 				</div>
+				</div>
+		   </div>
+		 </div>
 				
-			   <div class="col-md-12">
-			    <p></p>
-			    <h4 class="m-t-0">Project Overview Sub Title</h4>
-				</div>
+			  <div class="row">
+		   <div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Project Overview Sub Title</label>
 				<div class="col-md-12">
-				    <input type="text" name="aboutSubTitle" id="Service_Sub_Title" class="form-control input-lg"  value="<?php echo $Project[0]['aboutSubTitle']?>" placeholder="Overview Sub Title" />
+				    <input type="text" name="aboutSubTitle" id="Service_Sub_Title" class="form-control input-sm"  value="<?php echo $Project[0]['aboutSubTitle']?>" placeholder="Overview Sub Title" />
 				</div>
-			    <div class="col-md-12">
-				 <p></p>
-			    <h4 class="m-t-0">Description</h4>
-			    </div>
+				</div>
+		   </div>
+			  </div>   
+		
+			    <div class="row">
+		   <div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Description</label>
+			
 				<div class="col-md-12">
 				<textarea id="Service_Content" name="aboutDescription" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"><?php echo $Project[0]['aboutDescription']?> </textarea>
 				</div>
+				</div>
+		   </div>
 		    </div>
-		</div>
 			   
 			<div class="pager form-group">
-                             <div class="col-md-6 control-label">
+                             <div class="col-md-7 control-label">
 				<input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Save" id="submit" value="Save" >
                                 <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
                                 
@@ -92,6 +100,38 @@
 </body>
 </html>
 
+
+<script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            aboutTitle: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The description is required'
+                    }
+                }
+            },
+	     aboutSubTitle: {
+                validators: {
+                    notEmpty: {
+                        message: 'The description is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
 
 
 

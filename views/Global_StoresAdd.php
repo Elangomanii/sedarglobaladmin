@@ -210,9 +210,6 @@
 			</div>-->
 	
 		     </div>
-                    
-		    <p></p>
-                    <p></p>
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
                                 <button  class="btn btn-success m-r-5 m-b-5" type="submit" name="save" >Save</button>

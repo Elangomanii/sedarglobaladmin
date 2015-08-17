@@ -69,6 +69,11 @@
     </body>
     </html>
     <script>
+	
+	           $(document).ready(function() {
+ $("#data-table").DataTable();
+    });
+	
 	$('#form_validation').on('click', '#delete_box', function(e) {
 	    e.preventDefault();
 	    //alert();

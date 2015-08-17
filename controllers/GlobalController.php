@@ -1355,7 +1355,7 @@ class GlobalController extends CI_Controller
 	    }
 	    
 	    $this -> load -> view('header');
-	    $this -> load -> view('userAdd');
+	    $this -> load -> view('sedarUserAdd');
 	}
 	public function sedarUserEdit($id)
 	{

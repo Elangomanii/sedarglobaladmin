@@ -29,9 +29,9 @@
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/ClientImage_Add'); ?>"" class="form-horizontal">
                     <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                         <div class="page-title">
-			      <div class="col-md-6" style="padding:10px">
+			      <div class="col-md-3" style="padding:10px">
                                 <label>Image Name</label>
-                                <input type="text" name="aboutClientTitle" id=""  class="form-control input-md" value="" placeholder="Image Name" />
+                                <input type="text" name="aboutClientTitle" id=""  class="form-control input-sm" value="" placeholder="Image Name" />
                             </div>
 			</div>
 		
@@ -53,11 +53,10 @@
                             </div>
                         </div>
                     </div>
-		      <div class="col-md-offset-3 col-md-6">
-				    <div class="form-group">
-					<label class="col col-4"></label>
+		      <div class="pager form-group">
+                             <div class="col-md-6 control-label">
 					<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-					<button class="btn btn-md btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
+					<!--<button class="btn btn-md btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>-->
 					<input type="submit" class="btn btn-md btn-success"  name="Save" id="submit_but" value="Save" >
 				    </div>
 				</div>

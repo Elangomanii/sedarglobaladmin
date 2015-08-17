@@ -30,19 +30,20 @@
 			
 			<legend>Choose the menu to change</legend>
 			    <div class="row">
-				<div class="col-md-6">
+				 <div class="col-md-4">
 				<div class="form-group">
-					<label class="col-md-3 control-label">Menu Title</label>
-				    <div class="col-md-9">
-					<input class="form-control" type="text" value="<?php echo $getmenunow[0]['menu'];?>" name="title" placeholder="Default input">
+					<label class="col-md-4">Menu Title</label>
+				    <div class="col-md-12">
+					<input class="form-control input-sm" type="text" value="<?php echo $getmenunow[0]['menu'];?>" name="title" placeholder="Default input">
 				    </div>
 				</div>
 				</div>
-				<div class="col-md-6">
+				 
+				 <div class="col-md-4">
 				<div class="form-group">
-					<label class="col-md-3 control-label">Menu Type</label>
-				    <div class="col-md-9">
-					<select class="form-control" name="type">
+					<label class="col-md-4">Menu Type</label>
+				    <div class="col-md-12">
+					<select class="form-control input-sm" name="type">
 					    <?php foreach ($getMenu as $row) {?>
 					    <option  <?php if($getmenunow[0]['menuType']==$row['menuType'] ) echo "selected"; ?> value="<?php echo $row['menuType'];?>"><?php echo $row['menuType'];?></option>
 					<?php } ?>
@@ -50,26 +51,25 @@
 				    </div>
 				</div>
 			    </div>
-			    </div>
-			     <div class="row">
-				<div class="col-md-6">
+
+			    
+			     <div class="col-md-4">
 				<div class="form-group">
-					<label class="col-md-3 control-label">Menu URL</label>
-				    <div class="col-md-9">
-					<input class="form-control" name="url" value="<?php echo $getmenunow[0]['menuLink'];?>" type="text" placeholder="Default input">
+					<label class="col-md-4">Menu URL</label>
+				    <div class="col-md-12">
+					<input class="form-control input-sm" name="url" value="<?php echo $getmenunow[0]['menuLink'];?>" type="text" placeholder="Default input">
 				    </div>
 				</div>
 				</div>
 			    </div>
 			
+	
 			
-			
-			<div class="col-md-offset-3 col-md-6">
-			    <div class="form-group">
-				<label class="col col-4"></label>
-				<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-				<button class="btn btn-md btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
-				<input type="submit" class="btn btn-md btn-success"  name="update" id="submit_but" value="Update" >
+			<div class="pager form-group">
+                             <div class="col-md-7 control-label">
+				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
+				<button class="btn btn-sm btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
+				<input type="submit" class="btn btn-sm btn-success"  name="update" id="submit_but" value="Update" >
 			    </div>
 			</div>
 		    </form>		    
@@ -91,3 +91,41 @@
 </html>
 
 
+<script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            title: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    }
+                }
+            },
+	     type: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            },
+	    url: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

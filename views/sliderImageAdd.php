@@ -36,20 +36,20 @@
 				    <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
 				    <input type="file" id="preview" name="image[]" onchange="attachment(this);" >
 					<p></p>
-				    <input type="text" class="form-control" name="sliderTitle[]" id="id" value="" placeholder="Slider Title">
+				    <input type="text" class="form-control input-sm" name="sliderTitle[]" id="id" value="" placeholder="Slider Title">
 				   <p></p>
-				    <input type="text" class="form-control" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title">
+				    <input type="text" class="form-control input-sm" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title">
 				  <p></p>
-				    <input type="text" class="form-control" name="sliderLink[]" id="id" value="" placeholder="Slider link">                                
+				    <input type="text" class="form-control input-sm" name="sliderLink[]" id="id" value="" placeholder="Slider link">
 				</div>
 			    </div>
 			</div>
 			<div class="col-md-offset-3 col-md-6">
 			    <div class="form-group">
 				<label class="col col-4"></label>
-				<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-				<button class="btn btn-md btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
-				<input type="submit" class="btn btn-md btn-success"  name="save" id="submit_but" value="Save" >
+				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
+				<button class="btn btn-sm btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
+				<input type="submit" class="btn btn-sm btn-success"  name="save" id="submit_but" value="Save" >
 			    </div>
 			</div>
 		    </form>		    
@@ -88,7 +88,7 @@
 	if (imageCount < 4)
 	{	
 	    //alert(imageCount);    
-	    $(' <div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><p></p><input type="text" class="form-control input-md" name="sliderTitle[]" id="id" value="" placeholder="Slider Title"><p></p><input type="text" class="form-control" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title"><p></p><input type="text" class="form-control" name="sliderLink[]" id="id" value="" placeholder="Slider link"> <div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a> </div>	').appendTo("#gallery");	
+	    $(' <div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><p></p><input type="text" class="form-control input-sm" name="sliderTitle[]" id="id" value="" placeholder="Slider Title"><p></p><input type="text" class="form-control input-sm" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title"><p></p><div class="row"><div class="col-md-12"><div class="input-group"><input type="text" class="form-control input-sm" name="sliderLink[]" id="id" value="" placeholder="Slider link"><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div> </div>').appendTo("#gallery");	
 	    attachments();
 	    imageCount ++;
 	}else

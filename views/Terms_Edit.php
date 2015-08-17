@@ -31,34 +31,43 @@
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Terms_Edit/'.$Terms[0]['id']); ?>" class="form-horizontal form12">
 		 <legend>Choose the Categories to change</legend>
 		 <div class="row">
-		    <div class="col-md-7">
-				 <div class="col-md-12">
-			     <h3 class="m-t-0">Terms Title</h3>
-				 </div>
+		    <div class="col-md-5">
+				<div class="form-group">
+			     <label class="col-md-4">Terms Title</label>
+				 
 				<div class="col-md-12">
-				    <input type="text" name="title" id="aboutTitle"  class="form-control input-lg" value="<?php echo $Terms[0]['title']?>" placeholder="Overview Title" />
+				    <input type="text" name="title" id="aboutTitle"  class="form-control input-sm" value="<?php echo $Terms[0]['title']?>" placeholder="Overview Title" />
 				</div>
+				</div>
+		    </div>
+		 </div>
 				
-				 <div class="col-md-12">
-			     <h3 class="m-t-0">Terms link</h3>
-				 </div>
+			<div class="row">
+		    <div class="col-md-5">
+				<div class="form-group">
+			     <label class="col-md-4">Terms link</label>
+				
 				<div class="col-md-12">
-				    <input type="text" name="linkTitle" id="aboutTitle"  class="form-control input-lg" value="<?php echo $Terms[0]['linkTitle']?>" placeholder="Overview Title" />
+				    <input type="text" name="linkTitle" id="aboutTitle"  class="form-control input-sm" value="<?php echo $Terms[0]['linkTitle']?>" placeholder="Overview Title" />
 				</div>					
-				
+				</div>
+		    </div>
+			</div>
 
-			    <div class="col-md-12">
-				 <p></p>
-			    <h4 class="m-t-0">Terms Description</h4>
-			    </div>
+			    <div class="row">
+		    <div class="col-md-5">
+				<div class="form-group">
+			    <label class="col-md-4">Terms Description</label>
+		
 				<div class="col-md-12">
 				<textarea id="aboutDescription" name="description" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"><?php echo $Terms[0]['description']?> </textarea>
 				</div>
 		    </div>
 		</div>
+			    </div>
 			   
 			<div class="pager form-group">
-                             <div class="col-md-6 control-label">
+                             <div class="col-md-7 control-label">
 				<input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Update" id="submit" value="Update" >
                                 <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
                                 
@@ -84,16 +93,37 @@
 </body>
 </html>
 
-<!--
+
 <script>
-    $(function(){
-	
-	<?//php $data =$this->session->userdata('ServiceEdit');
-	
-	if(//$data!="Y"){?>
-	$("#form_validation input").prop("disabled", true);
-	<?//php }?>
-	});
-</script>-->
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            title: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    }
+                }
+            },
+	    linkTitle: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
 
  

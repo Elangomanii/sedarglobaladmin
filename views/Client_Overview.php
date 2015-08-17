@@ -30,29 +30,38 @@
 		<div class="panel-body" id="form_validation">
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Client_Overview/'.$Client[0]['id']); ?>" class="form-horizontal form12">
-		 <legend>Choose the Categories to change</legend>
+		 <legend>CHOOSE OPTION FOR CHANGE CLIENT OPERATION</legend>
 		 <div class="row">
-		    <div class="col-md-7">
-				 <div class="col-md-12">
-			     <h4 class="m-t-0">Client Overview Title</h4>
-				 </div>
+		   <div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Client Overview Title</label>
 				<div class="col-md-12">
-				    <input type="text" name="title" id="Service_Title"  class="form-control input-lg" value="<?php echo $Client[0]['title']?>" placeholder="Overview Title" />
+				    <input type="text" name="title" id="Service_Title"  class="form-control input-sm" value="<?php echo $Client[0]['title']?>" placeholder="Overview Title" />
 				</div>
+				</div>
+		   </div>
+		 </div>
 				
-			   <div class="col-md-12">
-			    <p></p>
-			    <h4 class="m-t-0">Client Overview Sub Title</h4>
-				</div>
+			   <div class="row">
+		   <div class="col-md-6">
+				<div class="form-group">
+			    <label class="col-md-6">Client Overview Sub Title</label>
+			
 				<div class="col-md-12">
-				    <input type="text" name="subtitle" id="Service_Sub_Title" class="form-control input-lg"  value="<?php echo $Client[0]['subtitle']?>" placeholder="Overview Sub Title" />
+				    <input type="text" name="subtitle" id="Service_Sub_Title" class="form-control input-sm"  value="<?php echo $Client[0]['subtitle']?>" placeholder="Overview Sub Title" />
 				</div>
-			    <div class="col-md-12">
-				 <p></p>
-			    <h4 class="m-t-0">Description</h4>
-			    </div>
+				</div>
+		   </div>
+			   </div>
+				
+			    <div class="row">
+		   <div class="col-md-6">
+				<div class="form-group">
+			    <label class="col-md-6">Description</label>
+			
 				<div class="col-md-12">
 				<textarea id="Service_Content" name="description" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"><?php echo $Client[0]['description']?> </textarea>
+				</div>
 				</div>
 		    </div>
 		</div>
@@ -97,3 +106,34 @@
 </script>
 -->
  
+ <script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            title: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The description is required'
+                    }
+                }
+            },
+	     subtitle: {
+                validators: {
+                    notEmpty: {
+                        message: 'The description is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

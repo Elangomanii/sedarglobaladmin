@@ -40,77 +40,85 @@
 				   ?>
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/BrandsNew_Edit/'.$row['id']); ?>" class="form-horizontal form12">
-		 <legend>Add The Content</legend>
+		<legend>EDIT CONTENT FOR CHANGE</legend>
 		 <div class="row">
-		    <div class="col-md-7">
-				 <div class="col-md-12">
-			     <h4 class="m-t-0">Brand Title</h4>
-				 </div>
+		     <div class="col-md-5">
+				<div class="form-group">
+			    <label class="col-md-5">Brand Title</label>
+			
 				<div class="col-md-12">
-				    <input type="text" name="name" id="name"  class="form-control input-lg" value="<?php echo $row['name'];?>" placeholder="Brand Title" />
+				    <input type="text" name="name" id="name"  class="form-control input-sm" value="<?php echo $row['name'];?>" placeholder="Brand Title" />
 				</div>
+			    </div>
+		     </div>
+		 </div>
 				
-				 <div class="col-md-12">
-			     <h4 class="m-t-0">Brand Title link</h4>
-				 </div>
+				<div class="row">
+		     <div class="col-md-5">
+				<div class="form-group">
+			     <label class="col-md-5">Brand Title link</label>
+				
 				<div class="col-md-12">
-				    <input type="text" name="linkTitle" id="link_name"  class="form-control input-lg" value="<?php echo $row['linkTitle'];?>" placeholder="Brand Title" />
-				</div>				
+				    <input type="text" name="linkTitle" id="link_name"  class="form-control input-sm" value="<?php echo $row['linkTitle'];?>" placeholder="Brand Title" />
+				</div>
+				</div>
+		     </div>
+				</div>
 				
 			 
 				
-			    <div class="col-md-12">
-				 <p></p>
-			    <h4 class="m-t-0">Description</h4>
-			    </div>
+			   <div class="row">
+		     <div class="col-md-5">
+				<div class="form-group">
+			    <label class="col-md-5">Description</label>
+			   
 				<div class="col-md-12" style="padding:10px">
 				<textarea id="desc" name="desc" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"><?php echo $row['desc']; ?> </textarea>
 				</div>
-                                <h4 class="m-t-0">Name Image</h4>
+				</div>
+		     </div>
+			   </div>
+			   
+			   
+			   <div class="row">
+			<div class="col-md-3">
+			    <div class="form-group">
+                                <label class="col-md-5">Name Image</label>
                               <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                                 <div class="col-md-12" id="gallery">
                                    
-                                    <div class="col-md-4 col-sm-4 col-xs-12 ImageView AdjustPadding" style="padding-bottom:20px;"  >
+                                    <div class="ImageView AdjustPadding" style="padding-bottom:20px;"  >
                                         <img src="<?php echo site_url('uploads/'.$row['nameImage']);?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px; width: 200px;" >
                                         <input type="file" id="preview" name="image" class="col-md-12 "onchange="attachment(this);" >
                                               <input type="hidden" name="getimage" value="<?php echo $row['nameImage']?>">
-                                            <!--<div class="input-group" style="padding:10px;">
-                                            <span class="input-group-btn">
-                                            <span class="btn btn-primary btn-file">
-                                            Browse<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-                                            </span>
-                                    </span>
-                                    <input type="text" id="" name="userfile1[]" value="" placeholder="" class="form-control" readonly>
-                                        </div>-->
                             </div>
                         </div>
                     </div>
-                               <h4 class="m-t-0">Brand Image</h4>
+			    </div>
+			</div>
+			    
+			    
+			     <div class="col-md-3">
+			    <div class="form-group">
+                               <label class="col-md-5">Brand Image</label>
                               <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                                 <div class="col-md-12" id="gallery1">
                                    
-                                    <div class="col-md-4 col-sm-4 col-xs-12 ImageViews AdjustPadding" style="padding-bottom:20px;"  >
+                                    <div class="ImageViews AdjustPadding" style="padding-bottom:20px;"  >
                                         <img src="<?php echo site_url('uploads/'.$row['brandImage']);?>" class="col-md-12 previewsimage " id="dummy1" style="height: 185px; width: 200px;" >
                                         <input type="file" id="previews" name="imagename" class="col-md-12 "onchange="attachments(this);" >
                                            <input type="hidden" name="getimage1" value="<?php echo $row['brandImage']?>">
-                                            <!--<div class="input-group" style="padding:10px;">
-                                            <span class="input-group-btn">
-                                            <span class="btn btn-primary btn-file">
-                                            Browse<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-                                            </span>
-                                    </span>
-                                    <input type="text" id="" name="userfile1[]" value="" placeholder="" class="form-control" readonly>
-                                        </div>-->
                             </div>
                         </div>
                     </div>
 		    </div>
 		</div>
+			   </div>
 			   
 			<div class="pager form-group">
-                             <div class="col-md-6 control-label">
-				<button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
-                                <input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Update" id="submit" value="Update" >
+                             <div class="col-md-7 control-label">
+				<button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+                                <input type="submit" class="btn btn-md btn-success" name="Update" id="submit" value="Update" >
                              </div>
 			</div>
 			</form>

@@ -38,9 +38,9 @@
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/ClientImage_Edit/'.$row['id']); ?>"" class="form-horizontal">
                     <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                         <div class="page-title">
-			      <div class="col-md-6" style="padding:10px">
+			      <div class="col-md-3" style="padding:10px">
                                 <label>Image Name</label>
-                                <input type="text" name="aboutClientTitle" id=""  class="form-control input-md" value="<?php echo $row['aboutClientTitle']?>" placeholder="Image Name" />
+                                <input type="text" name="aboutClientTitle" id=""  class="form-control input-sm" value="<?php echo $row['aboutClientTitle']?>" placeholder="Image Name" />
                             </div>
 			</div>
 		
@@ -67,9 +67,8 @@
                             </div><?php } ?>
                         </div>
                     </div>
-		      <div class="col-md-offset-3 col-md-6">
-				    <div class="form-group">
-					<label class="col col-4"></label>
+		      <div class="pager form-group">
+                             <div class="col-md-6 control-label">
 					<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
 					
 					<input type="submit" class="btn btn-md btn-success"  name="Update" id="submit_but" value="Update" >

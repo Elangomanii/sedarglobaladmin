@@ -26,23 +26,29 @@
                 <div class="panel-body" >
 		    <?php foreach ($user as $row){}?>
                     <form action="<?php echo base_url('GlobalController/sedarUserEdit/'.$row['id']); ?>" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">                   
-                        <legend>User Details</legend>
+                        <legend>USER DETAILS</legend>
                         <div class="row">			   
-                            <div class="col-md-4">
-                                <h4 class="m-t-0">Name</h4>
-                                <input class="form-control input-md" name="sedarName" value="<?php echo $row['username'];?>" type="text" placeholder="Name">
-                                <p></p>
+                           <div class="col-md-4">
+				<div class="form-group">
+                                <label class="col-md-4">Name</label>
+				<div class="col-md-12">
+                                <input class="form-control input-sm" name="sedarName" value="<?php echo $row['username'];?>" type="text" placeholder="Name">
+				</div>
+				</div>
+			   </div>
                                 
-                                <h4 class="m-t-0">Email</h4>
-                                <input class="form-control input-md" name="sedarEmail" value="<?php echo $row['email'];?>" type="text" placeholder="Email">
-                                <p></p>
-				
-                            </div>                                        
+				<div class="col-md-4">
+				<div class="form-group">
+                                <label class="col-md-4">Email</label>
+				<div class="col-md-12">
+                                <input class="form-control input-sm" name="sedarEmail" value="<?php echo $row['email'];?>" type="text" placeholder="Email">
+				</div>
+				</div>
+				</div>
                         </div>
                                   
-                        <div class="col-md-offset-3 col-md-6">
-                            <div class="form-group">
-                                <label class="col col-4"></label>
+                       <div class="pager form-group">
+                             <div class="col-md-7 control-label">
                                 <button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
                                 <button class="btn btn-sm btn-info" id="clear_data" disabled  type="button"> Reset </button>
                                 <button type="submit" class="btn btn-sm btn-success" name="submit_form" id="submit_but" value="update" >Update</button>
@@ -61,3 +67,43 @@
 <!-- end page container -->
 </body>
 </html>
+
+<script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            sedarName: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    }
+                }
+            },
+            sedarEmail: {
+
+                validators: {
+                     emailAddress: {
+                        message: 'The value is not a valid email address'
+                    }
+                }
+            },
+	     sedarPassword: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

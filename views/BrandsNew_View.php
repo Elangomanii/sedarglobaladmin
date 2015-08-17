@@ -118,7 +118,7 @@
     }
 </style>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui-1.10.4.custom.min.js"></script>
-<!--<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dragscript.js"></script>-->
+
 <script>
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
@@ -132,6 +132,9 @@ $('#form_validation').on('click', '#delete_box', function(e) {
  });
 </script>
 <script>
+    
+
+    
 $(function() {
     $('#sortable').sortable({
         axis: 'y',
@@ -167,7 +170,10 @@ $('#form_validation').on('click', '[name="status[]"]', function()
 	var brandsId=$(this).val();
 	
 
-})
+});
    //*******ON / OFF Status
+
+   
+
 
   </script>

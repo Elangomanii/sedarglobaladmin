@@ -49,11 +49,11 @@
 					<input type="text" value="<?php //echo $common[$i];?>" class="form-control" readonly>
 				    </div>	-->
 				    <p></p>
-				    <input type="text" class="form-control" name="sliderTitle" id="id" value="<?php echo $getslideredit[0]['SliderTitle']; ?>" placeholder="Slider Title">
+				    <input type="text" class="form-control input-sm" name="sliderTitle" id="id" value="<?php echo $getslideredit[0]['SliderTitle']; ?>" placeholder="Slider Title">
 				   <p></p>
-				    <input type="text" class="form-control" name="subTitle" id="id" value="<?php echo $getslideredit[0]['SliderDescription']; ?>" placeholder="Slider Sub Title">
+				    <input type="text" class="form-control input-sm" name="subTitle" id="id" value="<?php echo $getslideredit[0]['SliderDescription']; ?>" placeholder="Slider Sub Title">
 				  <p></p>
-				    <input type="text" class="form-control" name="sliderLink" id="id" value="<?php echo $getslideredit[0]['SliderLink']; ?>" placeholder="Slider link">                                
+				    <input type="text" class="form-control input-sm" name="sliderLink" id="id" value="<?php echo $getslideredit[0]['SliderLink']; ?>" placeholder="Slider link">                                
 				</div>
 				<?php //}?>
 			    </div>
@@ -108,7 +108,7 @@
 	{	
 	    //alert(imageCount);    
 	    //$('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><div class="input-group"><span class="input-group-btn"><span class="btn btn-primary btn-file">Browse&hellip; <input type="file" id="preview" name="image[]" onchange="attachment(this);"></span></span><input type="text" class="form-control" readonly></div><p></p><input type="text" class="form-control input-md" name="sliderTitle[]" id="id" value="" placeholder="Slider Title"><p></p><input type="text" class="form-control" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title"><p></p><input type="text" class="form-control" name="sliderLink[]" id="id" value="" placeholder="Slider link"> <div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a> </div>').appendTo("#gallery");	
-	    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><p></p><input type="text" class="form-control input-md" name="sliderTitle" id="id" value="" placeholder="Slider Title"><p></p><input type="text" class="form-control" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title"><p></p><input type="text" class="form-control" name="sliderLink[]" id="id" value="" placeholder="Slider link"> <div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a> </div>	').appendTo("#gallery");	
+	    $(' <div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><p></p><input type="text" class="form-control input-sm" name="sliderTitle[]" id="id" value="" placeholder="Slider Title"><p></p><input type="text" class="form-control input-sm" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title"><p></p><div class="row"><div class="col-md-12"><div class="input-group"><input type="text" class="form-control input-sm" name="sliderLink[]" id="id" value="" placeholder="Slider link"><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div> </div>').appendTo("#gallery");	
 	    attachments();
 	    imageCount ++;
 	}else

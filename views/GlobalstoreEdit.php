@@ -221,11 +221,6 @@
 				</div>
 			    </div>
 			</div>-->
-	
-		     </div>
-                    
-		    <p></p>
-                    <p></p>
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
                                 <button  class="btn btn-success m-r-5 m-b-5" type="submit" name="update" >update</button>
@@ -243,7 +238,7 @@
     </div>
     <!-- end row -->
 	</div>
-	<!-- end #content -->
+
 	
 	<!-- begin scroll to top btn -->
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -255,7 +250,7 @@
 
 <script>
     $(document).ready(function () {
-	
+
 	getState(statecode);
 	getcity(citycode);
 

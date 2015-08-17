@@ -5,11 +5,11 @@
 		<ol class="breadcrumb pull-right">
 		    
 		    <li><a href="javascript:;">Contact</a></li>
-		    <li class="active">Contact Page</li>
+		    <li class="active">Contact info</li>
 		</ol>
 		<!-- end breadcrumb -->
 		<!-- begin page-header -->
-		<h1 class="page-header">View<small> You may view details here...</small></h1>
+		<h1 class="page-header">View<small> Your contact details here...</small></h1>
 		<!-- end page-header -->
 		
 		<!-- begin row -->
@@ -29,33 +29,40 @@
 		<div class="panel-body" id="form_validation">
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/contact/'.$contact[0]['id']); ?>" class="form-horizontal form12">
-		 <legend>Choose the Categories to change</legend>
-		 <div class="row">
-		    <div class="col-md-7">
+		 <legend>CHOOSE OPTION FOR CHANGE ..</legend>
+<div class="row">
+			    <div class="col-md-6">
+				<div class="form-group">
+				<label class="col-md-6">Contact Title</label>
 				 <div class="col-md-12">
-			     <h4 class="m-t-0">Contact Title</h4>
-				 </div>
-				<div class="col-md-12">
-				    <input type="text" name="contactTitle" id="contactTitle"  class="form-control input-lg" value="<?php echo $contact[0]['contactTitle']?>" placeholder="Contact Title" />
+				    <input type="text" name="contactTitle" id="contactTitle"  class="form-control input-sm" value="<?php echo $contact[0]['contactTitle']?>" placeholder="Contact Title" />
 				</div>
-				 <div class="col-md-12">
-			     <h4 class="m-t-0">Contact Sub Title</h4>
 				 </div>
-				<div class="col-md-12">
-				    <input type="text" name="contactSubTitle" id="contactTitle"  class="form-control input-lg" value="<?php echo $contact[0]['contactSubTitle']?>" placeholder="Contact Sub Title" />
 				</div>
-			    <div class="col-md-12">
-				 <p></p>
-			    <h4 class="m-t-0">Description</h4>
+			    
 			    </div>
+<div class="row">
+				<div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Contact Sub Title</label>
+				 <div class="col-md-12">
+				    <input type="text" name="contactSubTitle" id="contactTitle"  class="form-control input-sm" value="<?php echo $contact[0]['contactSubTitle']?>" placeholder="Contact Sub Title" />
+				</div>
+				</div>
+				</div>
+</div>
+<div class="row">
+			   <div class="col-md-6">
+				<div class="form-group">
+			    <label class="col-md-6">Description</label>
 				<div class="col-md-12">
 				<textarea id="Service_Content" name="description" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"><?php echo $contact[0]['description']?> </textarea>
 				</div>
-		    </div>
-		</div>
-			   
+				</div>
+				</div>
+</div>
 			<div class="pager form-group">
-                             <div class="col-md-6 control-label">
+                             <div class="col-md-7 control-label">
 				<input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Save" id="submit" value="Save" >
                                 <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
                                 
@@ -82,7 +89,37 @@
 </body>
 </html>
 
+<script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            contactTitle: {
 
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    }
+                }
+            },
+	     contactSubTitle: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
 
 
  
