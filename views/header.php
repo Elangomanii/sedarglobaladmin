@@ -316,14 +316,13 @@
 		    </a>		    
 		</li>
 		
-		<!--<li class="has-sub " id="page8">
-		    <a href="javascript;">
+		<li class="has-sub" id="page8">
+		    <a href="<?php echo base_url(); ?>GlobalController/FranchisingOpportunities_View">
 			
-			<i class="fa fa-suitcase text-warning"></i> 
-			<span>Explore Brands</span>
-		    </a>
-		    
-		</li>-->
+			<i class="fa fa-align-left text-warning"></i> 
+			<span>FranchisingOpportunities</span>
+		    </a>		    
+		</li>
 		
 		
 		
