@@ -51,7 +51,7 @@
 			    <tr class="even gradeC">
 				<td><?php echo $row['brandId'];?></td>					    
 				<td><?php echo $row['productName'];?></td>
-                                <td><?php echo $row['productDescription'];?></td>
+                                <td><?php echo mb_strimwidth($row['productDescription'],0,80,"...");?></td>
                                 <td><?php echo $row['motor'];?></td>
 				
 				<td>
@@ -85,6 +85,12 @@
 </html>
 
 <script>
+    
+        $(document).ready(function() {
+ $("#data-table").DataTable();
+    });
+    
+    
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
          var link = $(this).attr('href');

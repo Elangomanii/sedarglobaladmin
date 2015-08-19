@@ -26,7 +26,7 @@
 		    </div>
 		    <h4 class="panel-title"> Brands </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body" >
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/BrandsNew_Add'); ?>" class="form-horizontal form12">
 		 <legend>ADD CONTENT FOR CHANGE</legend>
@@ -159,11 +159,6 @@ function attachments()
 	});
     }
 
-//scrpit for previous and next button start
-    $(document).ready(function() {
-      	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-    });
-//script for precvious and next button end
 </script>
   <script>
     function attachmentss($this) {
@@ -186,43 +181,39 @@ function attachmentsss()
 	});
     }
 
-//scrpit for previous and next button start
-    $(document).ready(function() {
-      	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-    });
-//script for precvious and next button end
+
 </script>
-<!--<script>
-function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" >  <input type="file" id="preview" name="image" class="col-md-12 "onchange="attachment(this);" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");
-	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");
-	    attachments();
-	    }
-	    </script>
-<script>
-function addImage1(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViews " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewsimage" id="dummy2" style="height: 185px;" >  <input type="file" id="previews" name="imagename" class="col-md-12 "onchange="attachment(this);" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery1");
-	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");
-	    attachmentsss();
-	    }
-	    </script>-->
-<!--<script type="text/javascript">
- $(document).ready(function() {
-   
-         $('#form_validation').on('change', '[name="image[]"]', function() {
-      
-      var $row=$(this).parents(".odd_file");  
-      var imgpath=$(this).val();
-      if (!imgpath==""){
-        var img=this.files[0].size;
-  var name=this.files[0].name;
- 
- $row.find("input[name='filesize[]']").val(img);
- $row.find("input[name='userfile1[]']").val(name);
- 
-      
-      }
+
+  <script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            name: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The brand id is required'
+                    }
+                }
+            },
+            linkTitle: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The product category is required'
+                    }
+                }
+            }
+        }
     });
- });
-</script>-->
+});
+</script>
  

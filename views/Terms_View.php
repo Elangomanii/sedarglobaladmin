@@ -45,7 +45,7 @@
 			     <?php foreach($Terms as $row){?>
 			    <tr class="even gradeC">
 				<td><?php echo $row['title']; ?></td>					    
-				<td><?php echo $row['description']; ?></td>	
+				<td><?php echo mb_strimwidth($row['description'],0,80,"..."); ?></td>	
 				<td>
                                     <a href="<?php echo site_url('GlobalController/Terms_Edit/'.$row['id'])?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
                                     <a href="<?php echo site_url('GlobalController/Terms_Delete/'.$row['id'])?>" class="btn btn-xs btn-danger" id="delete_box"><i class="fa  fa-trash-o"></i> </a>

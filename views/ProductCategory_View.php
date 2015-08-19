@@ -37,7 +37,7 @@
 				<!--<th>Drag Here</th>-->
 				<th>Name</th>
 				<th>Image</th>
-				<!--<th>Position</th>-->
+				<th>Status</th>
 				<th>Action</th>
 			        
 			    </tr>
@@ -114,6 +114,11 @@
     }
 </style>
 <script>
+    
+        $(document).ready(function() {
+ $("#data-table").DataTable();
+    });
+	
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
 
@@ -131,7 +136,7 @@ $(function() {
     $('#sortable').sortable({
         axis: 'y',
         opacity: 0.7,
-        handle: 'span',
+        handle: 'td',
         update: function(event, ui) {
             var list_sortable = $(this).sortable('toArray').toString();
     		//alert(list_sortable);
@@ -154,10 +159,10 @@ $(function() {
 
 </script>
 <script>
-    $(document).ready(function() {
-     $("#dataRespTable").DataTable();
-   
-  });
+  //  $(document).ready(function() {
+  //   $("#dataRespTable").DataTable();
+  // 
+  //});
 //********ON / OFF Status
     $('#form_validation').on('click', '[name="status[]"]', function()
 	{

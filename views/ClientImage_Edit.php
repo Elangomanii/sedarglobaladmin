@@ -55,15 +55,6 @@
                                 <img src="<?php echo site_url('uploads/'.$clientImage[$i]);?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
                               <input type="hidden" name="oldimage[]" value="<?php echo $clientImage[$i]?>">
 			        <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-                                <!--<div class="input-group" style="padding:10px;">
-				<span class="input-group-btn">
-				<span class="btn btn-primary btn-file">
-				Browse<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-				 <input type="hidden" name="oldimage[]" value="">
-				</span>
-				</span>
-				<input type="text" id="" name="userfile1[]" value="" placeholder="" class="form-control" readonly>
-			       </div>-->
                             </div><?php } ?>
                         </div>
                     </div>
@@ -132,22 +123,3 @@ function addImage(){
 	    attachments();
 	    }
 	    </script>
-<!--<script type="text/javascript">
- $(document).ready(function() {
-   
-         $('#form_validation').on('change', '[name="image[]"]', function() {
-      
-      var $row=$(this).parents(".odd_file");  
-      var imgpath=$(this).val();
-      if (!imgpath==""){
-        var img=this.files[0].size;
-  var name=this.files[0].name;
-        //var imgsize=img/1024;
- $row.find("input[name='filesize[]']").val(img);
- $row.find("input[name='userfile1[]']").val(name);
- 
-      
-      }
-    });
- });
-</script>-->

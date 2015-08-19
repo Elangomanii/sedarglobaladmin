@@ -108,6 +108,7 @@
 </html>
 
 <script>
+    
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
          var link = $(this).attr('href');
@@ -119,10 +120,9 @@ $('#form_validation').on('click', '#delete_box', function(e) {
  });
 </script>
 <script>
-    
-   $(document).ready(function() {
-	$("#dataRespTable").DataTable();
-    });
+	    $(document).ready(function() {
+     $("#data-table").DataTable();
+	});
    
    //********ON / OFF Status
 $('#form_validation').on('click', '[name="status[]"]', function()

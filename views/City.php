@@ -1,9 +1,6 @@
 	<!-- begin #content -->
 <?php
-	//print"<pre>";
-	//print_r($getSlider);
-	//print"<pre>";
-	//exit;
+
 	?>
 	<div id="content" class="content">
 		<!-- begin breadcrumb -->
@@ -88,6 +85,11 @@
 </html>
 
 <script>
+    
+        	    $(document).ready(function() {
+     $("#data-table").DataTable();
+	});
+    
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
          var link = $(this).attr('href');

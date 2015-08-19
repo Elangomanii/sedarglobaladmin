@@ -35,28 +35,49 @@
                   <legend>Add GeoLocation as your wish</legend>
                     <div class="row">
                         
-                         <div class="col-md-6">
-                            <h5 class="m-t-0">City Name</h5>
+			    <div class="col-md-6">
+			       <div class="form-group">
+                            <label class="col-md-5"> City Name</label>
+			     <div class="col-md-12">
                             <input class="form-control input-sm" name="CityName" type="text" value="<?php //echo $getStory[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
+			    </div>
+			 </div>
+			    
 			 <div class="col-md-6">
-                            <h5 class="m-t-0">City Code</h5>
+			    <div class="form-group">
+                            <label class="col-md-5">City Code</label>
+			     <div class="col-md-12">
                             <input class="form-control input-sm" name="CityCode" type="text" value="<?php //echo $getStory[0]['longitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
+			    </div>
+			 </div>
+		    </div>
+			    
+			    <div class="row">
 			 <div class="col-md-6">
-                            <h5 class="m-t-0">State Code</h5>
+			    <div class="form-group">
+                            <label class="col-md-5">State Code</label>
+			     <div class="col-md-12">
                             <input class="form-control input-sm" name="StateCode" type="text" value="<?php //echo $getStory[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
+			    </div>
+			 </div>
+			     
 			  <div class="col-md-6">
-                            <h5 class="m-t-0">Country Code</h5>
+			    <div class="form-group">
+                            <label class="col-md-5">Country Code</label>
+			     <div class="col-md-12">
                             <input class="form-control input-sm" name="countryCode" type="text" value="<?php //echo $getStory[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 		    </div>
+			  </div>
+			    </div>
 
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <button  class="btn btn-success m-r-5 m-b-5" type="submit" name="save" >Save</button>
-                                <button  class="btn btn-default m-r-5 m-b-5" onclick="window.history.back();" type="button">Cancel</button>
+                                <button  class="btn btn-success" type="submit" name="save" >Save</button>
+                                <button  class="btn btn-default" onclick="window.history.back();" type="button">Cancel</button>
                              </div>
                              
                          </div>
@@ -111,4 +132,50 @@ $('.getter').val(imgval);
     
 </script>
 
- 
+   <script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            CityName: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The country name is required'
+                    }
+                }
+            },
+	    CityCode: {
+                validators: {
+                    notEmpty: {
+                        message: 'The country code is required'
+                    }
+                }
+            },
+	     StateCode: {
+                validators: {
+                    notEmpty: {
+                        message: 'The latitude is required'
+                    }
+                }
+            },
+	    
+	     countryCode: {
+                validators: {
+                    notEmpty: {
+                        message: 'The latitude is required'
+                    }
+                }
+            }
+	    
+        }
+    });
+});
+</script>

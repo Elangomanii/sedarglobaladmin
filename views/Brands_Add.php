@@ -26,7 +26,7 @@
 		    </div>
 		    <h4 class="panel-title">Explore Brands </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body">
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Brands_Add'); ?>" class="form-horizontal form12">
 		 <legend>Add The Content</legend>

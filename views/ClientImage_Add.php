@@ -41,15 +41,6 @@
                                 
                                 <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
                                 <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-                      <!--<div class="input-group" style="padding:10px;">
-					<span class="input-group-btn">
-					<span class="btn btn-primary btn-file">
-					Browse<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-					
-					</span>
-					</span>
-					<input type="text" id="" name="userfile1[]" value="" placeholder="" class="form-control" readonly>
-			       </div>-->
                             </div>
                         </div>
                     </div>

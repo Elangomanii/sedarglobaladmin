@@ -26,7 +26,7 @@
 		    </div>
 		    <h4 class="panel-title">Explore Brands</h4>
 		</div>
-		<div class="panel-body" id="">
+		<div class="panel-body">
 		 <?php
 		    foreach($BrandsEdit as $row)
 				    $BrandsEdit= $row['bName'];

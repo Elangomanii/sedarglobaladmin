@@ -157,7 +157,6 @@
                                 <input type="text" name="description" class="form-control input-md" value="<?php echo $getStory[0]['description']?>" placeholder="Image Name" />
                             </div>
 				</div>
-                            <!--<button type="button" class="pull-right btn btn-primary" onclick="addImage()"><i class="fa  fa-plus"></i></button>-->
 			</div>
 		    </div>
 			 <div class="row">
@@ -178,49 +177,6 @@
                              <?php } ?>
                         </div>
                     </div>
-			<!--<div class="col-md-4">
-			    <input class="form-control input-sm" name="imgdesciption" value="<?php //echo $getStory[0]['image description']?>" type="text" placeholder="image description">
-				<p></p>
-			    <p>
-				<img class="media-object superbox-img previewimage" id="show_image" name="show_image" src="<?php //echo base_url('assets/img/'.$getStory[0]['image']); ?>" >
-			    </p>
-			    <div role="form">
-				<input type="hidden" value="<?php //echo $data['slider_image_1'];?>" name="old_slider_image_1"/>
-				<input id="storyimage" class="filestyle" type="file" name='image' onchange="PreviewImage();" data-buttonbefore="true" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" tabindex="-1">
-				<div class="bootstrap-filestyle input-group">
-				    <span class="group-span-filestyle input-group-btn" tabindex="0">
-					<label id="new" class="btn btn-default" for="storyimage">
-					    <span class="glyphicon glyphicon-folder-open"></span>
-					    Choose file
-					</label>
-				    </span>
-				    <input class="form-control" id="storyimage-1"  value="<?php //echo $getStory[0]['slider_image_1']; ?>" type="text" readonly>
-				</div>
-			    </div>
-			</div>-->
-			<!--<div id="shower"></div>-->
-			<!--<div class="col-md-4 hide" id="shoeee">
-			    <input class="form-control input-sm" name="about_subtitle_1" value="<?php //echo $getStory[0]['image description']?>" type="text" placeholder="image description">
-				<p></p>
-			    <p>
-				<img class="media-object superbox-img previewimage" id="show_image2" name="show_image" src="<?php //echo base_url('assets/img/'.$getStory[0]['image']); ?>" >
-			    </p>
-			    <div role="form">
-				<input type="hidden" value="<?php //echo $data['slider_image_1'];?>" name="old_slider_image_1"/>
-				<input id="storyimage2" class="filestyle" type="file" name='image' onchange="PreviewImage2();" data-buttonbefore="true" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" tabindex="-1">
-				<div class="bootstrap-filestyle input-group">
-				    <span class="group-span-filestyle input-group-btn" tabindex="0">
-					<label id="new" class="btn btn-default" for="storyimage2">
-					    <span class="glyphicon glyphicon-folder-open"></span>
-					    Choose file
-					</label>
-				    </span>
-				    <span class="col-md-10">
-				    <input class="form-control" id="storyimage-2"  value="<?php //echo $getStory[0]['slider_image_1']; ?>" type="text" readonly>
-				</span><button type="button" id="remover" onclick="reeee($(this))" class="pull-right btn btn-danger"><i class="fa  fa-plus"></i></button>
-				</div>
-			    </div>
-			</div>-->
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
                                 <button  class="btn btn-success m-r-5 m-b-5" type="submit" name="update" >update</button>
@@ -341,7 +297,7 @@ function attachments()
     }
     
     function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><p></p><input type="text" class="form-control input-md" name="sliderTitle[]" id="id" value="" placeholder="Slider Title"><p></p><input type="text" class="form-control" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title"><p></p><input type="text" class="form-control" name="sliderLink[]" id="id" value="" placeholder="Slider link"> <div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a> </div>	').appendTo("#gallery");	
+     $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div>	').appendTo("#gallery");	
     attachments();
     }
     

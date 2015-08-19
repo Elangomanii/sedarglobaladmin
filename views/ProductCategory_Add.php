@@ -98,7 +98,7 @@ $(document).ready(function() {
             validating: 'fa fa-refresh'
         },
         fields: {
-            name: {
+            name	: {
 
                 validators: {
                     notEmpty: {

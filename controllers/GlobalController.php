@@ -138,8 +138,12 @@ class GlobalController extends CI_Controller
     public function ProjectImage_Add()
     {
 	if(isset ($_POST["Save"])){
+	
+	$this->GlobalModel->Projectimage_Add();
 	   
-	    $this->GlobalModel->ProjectImage_Add();
+	   // print_r($get);
+	   //exit;
+	   
 	    redirect("GlobalController/Project_Image");
 	}
 	

@@ -34,10 +34,10 @@
 		    <table id="dataRespTable" class="table table-striped table-bordered nowrap" width="100%">
 		      <thead>
 			    <tr>
-				<!--<th>Drag Here</th>-->
+				<!--<th>ID</th>-->
 				<th>Image</th>
 				<!--<th>Position</th>-->
-				<!--<th>Description</th>-->
+				<th>Description</th>
 				<th>Status</th>
 				<th>Action</th>
 			        
@@ -46,7 +46,6 @@
 			<tbody class="handles list" id="sortable">
 			    <?php foreach($formData as $row){ ?>
 			    <tr class="odd" id="<?php echo $row['id'] ?>">
-			    <!--<td><span><i class="fa fa-refresh fa-5x"></span></td>-->
 				<td><span><?php echo $row['projectImage']; ?></span></td>
 				<!--<td><//?php echo $row['position']; ?></td>-->
 				<td><span><?php echo $row['projectImgTitle']; ?></span></td>	
@@ -112,6 +111,15 @@
 	    cursor: -webkit-grab; cursor: -moz-grab;
     }
 </style>
+
+
+<script>
+   $(document).ready(function() {
+	$("#dataRespTable").DataTable();
+   
+  });
+  </script>
+
 <script>
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
@@ -128,7 +136,7 @@ $(function() {
     $('#sortable').sortable({
         axis: 'y',
         opacity: 0.7,
-        handle: 'span',
+        handle: 'td',
         update: function(event, ui) {
             var list_sortable = $(this).sortable('toArray').toString();
     		//alert(list_sortable);
@@ -159,9 +167,4 @@ $('#form_validation').on('click', '[name="status[]"]', function()
 
 
 </script>
-<script>
-   $(document).ready(function() {
-	$("#dataRespTable").DataTable();
-   
-  });
-  </script>
+

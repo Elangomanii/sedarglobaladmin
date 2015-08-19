@@ -39,7 +39,7 @@
 				<div class="form-group">
 				    <label for="inputEmail" class="col-md-2">Country</label>
 					<div class="col-md-12">
-					<select class="form-control" id="country" name="country">
+					<select class="form-control input-sm" id="country" name="country">
 					<option>select Country</option>
 					<?php foreach ($country as $row) {?>
 					<option value="<?php echo $row['CountryCode']?>"><?php echo $row['CountryName']?></option>
@@ -53,7 +53,7 @@
 				<div class="form-group">
 			    <label for="inputEmail" class="col-md-2">State</label>
 			    <div class="col-md-12">
-			    <select class="form-control" id="state" name="state">
+			    <select class="form-control input-sm" id="state" name="state">
 				<option>select State</option>
 				<?php foreach ($state as $row) {?>
 				<option value="<?= $row['StateCode']?>"><?= $row['StateName']?></option>
@@ -67,7 +67,7 @@
 				<div class="form-group">
 			    <label for="inputEmail" class="col-md-2">City</label>
 			    <div class="col-md-12">
-			    <select class="form-control" id="city" name="city">
+			    <select class="form-control input-sm" id="city" name="city">
 				<option>select City</option>
 				<?php foreach ($city as $row) {?>
 				<option value="<?= $row['CityCode']?>"><?= $row['CityName']?></option>
@@ -140,80 +140,27 @@
 			 
 		     <legend>Click the imgage to add extra <button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
 		    <div class="row">
-		    <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
+		    <!--<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >-->
 			<div class="col-md-4">
 				<div class="form-group">
-                             <!--<div class="col-md-4" style="padding:10px; ">-->
                                 <label class="col-md-6">Image Name</label>
 				<div class="col-md-12">
-                                <input type="text" name="description" class="form-control input-md" value="" placeholder="Image Name" />
+                                <input type="text" name="description" class="form-control input-sm" value="" placeholder="Image Name" />
                             </div>
 				</div>
 			</div>
+		    </div>
                         <div class="col-md-12" id="gallery">
                             <div class="col-md-4 ImageViewer AdjustPadding" style="padding-bottom:20px;"  >
 				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
 				    <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-				<!--<div class="input-group">
-					<span class="input-group-btn">
-					    <span class="btn btn-primary btn-file">
-						Browse&hellip; <input type="file" id="preview" name="image[]" onchange="attachment(this);">
-					    </span>
-					</span>
-					<input type="text"  class="form-control" readonly>
-				    </div>-->
                             </div>
                         </div>
-                    </div>
-			<!--<div class="col-md-4">
-			    <input class="form-control input-sm" name="imgdesciption" value="<?php //echo $getStory[0]['image description']?>" type="text" placeholder="image description">
-				<p></p>
-			    <p>
-				<img class="media-object superbox-img previewimage" id="show_image" name="show_image" src="<?php //echo base_url('assets/img/'.$getStory[0]['image']); ?>" >
-			    </p>
-			    <div role="form">
-				<input type="hidden" value="<?php //echo $data['slider_image_1'];?>" name="old_slider_image_1"/>
-				<input id="storyimage" class="filestyle" type="file" name='image' onchange="PreviewImage();" data-buttonbefore="true" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" tabindex="-1">
-				<div class="bootstrap-filestyle input-group">
-				    <span class="group-span-filestyle input-group-btn" tabindex="0">
-					<label id="new" class="btn btn-default" for="storyimage">
-					    <span class="glyphicon glyphicon-folder-open"></span>
-					    Choose file
-					</label>
-				    </span>
-				    <input class="form-control" id="storyimage-1"  value="<?php //echo $getStory[0]['slider_image_1']; ?>" type="text" readonly>
-				</div>
-			    </div>
-			</div>-->
-			<!--<div id="shower"></div>-->
-			<!--<div class="col-md-4 hide" id="shoeee">
-			    <input class="form-control input-sm" name="about_subtitle_1" value="<?php //echo $getStory[0]['image description']?>" type="text" placeholder="image description">
-				<p></p>
-			    <p>
-				<img class="media-object superbox-img previewimage" id="show_image2" name="show_image" src="<?php //echo base_url('assets/img/'.$getStory[0]['image']); ?>" >
-			    </p>
-			    <div role="form">
-				<input type="hidden" value="<?php //echo $data['slider_image_1'];?>" name="old_slider_image_1"/>
-				<input id="storyimage2" class="filestyle" type="file" name='image' onchange="PreviewImage2();" data-buttonbefore="true" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" tabindex="-1">
-				<div class="bootstrap-filestyle input-group">
-				    <span class="group-span-filestyle input-group-btn" tabindex="0">
-					<label id="new" class="btn btn-default" for="storyimage2">
-					    <span class="glyphicon glyphicon-folder-open"></span>
-					    Choose file
-					</label>
-				    </span>
-				    <span class="col-md-10">
-				    <input class="form-control" id="storyimage-2"  value="<?php //echo $getStory[0]['slider_image_1']; ?>" type="text" readonly>
-				</span><button type="button" id="remover" onclick="reeee($(this))" class="pull-right btn btn-danger"><i class="fa  fa-plus"></i></button>
-				</div>
-			    </div>
-			</div>-->
-	
-		     </div>
+                   
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <button  class="btn btn-success m-r-5 m-b-5" type="submit" name="save" >Save</button>
-                                <button  class="btn btn-default m-r-5 m-b-5" onclick="window.history.back();" type="button">Cancel</button>
+                                <button  class="btn btn-success" type="submit" name="save" >Save</button>
+                                <button  class="btn btn-default" onclick="window.history.back();" type="button">Cancel</button>
                              </div>
                              
                          </div>
@@ -285,7 +232,7 @@ function attachments()
     }
     
     function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><p></p><div class="col-md-12 " ><a  onclick ="" class="pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a> </div>	').appendTo("#gallery");	
+    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div>	').appendTo("#gallery");	
     attachments();
     }
     
@@ -329,7 +276,7 @@ $(document).ready(function() {
 
                 validators: {
                     notEmpty: {
-                        message: 'The username is required'
+                        message: 'The country is required'
                     }
                 }
             },
@@ -337,14 +284,14 @@ $(document).ready(function() {
 
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
+                        message: 'The state is required'
                     }
                 }
             },
 	     city: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
+                        message: 'The city is required'
                     }
                 }
             },
@@ -352,7 +299,7 @@ $(document).ready(function() {
 
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
+                        message: 'The address is required'
                     }
                 }
             },
@@ -360,28 +307,28 @@ $(document).ready(function() {
 
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
+                        message: 'The address is required'
                     }
                 }
             },
 	     address3: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
+                        message: 'The address is required'
                     }
                 }
             },
 	    fax: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
+                        message: 'The fax is required'
                     }
                 }
             },
 	    phone: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
+                        message: 'The phone is required'
                     }
                 }
             }

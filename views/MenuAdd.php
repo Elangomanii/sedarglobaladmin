@@ -25,10 +25,26 @@
 		    </div>
 		    <h4 class="panel-title">Image Gallery</h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body">
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/globalMenuAdd'); ?>"" class="form-horizontal">
 			
-			<legend>CHOOSE OPTION FOR CHANGE MENU..</legend>
+			<div class="row">
+			    <div class="col-md-12">
+			<legend>CHOOSE OPTION FOR CHANGE MENU.. </legend>
+			<!--<div class="btn-group m-r-5 m-b-5">-->
+			<a class="btn pull-right btn-success dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+			    <i class="fa fa-cog"></i></a>
+<!--			<a class="btn btn-success dropdown-toggle"  href="javascript:;">
+				<span class="caret"></span>
+				</a>-->
+				<ul class="dropdown-menu pull-right">
+				<li class="getValue">
+				<a href="javascript:;">SHOW SUB-MENU</a>
+				</li>
+				</ul>
+			<!--</div>-->
+			    </div>
+			    </div>
 			    <div class="row">
 				
 			    <div class="col-md-4">
@@ -61,6 +77,62 @@
 				</div>
 			    </div>
 			
+				<legend class="pullmenu">ADD SUB-MENU FOR CHANGE ..</legend>
+			    <div class="row pullmenu">
+				
+			    <div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-4">Sub-Menu Title</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="submenu" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+			  
+			    <div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-4">Sub-Menu Link</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="submenulink1" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+			    </div>
+			    
+			<div class="row pullmenu">
+				
+				  <div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-4">Sub-Menu Title</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="submenu1" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+				  
+			    <div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-4">Sub-Menu Link</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="submenulink2" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+			   
+			    </div>
+			    <div class="row pullmenu">
+				
+				 <div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-8">Sub-Menu Description</label>
+				     <div class="col-md-9">
+					<textarea class="form-control" name="subcontent" rows="5" placeholder="Textarea"></textarea>
+				    </div>
+				</div>
+				</div>
+				
+				
+			    </div>
 			
 			
 			<div class="pager form-group">
@@ -87,13 +159,22 @@
 <!-- end page container -->
 </body>
 </html>
+<script>
+    
+   $('.getValue').click(function (){
 
+    $('.pullmenu').toggle();
+    
+   });
+    
+    
+</script>
 <script>
 $(document).ready(function() {
+    $('.pullmenu').hide();
+    
     $('#form_validation').bootstrapValidator({
-	message: 'This value is not valid',
-	//excluded:[':disabled'],
-	//container: 'tooltip',
+	
 	feedbackIcons: {
             valid: 'fa fa-check',
             invalid: 'fa fa-times',
@@ -119,6 +200,13 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'The password is required'
+                    }
+                }
+            },
+	     menu1: {
+                validators: {
+                    notEmpty: {
+                        message: 'The manu1 is required'
                     }
                 }
             }

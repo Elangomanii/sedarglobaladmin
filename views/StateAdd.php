@@ -35,35 +35,40 @@
                   <legend>Add GeoLocation as your wish</legend>
                     <div class="row">
                         
-                         <div class="col-md-6">
-                            <h5 class="m-t-0">State Name</h5>
+                         <div class="col-md-4">
+			    <div class="form-group">
+                            <label class="col-md-5">State Name</label>
+			     <div class="col-md-12">
                             <input class="form-control input-sm" name="stateName" type="text" value="<?php //echo $getStory[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
-			 <div class="col-md-6">
-                            <h5 class="m-t-0">State Code</h5>
+			    </div>
+			 </div>
+			     
+			     
+			  <div class="col-md-4">
+			    <div class="form-group">
+                            <label class="col-md-5">State Code</label>
+			    <div class="col-md-12">
                             <input class="form-control input-sm" name="stateCode" type="text" value="<?php //echo $getStory[0]['longitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
-			 <div class="col-md-6">
-                            <h5 class="m-t-0">Country Code</h5>
+			    </div>
+			  </div>
+			    
+			  <div class="col-md-4">
+			    <div class="form-group">
+                            <label class="col-md-5">Country Code</label>
+			    <div class="col-md-12">
                             <input class="form-control input-sm" name="countryCode" type="text" value="<?php //echo $getStory[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
                           </div>
 		    </div>
-		    <div class="row">
-			
-<!--			 <div class="col-md-6">
-                            <h5 class="m-t-0">Latitude</h5>
-                            <input class="form-control input-sm" name="latitude" type="text" value="<?php //echo $getStory[0]['latitude']?>" placeholder="TYPE YOUR OWN TITLE">
-                          </div>
-			 <div class="col-md-6">
-                            <h5 class="m-t-0">Longitude</h5>
-                            <input class="form-control input-sm" name="longitude" type="text" value="<?php //echo $getStory[0]['longitude']?>" placeholder="TYPE YOUR OWN TITLE">
-                          </div>-->
-			
+			  </div>
 		    </div>
+			    
+			    
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <button  class="btn btn-success m-r-5 m-b-5" type="submit" name="save" >Save</button>
-                                <button  class="btn btn-default m-r-5 m-b-5" onclick="window.history.back();" type="button">Cancel</button>
+                                <button  class="btn btn-success" type="submit" name="save" >Save</button>
+                                <button  class="btn btn-default" onclick="window.history.back();" type="button">Cancel</button>
                              </div>
                              
                          </div>
@@ -90,44 +95,6 @@
 
 <script>
 
-//    function PreviewImage() {
-//    var image =document.getElementById("storyimage").value;
-//    $('#storyimage-1').val(image);
-//    //alert('ahi');
-//      var oFReader = new FileReader();
-//          oFReader.readAsDataURL(document.getElementById("storyimage").files[0]);
-//   
-//          oFReader.onload = function (oFREvent) {
-//      var data1=document.getElementById("show_image").src = oFREvent.target.result;
-//           
-//          };
-//    };
-//    
-//     function PreviewImage2() {
-//    var image =document.getElementById("storyimage2").value;
-//    $('#storyimage-2').val(image);
-//    //alert('ahi');
-//      var oFReader = new FileReader();
-//          oFReader.readAsDataURL(document.getElementById("storyimage2").files[0]);
-//   
-//          oFReader.onload = function (oFREvent) {
-//      var data1=document.getElementById("show_image2").src = oFREvent.target.result;
-//           
-//          };
-//    };
-//    
-//
-//    $('#adder').click(function() {
-//	var $template = $('#shoeee'),
-//	$clone = $template.clone().removeClass('hide').insertBefore($template);
-////reeee();
-//   });
-//   
-//    function reeee(){
-//	alert('erer');
-//	var $row=$('#remover').parent().closest('#shoeee');
-//	$row.remove();
-//    }
 function attachments()
     {
 	
@@ -157,3 +124,42 @@ $('.getter').val(imgval);
 </script>
 
  
+  <script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            stateName: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The country name is required'
+                    }
+                }
+            },
+	    stateCode: {
+                validators: {
+                    notEmpty: {
+                        message: 'The country code is required'
+                    }
+                }
+            },
+	     countryCode: {
+                validators: {
+                    notEmpty: {
+                        message: 'The latitude is required'
+                    }
+                }
+            }
+	    
+        }
+    });
+});
+</script>

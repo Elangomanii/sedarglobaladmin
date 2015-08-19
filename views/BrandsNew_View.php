@@ -35,7 +35,7 @@
 		      <thead>
 			    <tr>
 				<th>Drag Here</th>
-				<th>Name</th>
+				<!--<th>Name</th>-->
 				<th>Description</th>
 				<th>Image Name</th>
 				<!--<th>Position</th>-->
@@ -51,7 +51,7 @@
 			    <tr class="odd" id="<?php echo $row['id'] ?>">
 			        <!--<td><span><i class="fa fa-refresh fa-5x"></span></td>-->
 				<td><span><?php echo $row['name']; ?></span></td>					    
-				<td><span><?php echo $row['desc']; ?></span></td>
+				<td><span><?php echo mb_strimwidth($row['desc'],0,60,"..."); ?></span></td>
                                 <td><span><?php echo $row['nameImage']; ?></span></td>
 				<!--<td><//?php echo $row['position']; ?></td>-->
 				<td><span><?php echo $row['brandImage']; ?></span></td>
@@ -120,6 +120,11 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui-1.10.4.custom.min.js"></script>
 
 <script>
+    $(document).ready(function() {
+ $("#data-table").DataTable();
+    });    
+    
+    
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
 
@@ -139,7 +144,7 @@ $(function() {
     $('#sortable').sortable({
         axis: 'y',
         opacity: 0.7,
-        handle: 'span',
+        handle: 'td',
         update: function(event, ui) {
             var list_sortable = $(this).sortable('toArray').toString();
     		//alert(list_sortable);
@@ -158,11 +163,11 @@ $(function() {
 });
 </script>
 <script>
-    
-   $(document).ready(function() {
-	$("#dataRespTable").DataTable();
-    });
-   
+//    
+//   $(document).ready(function() {
+//	$("#dataRespTable").DataTable();
+//    });
+//   
    //********ON / OFF Status
 $('#form_validation').on('click', '[name="status[]"]', function()
     {

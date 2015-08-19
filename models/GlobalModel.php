@@ -1226,16 +1226,27 @@ class GlobalModel extends CI_Model {
 		
 		"menu"=>$_POST['title'],
 		"menuType"=>$_POST['type'],
-		"menuLink"=>base_url('SedarCtr')."/".$_POST['url'],
+		"menuLink"=>$_POST['url'],
+
 	    );
-	    if($this->session->userdata('browserLanguage')=='ar')
-	    {  
-		$this->db->insert("ar_menu",$data);
-	    }
-	    else
-	    {
-		$this->db->insert("menu",$data);
-	    }
+	    $this->db->insert("menu",$data);
+	    
+	    $insert_id = $this->db->insert_id();
+	     $datasubmenu=array(
+		"menuid"=>$insert_id,
+		"submenu1"=>$_POST['submenu'],
+		"submenulink1"=>$_POST['submenulink1'],
+		"submenu2"=>$_POST['submenu1'],
+		"submenulink2"=>$_POST['submenulink2'],
+		"subdescription"=>$_POST['subcontent'],
+
+	    );
+	    
+//print_r($data);
+//exit;
+	    $this->db->insert("submenuclient",$datasubmenu);
+	    
+	     
 	    
 	}
 	
@@ -1265,7 +1276,7 @@ class GlobalModel extends CI_Model {
 	    }
 	}
 	
-	function putmenuupdate()
+	function putmenuupdate($id)
 	
 	{
 	
@@ -1274,15 +1285,13 @@ class GlobalModel extends CI_Model {
 		"menu"=>$_POST['title'],
 		"menuType"=>$_POST['type'],
 		"menuLink"=>$_POST['url'],
+		
 	    );
-	    $this->db->where('id', $id);
-	    if($this->session->userdata('browserLanguage')=='ar')
-	    {	
-		$this->db->insert("ar_menu",$data);
-	    }
-	    else{
-		$this->db->insert("menu",$data);
-	    }
+	     //print_r($data);
+	     //exit;
+	$this->db->where("id",$id);
+	$this->db->update("menu",$data);
+	    
 	}
 	
 	function menuDelete($id)
@@ -1887,6 +1896,7 @@ public function getformdata()
 	}
     
     }
+    
 function Projectimage_Add()
  {
     if($this->session->userdata('browserLanguage')=='ar')
@@ -1921,14 +1931,6 @@ function Projectimage_Add()
 	 }	
      }
      $names= implode(',', $name_array);
-//     if($this->input->post("status")!="ENABLED")
-//	{
-//	    $status="DISABLED";
-//	}
-//	else
-//	{
-//	    $status="ENABLED";
-//	}
      $data= array(
      
      "projectImage"=>$names,
@@ -2148,16 +2150,12 @@ function Products_Add ()
 		       "productMultiImage"=>$names,
 		       "productImage"=>$productImage['file_name']
 	  );
-	  if($this->session->userdata('browserLanguage')=='ar')
-	   {
-		$this->db->insert("ar_products",$data);
-		$insert_id = $this->db->insert_id();
-	   }
-	   else
-	   {
-		$this->db->insert("products",$data);
-		$insert_id = $this->db->insert_id();
-	   }
+	  
+	  
+	  //print_r($data);
+	  //exit;
+	  $this->db->insert("products",$data);
+	  $insert_id = $this->db->insert_id();
 	  $data1= array(
 		
 		      "productId"=>$insert_id,

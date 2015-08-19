@@ -50,7 +50,7 @@
 				<td><?php echo $row['country']?></td>
 				<td><?php echo $row['state']?></td>
 				
-				<td><?php echo $row['image']?></td>
+				<td><?php echo mb_strimwidth($row['image'],0,50,"...");?></td>
 				
 				<td>
 				<a href="<?php echo site_url('GlobalController/globalStoreEdit/'.$row['id']);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>

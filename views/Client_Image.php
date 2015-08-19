@@ -137,7 +137,7 @@ $(function() {
     $('#sortable').sortable({
         axis: 'y',
         opacity: 0.7,
-        handle: 'span',
+        handle: 'td',
         update: function(event, ui) {
             var list_sortable = $(this).sortable('toArray').toString();
     		//alert(list_sortable);

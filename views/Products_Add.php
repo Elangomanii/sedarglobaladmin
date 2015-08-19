@@ -1,7 +1,4 @@
 
-<head>
-        
-</head>
 	<div id="content" class="content">
 		<!-- begin breadcrumb -->
 		<ol class="breadcrumb pull-right">
@@ -28,61 +25,59 @@
 		    </div>
 		    <h4 class="panel-title">Explore Products </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body" >
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Products_Add'); ?>" class="form-horizontal form12">
-		 <legend>Add The Content</legend>
-		 <div class="row">
-		    <div class="col-md-7">
-				<!-- <div class="col-md-12">
-                                    <h4 class="m-t-0">Product Title</h4>
-				 </div>
+		    <legend>choose brand for change</legend>
+			<div class="row">
+			    <div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-4">Brand</label>
+				    <div class="col-md-12">
+					<select name="brandId" id="brandId" class="form-control input-sm">
+					    <option selected="" disabled="">Select</option>
+					    <?php if (count($brandsView) > 0 )
+					    {
+						foreach ($brandsView as $row)
+						{
+							    ?>
+					    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+							   <?php } }?>
+					</select>
+				    </div>
+				</div>
+			    </div>
+
+		   
+		    <div class="col-md-6">
+			    <div class="form-group">
+                                    <label class="col-md-4">Product Category</label>
 				<div class="col-md-12">
-				    <input type="text" name="bName" id="bName"  class="form-control input-lg" value="" placeholder="Products Title" />
-				</div>-->
-                                <div class="col-md-12">
-                                    <h4 class="m-t-0">Brand</h4>
-				 </div>
+							
+					<select name="productCat" id="productCat" class="form-control input-sm">
+					    <option selected="" disabled="">Select</option>
+					    <?php if (count($productCatView) > 0 )
+					    {
+						foreach ($productCatView as $row)
+						{
+							    ?>
+					    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+							   <?php } }?>
+					</select>
+				</div>
+			    </div>
+		   </div>
+		 </div>
+		 
+				
+				
+			<div class="row">
+			    <div class="col-md-6">
+				    <div class="form-group">
+                                    <label class="col-md-4">Product Material</label>
+			
 				<div class="col-md-12">
-						    <section class="col col-12">
-							<!--<input type="hidden" name="brandid" id="brandid">-->
-							<select name="brandId" id="brandId" class="form-control">
-							    <option selected="" disabled="">Select</option>
-							    <?php if (count($brandsView) > 0 )
-							    {
-								foreach ($brandsView as $row)
-								{
-									    ?>
-							    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
-									   <?php } }?>
-							</select>
-						    </section>
-						</div>
-				 <div class="col-md-12">
-                                    <h4 class="m-t-0">Product Category</h4>
-				 </div>
-				<div class="col-md-12">
-						    <section class="col col-12">
-							<!--<input type="hidden" name="brandid" id="brandid">-->
-							<select name="productCat" id="productCat" class="form-control">
-							    <option selected="" disabled="">Select</option>
-							    <?php if (count($productCatView) > 0 )
-							    {
-								foreach ($productCatView as $row)
-								{
-									    ?>
-							    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
-									   <?php } }?>
-							</select>
-						    </section>
-						</div>
-				<div class="col-md-12">
-                                    <h4 class="m-t-0">Product Material</h4>
-				 </div>
-				<div class="col-md-12">
-						    <section class="col col-12">
-							<!--<input type="hidden" name="brandid" id="brandid">-->
-							<select name="productMat" id="productMat" class="form-control">
+							<select name="productMat" id="productMat" class="form-control input-sm">
 							    <option selected="" disabled="">Select</option>
 							    <?php if (count($Material) > 0 )
 							    {
@@ -92,15 +87,18 @@
 							    <option value="<?php echo $row['id']; ?>"><?php echo $row['materialName']; ?></option>
 									   <?php } }?>
 							</select>
-						    </section>
+						
 						</div>
+			    </div>
+		   </div>
+		   
+		    <div class="col-md-6">
+			    <div class="form-group">
+                                   <label class="col-md-4">Product Accesories</label>
+			
 				<div class="col-md-12">
-                                    <h4 class="m-t-0">Product Accesories</h4>
-				 </div>
-				<div class="col-md-12">
-						    <section class="col col-12">
-							<!--<input type="hidden" name="brandid" id="brandid">-->
-							<select name="productAcc" id="productAcc" class="form-control">
+					
+							<select name="productAcc" id="productAcc" class="form-control input-sm">
 							    <option selected="" disabled="">Select</option>
 							    <?php if (count($Accessories) > 0 )
 							    {
@@ -110,94 +108,95 @@
 							    <option value="<?php echo $row['id']; ?>"><?php echo $row['AccessoriesName']; ?></option>
 									   <?php } }?>
 							</select>
-						    </section>
-						</div>
-				  <div class="col-md-12">
-                                    <h4 class="m-t-0">Motorzation</h4>
-				 </div>
+				</div>
+			    </div>
+		   </div>
+			</div>
+										
+			<div class="row">
+			    <div class="col-md-6">
+			    <div class="form-group">
+                                    <label class="col-md-4">Motorzation</label>
+		
 				  
 				  <div class="col-md-12">
-				    <section class="col col-12">
+				
 					<b>No</b> <input name="motor" type="checkbox" onchange="if ($(this).prop('checked')) {$('#MotorOn').val('Y'); alert('Y');}else{$('#MotorOn').val('N'); alert('N');}" class="js-switch"  />
 					<input type="hidden" name="MotorOn" id="MotorOn">
 					    <b>Yes</b>
-				    </section>
 				  </div>
-				  
-				  <div class="col-md-12">
-				    <h4 class="m-t-0">Product Name</h4>
 				  </div>
-				  <div class="col-md-12">
-				    <input type="text" name="productName" id="productName"  class="form-control input-md" value="" placeholder="Product Name" />
-				</div>
-			<!--	<div class="col-md-12">
-                                    <h4 class="m-t-0">Product Link</h4>
-				 </div>
-				<div class="col-md-12">
-				    <input type="text" name="productLink" id="productLink"  class="form-control input-md" value="" placeholder="Product Link" />
-				</div>-->
-			 
-				
-			    <div class="col-md-12">
-				<p></p>
-				<h4 class="m-t-0">Description</h4>
 			    </div>
-			    <div class="col-md-12" style="padding:10px">
+			</div>
+				  
+			<div class="row">
+			    <div class="col-md-6">
+			    <div class="form-group">
+				    <label class="col-md-4">Product Name</label>
+			
+				  <div class="col-md-12">
+				    <input type="text" name="productName" id="productName"  class="form-control input-sm" value="" placeholder="Product Name" />
+				</div>
+			    </div>
+			    </div>
+			</div>
+				
+				
+			   
+			   
+			   <div class="row">
+		                <div class="col-md-6">
+			    <div class="form-group">
+				<label class="col-md-4">Description</label>
+			  
+			    <div class="col-md-12">
 				<textarea id="productDesc" name="productDesc" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"> </textarea>
 			    </div>
 		    </div>
-		   <div class="col-md-12">
-			<h4 class="m-t-0">Product Image</h4>
+		   </div>
+	
+				 <div class="col-md-4 col-md-offset-1">
+			    <div class="form-group">
+			<label class="col-md-4">Product Image</label>
 			 <div class="row AdjustPadding" id="image2" style="padding-bottom:20px;" >
                                 <div class="col-md-12" id="gallery1">
-                                    <div class="col-md-4 col-sm-4 col-xs-12 ImageViews AdjustPadding" style="padding-bottom:20px;"  >
+                                    <div class="col-md-4 ImageViews AdjustPadding" style="padding-bottom:20px;"  >
                                         <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewsimage " id="dummy2" style="height: 185px; width: 200px;" >
                                         <input type="file" id="previews" name="imagename" class="col-md-12 "onchange="attachmentss(this);" >
-                                            <!--<div class="input-group" style="padding:10px;">
-                                            <span class="input-group-btn">
-                                            <span class="btn btn-primary btn-file">
-                                            Browse<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-                                            </span>
-                                    </span>
-                                    <input type="text" id="" name="userfile1[]" value="" placeholder="" class="form-control" readonly>
-                                        </div>-->
+        
                             </div>
                         </div>
                     </div>
 		    </div>
-		    <div class="col-md-12">
-			<h4 class="m-t-0">Product Multi Image</h4>
-			 <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
-				<div class="page-title">
-				    <button type="button" class="pull-right btn btn-primary" onclick="addImage()"><i class="fa  fa-plus"></i></button>
-				</div>
+				 </div>
+				 
+			    </div>
+		  
+		  
+		      <div class="row">
+				 <div class="col-md-12">
+			    <div class="form-group">
+			<h4 class="col-md-5">Product Multi Image</h4>
+			<button type="button" class="pull-right btn btn-primary" onclick="addImage()"><i class="fa  fa-plus"></i></button>
+			    </div>
+				 </div>
+		      </div>
+			 
 				<div class="col-md-12" id="gallery">
-				    <div class="col-md-4 col-sm-4 col-xs-12 ImageView AdjustPadding" style="padding-bottom:20px;"  >
+				    <div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  >
 					<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
 					<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-				  <!--   <div class="input-group" style="padding:10px;">
-					<span class="input-group-btn">
-					<span class="btn btn-primary btn-file">
-					Browse<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-					
-					</span>
-					</span>
-					<input type="text" id="" name="userfile1[]" value="" placeholder="" class="form-control" readonly>
-			       </div>-->
 				    </div>
 				</div>
-			      </div>
-		    </div>
-		 </div>
-			   
-			<div class="pager form-group">
-                             <div class="col-md-6 control-label">
+			     
+
+                             <div class="col-md-7 control-label">
 				
                                 <button class="btn btn-md btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
-                                <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
-                                <input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Save" id="submit" value="Save" >
+                                <button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+                                <input type="submit" class="btn btn-md btn-success" name="Save" id="submit" value="Save" >
                              </div>
-			</div>
+			
 			</form>
 		</div>
 	    </div>
@@ -206,18 +205,66 @@
 	</div>
 	<!-- end col-10 -->
     </div>
-    <!-- end row -->
-	</div>
-	<!-- end #content -->
-	
+
 	<!-- begin scroll to top btn -->
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
-	<!-- end scroll to top btn -->
-</div>
-<!-- end page container -->
-</body>
-</html>
 
+<!--<script>
+$(document).ready(function() {
+    
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            brandId: {
+            
+                validators: {
+                    notEmpty: {
+                        message: 'The brand id is required'
+                    }
+                }
+            },
+            productCat: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The product category is required'
+                    }
+                }
+            },
+	     productMat: {
+                validators: {
+                    notEmpty: {
+                        message: 'The product material is required'
+                    }
+                }
+            },
+	     productAcc: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The product accessory is required'
+                    }
+                }
+            },
+	    productName: {
+
+                validators: {
+                    notEmpty: {
+                        message: 'The product accessory is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>-->
 
  <script>
     function attachment($this) {
@@ -230,6 +277,7 @@ $($this).parents('.ImageView').find('img').attr("src",  oFREvent.target.result);
 
 };
 };
+
 function attachments()
     {
 	
@@ -258,21 +306,15 @@ function attachmentsss()
 	    $row.remove();
 	});
     }
-//scrpit for previous and next button start
-    $(document).ready(function() {
-      	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-    });
-//script for precvious and next button end
+
 </script>
 <script>
 function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");
+    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div>').appendTo("#gallery");
 	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");
 	    attachments();
 	    }
-</script>
-<script>
-        //var Switchery = require('switchery');
+
 	
         var elem = document.querySelector('.js-switch');
         var init = new Switchery(elem,{ color: '#24D6FA'});
@@ -280,25 +322,4 @@ function addImage(){
 
 
 
-
-<!--
- <script type="text/javascript">
- $(document).ready(function() {
-   
-         $('#form_validation').on('change', '[name="image[]"]', function() {
-      
-      var $row=$(this).parents(".odd_file");  
-      var imgpath=$(this).val();
-      if (!imgpath==""){
-        var img=this.files[0].size;
-  var name=this.files[0].name;
-        //var imgsize=img/1024;
- $row.find("input[name='filesize[]']").val(img);
- $row.find("input[name='image1[]']").val(name);
  
-      
-      }
-    });
- });
- 
-</script>-->

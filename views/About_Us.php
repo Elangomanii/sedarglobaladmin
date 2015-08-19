@@ -27,7 +27,7 @@
 		    </div>
 		    <h4 class="panel-title">View </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body" >
 		  <form action="<?php echo base_url(); ?>FranchiseController/About_Us/" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">
                  
                 <legend>Choose the Title to change</legend>
