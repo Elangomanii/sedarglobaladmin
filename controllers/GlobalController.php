@@ -29,7 +29,8 @@ class GlobalController extends CI_Controller
 		    redirect(base_url()."GlobalController",'refresh');		    
 		}
 		else
-		{		   
+		{
+		    $this->session->set_userdata('browserLanguage',$this->input->post('language'));		    
 		    $this->session->set_userdata('username',$result[0]['username']);
 		    redirect("GlobalController/sedarUserView");		    
 		}
@@ -209,7 +210,8 @@ class GlobalController extends CI_Controller
       public function Client_Overview()
     {
 	if(isset($_POST["Save"])){
-	      $this->GlobalModel->ClientOverview_Add();  
+	        $this->GlobalModel->ClientOverview_Add();
+		redirect("GlobalController/Client_Image");
 	    }
 	 $data['Client']=$this->GlobalModel->clientOverviewDetails();
 	 $this -> load -> view('header');
@@ -664,7 +666,7 @@ class GlobalController extends CI_Controller
       public function State()
     {
 	//$data['getStory']=$this->GlobalModel->getStores1();
-	$data['state']=$this->GlobalModel->gettState();
+	$data['state']=$this->GlobalModel->getState();
 	$this -> load -> view('header');
 	$this -> load -> view('State',$data);
     }
@@ -700,7 +702,7 @@ class GlobalController extends CI_Controller
     function globalstateDelete($id)
     {
 	$this->db->where('id', $id);
-	$this->db->delete('ourstate');
+	$this->db->delete('outstate');
 	
 	redirect(base_url()."GlobalController/State");   
 	
@@ -710,7 +712,7 @@ class GlobalController extends CI_Controller
     function City()
     {
 	
-	$data['city']=$this->GlobalModel->getCityy();
+	$data['city']=$this->GlobalModel->getCity();
 	$this -> load -> view('header');
 	$this -> load -> view('City',$data);
 
@@ -738,7 +740,7 @@ class GlobalController extends CI_Controller
 	if(isset($_POST['update']))
 	{
 	    
-	 $this->GlobalModel->updatecity($id);
+	$this->GlobalModel->updatecity($id);
 	redirect(base_url()."GlobalController/City");   
 	    
 	}
@@ -1381,6 +1383,7 @@ class GlobalController extends CI_Controller
 	    if(isset($_POST["Save"])){
 		  $this->GlobalModel->contact();  
 		}
+		
 	    $data['contact']=$this->GlobalModel->contactDetails();   
 	    $this -> load -> view('header');
 	    $this -> load -> view('contact', $data);

@@ -66,6 +66,12 @@
                     <div class="form-group m-b-20">
                         <input type="password" class="form-control" name="password" placeholder="Password" />
                     </div>
+		    <div class="form-group m-b-20">
+			<select class="form-control" name="language" placeholder="Select Language">
+				<option value="en">English</option>
+				<option value="ar">Arabic</option>
+		        </select>
+		    </div>
                     <div class="checkbox m-b-20">
                         <label>
                             <input type="checkbox" /> Remember Me
