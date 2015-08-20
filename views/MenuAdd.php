@@ -60,6 +60,7 @@
 					<label class="col-md-4">Menu Type</label>
 				    <div class="col-md-12">
 					<select class="form-control input-sm" name="type">
+					    <option value="0">Select</option>
 					    <option value="Header">Header</option>
 					    <option value="Footer">Footer</option>
 					</select>
@@ -124,8 +125,8 @@
 				
 				 <div class="col-md-6">
 				<div class="form-group">
-					<label class="col-md-8">Sub-Menu Description</label>
-				     <div class="col-md-9">
+					<label class="col-md-12">Sub-Menu Description</label>
+				     <div class="col-md-12">
 					<textarea class="form-control" name="subcontent" rows="5" placeholder="Textarea"></textarea>
 				    </div>
 				</div>
@@ -177,9 +178,9 @@
 			
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
+				<button type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >Save</button>
+				<button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
 				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-				<button class="btn btn-sm btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
-				<input type="submit" class="btn btn-sm btn-success"  name="save" id="submit_but" value="Save" >
 			    </div>
 			</div>
 		    </form>		    
@@ -207,11 +208,10 @@
     
    });
    
-   // $('.productmenuHide').click(function (){
-   //
-   // $('.productmenu').toggle();
-   // 
-   //});
+  $('#clear_data').click(function() {
+    $(':input').val('');
+    $('#formvalidation').data('bootstrapValidator').resetForm();
+});
     
     
 </script>

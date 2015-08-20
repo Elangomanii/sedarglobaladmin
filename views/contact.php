@@ -28,9 +28,9 @@
 		</div>
 		<div class="panel-body">
 		
-		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/contact/'.$contact[0]['id']); ?>" class="form-horizontal form12">
-		 <legend>CHOOSE OPTION FOR CHANGE ..</legend>
+		<form id="formvalidation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/contact/'.$contact[0]['id']); ?>" class="form-horizontal form12">
 		
+		 <legend>CHOOSE OPTION FOR CHANGE ..</legend>
 			<div class="row">
 			    <div class="col-md-6">
 				<div class="form-group">
@@ -40,8 +40,6 @@
 				</div>
 				 </div>
 				</div>
-			    </div>
-			    <div class="row">
 				<div class="col-md-6">
 				<div class="form-group">
 			     <label class="col-md-6">Contact Sub Title</label>
@@ -63,9 +61,9 @@
 			    </div>
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-				<button type="submit" class="btn btn-sm btn-success" name="Save" id="submit" value="Save" >Save</button>
-				<button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
-				<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+				<button type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >Save</button>
+			<!--	<button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>-->
+				<!--<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>-->
                              </div>
                         </div>
 		    </form>
@@ -89,20 +87,21 @@
 </html>
 <script>
     
-$('#clear_data').click(function() {
-    $(':input').val('');
-    $('.ckeditor').empty();
-    
-    CKEDITOR.instances[instance].updateElement();
-    
-    $('#form_validation').data('bootstrapValidator').resetForm();
-});
+//$('#clear_data').click(function() {
+//    $(':input').val('');
+//    $('.ckeditor').empty();
+//    
+//   CKEDITOR.instances["email-body"].setData('');
+//editor.resetDirty();
+//    
+//    $('#formvalidation').data('bootstrapValidator').resetForm();
+//});
     
     
 </script>
 <script>
 $(document).ready(function() {
-    $('#form_validation').bootstrapValidator({
+    $('#formvalidation').bootstrapValidator({
 	message: 'This value is not valid',
 	//excluded:[':disabled'],
 	//container: 'tooltip',
