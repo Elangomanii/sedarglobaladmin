@@ -106,6 +106,7 @@
                           <div class="pager form-group">
                              <div class="col-md-7 control-label">
                                 <button  class="btn btn-success m-r-5 m-b-5" type="submit" name="save" >Save</button>
+				 <button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
                                 <button  class="btn btn-default m-r-5 m-b-5" onclick="window.history.back();" type="button">Cancel</button>
                              </div>
                              
@@ -130,7 +131,15 @@
 </body>
 </html>
 
-
+<script>
+    
+$('#clear_data').click(function() {
+    $(':input').val('');
+    $('#form_validation').data('bootstrapValidator').resetForm();
+});
+    
+    
+</script>
 <script>
     $(function(){
 	

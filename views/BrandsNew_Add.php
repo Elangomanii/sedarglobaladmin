@@ -101,10 +101,9 @@
 			   
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-				
-                                <button class="btn btn-md btn-info" onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
-                                <button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
                                 <input type="submit" class="btn btn-md btn-success" name="Save" id="submit" value="Save" >
+				<button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
+				<button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
                              </div>
 			</div>
 			</form>

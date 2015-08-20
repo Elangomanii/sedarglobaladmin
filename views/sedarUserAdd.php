@@ -27,46 +27,45 @@
                     <form action="<?php echo base_url('GlobalController/sedarUserAdd'); ?>" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">                   
                         <legend>USER DETAILS</legend>
                         <div class="row">
-			 <div class="col-md-4">
-				<div class="form-group">
-                                <label class="col-md-4">Name</label>
-				 <div class="col-md-12">
-                                <input class="form-control input-sm" name="sedarName" value="" type="text" placeholder="Name">
-				 </div>
-				</div>
-			 </div>
-                                
 				<div class="col-md-4">
-				<div class="form-group">
-                                <label class="col-md-4">Email</label>
-				<div class="col-md-12">
-                                <input class="form-control input-sm" name="sedarEmail" value="" type="text" placeholder="Email">
+				    <div class="form-group">
+					    <label class="col-md-4">Name</label>
+					<div class="col-md-12">
+					    <input class="form-control input-sm" name="sedarName" value="" type="text" placeholder="Name">
+					</div>
+				    </div>
 				</div>
-				</div>
-				</div>
-                                
+				    
 				<div class="col-md-4">
-				<div class="form-group">
-                                <label class="col-md-4">Password</label>
-				<div class="col-md-12">
-                                <input class="form-control input-sm" name="sedarPassword" value="" type="password" placeholder="Password">
+				    <div class="form-group">
+					    <label class="col-md-4">Email</label>
+					<div class="col-md-12">
+					    <input class="form-control input-sm" name="sedarEmail" value="" type="text" placeholder="Email">
+					</div>
+				    </div>
 				</div>
-				</div>
+				    
+				<div class="col-md-4">
+				    <div class="form-group">
+					    <label class="col-md-4">Password</label>
+					<div class="col-md-12">
+					    <input class="form-control input-sm" name="sedarPassword" value="" type="password" placeholder="Password">
+					</div>
+				    </div>
 				</div>
                             </div>                                        
-                                  
-			    <div class="pager form-group">
-                             <div class="col-md-7 control-label">
-                                <button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-                                <button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
-                                <button type="submit" class="btn btn-sm btn-success" name="submit_form" id="submit_but" value="Save" >Save</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                            <div class="pager form-group">
+				<div class="col-md-7 control-label">
+				    <button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
+				    <button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
+				    <button type="submit" class="btn btn-sm btn-success" name="submit_form" id="submit_but" value="Save" >Save</button>
+				</div>
+			    </div>
+			</form>
+		    </div>
+		</div>
+	    </div>
+	</div>
  
     <!-- begin scroll to top btn -->
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -75,7 +74,15 @@
 <!-- end page container -->
 </body>
 </html>
-
+<script>
+    
+$('#clear_data').click(function() {
+    $(':input').val('');
+    $('#form_validation').data('bootstrapValidator').resetForm();
+});
+    
+    
+</script>
 <script>
 $(document).ready(function() {
     $('#form_validation').bootstrapValidator({

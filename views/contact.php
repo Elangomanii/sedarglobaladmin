@@ -26,11 +26,12 @@
 		    </div>
 		    <h4 class="panel-title">Contact Page </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body">
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/contact/'.$contact[0]['id']); ?>" class="form-horizontal form12">
 		 <legend>CHOOSE OPTION FOR CHANGE ..</legend>
-<div class="row">
+		
+			<div class="row">
 			    <div class="col-md-6">
 				<div class="form-group">
 				<label class="col-md-6">Contact Title</label>
@@ -39,9 +40,8 @@
 				</div>
 				 </div>
 				</div>
-			    
 			    </div>
-<div class="row">
+			    <div class="row">
 				<div class="col-md-6">
 				<div class="form-group">
 			     <label class="col-md-6">Contact Sub Title</label>
@@ -50,25 +50,24 @@
 				</div>
 				</div>
 				</div>
-</div>
-<div class="row">
-			   <div class="col-md-6">
-				<div class="form-group">
-			    <label class="col-md-6">Description</label>
+			    </div>
+			    <div class="row">
+				<div class="col-md-6">
+				    <div class="form-group">
+					<label class="col-md-6">Description</label>
 				<div class="col-md-12">
 				<textarea id="Service_Content" name="description" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"><?php echo $contact[0]['description']?> </textarea>
 				</div>
 				</div>
 				</div>
-</div>
+			    </div>
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-				<input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Save" id="submit" value="Save" >
-                                <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
-                                
+				<button type="submit" class="btn btn-sm btn-success" name="Save" id="submit" value="Save" >Save</button>
+				<button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
+				<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
                              </div>
-                             
-                         </div>
+                        </div>
 		    </form>
 		</div>
 	    </div>
@@ -88,7 +87,19 @@
 <!-- end page container -->
 </body>
 </html>
-
+<script>
+    
+$('#clear_data').click(function() {
+    $(':input').val('');
+    $('.ckeditor').empty();
+    
+    CKEDITOR.instances[instance].updateElement();
+    
+    $('#form_validation').data('bootstrapValidator').resetForm();
+});
+    
+    
+</script>
 <script>
 $(document).ready(function() {
     $('#form_validation').bootstrapValidator({
