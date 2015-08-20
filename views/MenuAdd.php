@@ -131,9 +131,49 @@
 				</div>
 				</div>
 				
-				
+				  <div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-4">Download content</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="download" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+<!--				<div class="col-md-6">
+				<input type="button" class="btn btn-sm btn-success productmenuHide"  name="save" id="submit_but" value="EXTRA PRODUCTS" >
+				</div>-->
 			    </div>
-			
+			    
+			<div class="row pullmenu">
+				
+				<div class="col-md-4">
+				<div class="form-group">
+					<label class="col-md-4">Try Content</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="try" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+				
+				  <div class="col-md-4">
+				<div class="form-group">
+					<label class="col-md-4">Sub-Menu Title</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="submenu4" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+				  
+			    <div class="col-md-4">
+				<div class="form-group">
+					<label class="col-md-4">Sub-Menu Title</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" name="submenu3" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+			   
+			    </div>
 			
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
@@ -166,13 +206,19 @@
     $('.pullmenu').toggle();
     
    });
+   
+   // $('.productmenuHide').click(function (){
+   //
+   // $('.productmenu').toggle();
+   // 
+   //});
     
     
 </script>
 <script>
 $(document).ready(function() {
     $('.pullmenu').hide();
-    
+    //$('.productmenu').hide();
     $('#form_validation').bootstrapValidator({
 	
 	feedbackIcons: {

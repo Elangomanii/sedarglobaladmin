@@ -949,13 +949,14 @@ class GlobalController extends CI_Controller
     {
 	
 	$data['getmenunow']=$this->GlobalModel->getmenuNow($id);
+	$data['getsubmenunow']=$this->GlobalModel->getSubmenuNow($id);
 	$data['getMenu']=$this->GlobalModel->pullMenu();
 	if(isset($_POST['update']))
 	{
 	    $this->GlobalModel->putmenuupdate($id);
 	    redirect(base_url()."GlobalController/Menu");
 	}
-	
+
 	$this -> load -> view('header');
 	$this -> load -> view('MenuEdit',$data);
 	

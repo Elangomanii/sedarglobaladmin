@@ -28,7 +28,18 @@
 		<div class="panel-body">
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/globalMenuEdit/'.$getmenunow[0]['id']); ?>"" class="form-horizontal">
 			
-			<legend>CHOOSE MENU FOR CHANGE</legend>
+						<div class="row">
+			    <div class="col-md-12">
+			<legend>CHOOSE OPTION FOR CHANGE MENU.. </legend>
+			<a class="btn pull-right btn-success dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+			    <i class="fa fa-cog"></i></a>
+				<ul class="dropdown-menu pull-right">
+				<li class="getValue">
+				<a href="javascript:;">SHOW SUB-MENU</a>
+				</li>
+				</ul>
+			    </div>
+			    </div>
 			    <div class="row">
 				 <div class="col-md-4">
 				<div class="form-group">
@@ -63,14 +74,14 @@
 				</div>
 			    </div>
 			    
-			    <legend class="pullmenu">ADD SUB-MENU FOR CHANGE ..</legend>
+			    <legend class="pullmenu">EDIT SUB-MENU FOR CHANGE ..</legend>
 			    <div class="row pullmenu">
 				
 			    <div class="col-md-6">
 				<div class="form-group">
 					<label class="col-md-4">Sub-Menu Title</label>
 				     <div class="col-md-12">
-					<input class="form-control input-sm" type="text" name="submenu" placeholder="Default input">
+					<input class="form-control input-sm" value="<?php echo $getsubmenunow[0]['submenu1'];?>" type="text" name="submenu" placeholder="Default input">
 				    </div>
 				</div>
 				</div>
@@ -79,7 +90,7 @@
 				<div class="form-group">
 					<label class="col-md-4">Sub-Menu Link</label>
 				     <div class="col-md-12">
-					<input class="form-control input-sm" type="text" name="submenulink1" placeholder="Default input">
+					<input class="form-control input-sm" value="<?php echo $getsubmenunow[0]['submenulink1'];?>" type="text" name="submenulink1" placeholder="Default input">
 				    </div>
 				</div>
 				</div>
@@ -91,7 +102,7 @@
 				<div class="form-group">
 					<label class="col-md-4">Sub-Menu Title</label>
 				     <div class="col-md-12">
-					<input class="form-control input-sm" type="text" name="submenu1" placeholder="Default input">
+					<input class="form-control input-sm" value="<?php echo $getsubmenunow[0]['submenu2'];?>" type="text" name="submenu1" placeholder="Default input">
 				    </div>
 				</div>
 				</div>
@@ -100,7 +111,7 @@
 				<div class="form-group">
 					<label class="col-md-4">Sub-Menu Link</label>
 				     <div class="col-md-12">
-					<input class="form-control input-sm" type="text" name="submenulink2" placeholder="Default input">
+					<input class="form-control input-sm" value="<?php echo $getsubmenunow[0]['submenulink2'];?>" type="text" name="submenulink2" placeholder="Default input">
 				    </div>
 				</div>
 				</div>
@@ -112,15 +123,51 @@
 				<div class="form-group">
 					<label class="col-md-8">Sub-Menu Description</label>
 				     <div class="col-md-9">
-					<textarea class="form-control" name="subcontent" rows="5" placeholder="Textarea"></textarea>
+					<textarea class="form-control" name="subcontent" rows="5" placeholder="Textarea"><?php echo $getsubmenunow[0]['subdescription'];?></textarea>
 				    </div>
 				</div>
 				</div>
 				
+				  <div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-4">Download content</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" value="<?php echo $getsubmenunow[0]['download'];?>" name="download" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
 				
 			    </div>
-			
-
+			<div class="row pullmenu">
+				
+				<div class="col-md-4">
+				<div class="form-group">
+					<label class="col-md-4">Try Content</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" type="text" value="<?php echo $getsubmenunow[0]['tryit'];?>" name="try" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+				
+				  <div class="col-md-4">
+				<div class="form-group">
+					<label class="col-md-4">Sub-Menu Title</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" value="<?php echo $getsubmenunow[0]['submenu3'];?>" type="text" name="submenu4" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+				  
+			    <div class="col-md-4">
+				<div class="form-group">
+					<label class="col-md-4">Sub-Menu Title</label>
+				     <div class="col-md-12">
+					<input class="form-control input-sm" value="<?php echo $getsubmenunow[0]['submenu4'];?>" type="text" name="submenu3" placeholder="Default input">
+				    </div>
+				</div>
+				</div>
+			   
+			    </div>
 			
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
@@ -147,9 +194,21 @@
 </body>
 </html>
 
+<script>
+    
+   $('.getValue').click(function (){
+
+    $('.pullmenu').toggle();
+    
+   });
+    
+    
+</script>
 
 <script>
 $(document).ready(function() {
+    $('.pullmenu').hide();
+    
     $('#form_validation').bootstrapValidator({
 	
 	feedbackIcons: {

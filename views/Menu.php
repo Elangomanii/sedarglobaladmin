@@ -85,6 +85,11 @@
 
 <script>
     
+    var geter='<?php echo $row['id']=3?>';
+     var geterr='<?php echo $row['id']=2?>';
+    
+    $(a).attr("disabled", true);
+    
 $(document).ready(function() {
  $("#data-table").DataTable();
     });

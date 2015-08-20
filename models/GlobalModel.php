@@ -1239,12 +1239,35 @@ class GlobalModel extends CI_Model {
 		"submenu2"=>$_POST['submenu1'],
 		"submenulink2"=>$_POST['submenulink2'],
 		"subdescription"=>$_POST['subcontent'],
+		"submenu3"=>$_POST['submenu4'],
+		"submenu4"=>$_POST['submenu3'],
+		"download"=>$_POST['download'],
+		"tryit"=>$_POST['try'],
 
 	    );
+	     	    
+//print_r($datasubmenu);
+//exit;
+	     
+         $this->db->insert("submenuclient",$datasubmenu);
+	 
+	//     
+	//     	     $dataproductmenu=array(
+	//	"menuid"=>$insert_id,
+	//	"submenu1"=>$_POST['submenu'],
+	//	//"submenulink1"=>$_POST['submenulink1'],
+	//	"submenu2"=>$_POST['submenu1'],
+	//	//"submenulink2"=>$_POST['submenulink2'],
+	//	"subdescription"=>$_POST['subcontent'],
+	//	"submenu3"=>$_POST['submenu3'],
+	//	"submenu4"=>$_POST['submenulink4'],
+	//
+	//
+	//    );
 	    
 //print_r($data);
 //exit;
-	    $this->db->insert("submenuclient",$datasubmenu);
+	    //$this->db->insert("submenuproduct",$dataproductmenu);
 	    
 	     
 	    
@@ -1276,6 +1299,14 @@ class GlobalModel extends CI_Model {
 	    }
 	}
 	
+	function getSubmenuNow($id)
+	{
+
+		 $sql="select * from submenuclient where menuid='$id'";
+		 return $result=$this->db->query($sql)->result_array();
+
+	}
+	
 	function putmenuupdate($id)
 	
 	{
@@ -1291,6 +1322,27 @@ class GlobalModel extends CI_Model {
 	     //exit;
 	$this->db->where("id",$id);
 	$this->db->update("menu",$data);
+	
+	 $datasubmenu=array(
+		//"menuid"=>$insert_id,
+		"submenu1"=>$_POST['submenu'],
+		"submenulink1"=>$_POST['submenulink1'],
+		"submenu2"=>$_POST['submenu1'],
+		"submenulink2"=>$_POST['submenulink2'],
+		"subdescription"=>$_POST['subcontent'],
+		"submenu3"=>$_POST['submenu4'],
+		"submenu4"=>$_POST['submenu3'],
+		"download"=>$_POST['download'],
+		"tryit"=>$_POST['try'],
+
+
+	    );
+	 
+	 //print_r($datasubmenu);
+	 //exit;
+	 $this->db->where("menuid",$id);
+	$this->db->update("submenuclient",$datasubmenu);
+	
 	    
 	}
 	
