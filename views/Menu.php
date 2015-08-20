@@ -48,7 +48,7 @@
 			</thead>
 			<tbody>
 			    <?php foreach($getMenu as $row) { ?>
-			    <tr>
+			    <tr class="conter">
 				<td><?php echo $row['menu']?></td>					    
 				<td><?php echo $row['menuType']?></td>
 				<td><?php echo $row['menuLink']?></td>
@@ -56,7 +56,7 @@
 				<td>
 				<a href="<?php echo site_url('GlobalController/globalMenuEdit/'.$row['id']); ?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
 				
-				  <a href="<?php echo site_url('GlobalController/globalMenuDelete/'.$row['id']); ?>" class="btn btn-xs btn-danger"><i class="fa  fa-trash-o"></i> </a>
+				  <a href="<?php echo site_url('GlobalController/globalMenuDelete/'.$row['id']); ?>" <?php if($row['id']==3 || $row['id']==2){echo 'disabled';}?> class="btn btn-xs btn-danger"><i class="fa  fa-trash-o"></i> </a>
     
 				</td>
 			    </tr>
@@ -85,10 +85,28 @@
 
 <script>
     
-    var geter='<?php echo $row['id']=3?>';
-     var geterr='<?php echo $row['id']=2?>';
+//    var matches = 0;
+//$(".conter").each(function(i, val) {
+//  
+//    matches++;
+//});
+//    //alert(matches);
+//    var i=0;
+//   var geter='<?php echo $row['id']?>';
+//    if(i<5)
+//    {
+//   geter+i;
+//     //var geterr='<?php echo $row['id']?>';
+//     i++;
+//    }
+//     alert(geter);
+//     if (geter==4 || geter==3 ) {
+//	alert();
+//	 $('a.deleterdis').attr("disabled", true);
+//	
+//     }
     
-    $(a).attr("disabled", true);
+   
     
 $(document).ready(function() {
  $("#data-table").DataTable();
