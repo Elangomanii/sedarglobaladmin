@@ -26,12 +26,12 @@
 		    </div>
 		    <h4 class="panel-title">Client Overview </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body" >
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Terms_Add'); ?>" class="form-horizontal form12">
-		 <legend>ADD TERMS TO SHOW</legend>
+		 <legend>ADD TERMS FOR SHOW</legend>
 		 <div class="row">
-		    <div class="col-md-5">
+		    <div class="col-md-6">
 				<div class="form-group">
 			     <label class="col-md-4">Terms Title</label>
 				<div class="col-md-12">
@@ -39,10 +39,8 @@
 				</div>
 				</div>
 		    </div>
-		 </div>
-		 
-				 <div class="row">
-		    <div class="col-md-5">
+
+		    <div class="col-md-6">
 				<div class="form-group">
 			      <label class="col-md-4">Terms link</label>
 			
@@ -67,9 +65,8 @@
 			   
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-				<input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Save" id="submit" value="Save" >
-                                <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
-                                
+				<input type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >
+                                <button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
                              </div>
 			</div>
 			</form>

@@ -25,7 +25,7 @@
 		    </div>
 		    <h4 class="panel-title">Image Gallery</h4>
 		</div>
-		<div class="panel-body" id="">
+		<div class="panel-body" >
 		  <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/ProjectImage_Add'); ?>"" class="form-horizontal">
                     <!--<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >-->
 			  
@@ -44,28 +44,20 @@
 			       
                             <button type="button" class="pull-right btn btn-primary" onclick="addImage()"><i class="fa  fa-plus"></i></button>
 			</div>
-		       
-		       <!--<div class="row">-->
                         <div class="col-md-12" id="gallery">
                             <div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  >
-				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
-
-				   <!-- <div class="input-group">-->
+				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" id="dummy1" style="height: 185px;" >
                                 <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-<!--				    <span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a>
-				    </span>-->
-                                
-                            <!--</div>-->
+
 				</div>
                         </div>
-		       <!--</div>-->
-		    
 		 
 		   <div class="pager form-group">
-                             <div class="col-md-6 control-label">
-					<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-					<button class="btn btn-md btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
-					<input type="submit" class="btn btn-md btn-success"  name="Save" id="submit_but" value="Save" >
+                             <div class="col-md-7 control-label">
+				<input type="submit" class="btn btn-sm btn-success"  name="Save" id="submit_but" value="Save" >
+				<button class="btn btn-sm btn-info " id="clear_data" type="button"> Reset </button>
+				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
+					
 				    </div>
 				</div>
                  </form> 
@@ -88,21 +80,20 @@
 </div>
 <!-- end page container -->
 
-</body>
-</html>
-
-
- 
  
  <script>
-    
+
+  $('#clear_data').click(function() {
+    //empty();
+     $('.gott').removeAttr('src');
+      $('.gott').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott' id='dummy1' style='height: 185px;' >");
+     //alert();
+     $('#form_validation')[0].reset();
    
-	
-    
-    
+});	
+
     function attachment($this) {
 
-  
 var oFReader = new FileReader();
 oFReader.readAsDataURL($this.files[0]);
 oFReader.onload = function (oFREvent) {
@@ -125,11 +116,11 @@ function attachments()
 	});
     }
 
-//scrpit for previous and next button start
+
     $(document).ready(function() {
       	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
     });
-//script for precvious and next button end
+
 </script>
  
  
@@ -138,8 +129,8 @@ function attachments()
    
 function addImage(){
     if (i<3) {
-    //$('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file"class="col-md-12 " id="preview" name="image[]" onchange="attachment(this)" ><div class="col-md-12 " ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div>	').appendTo("#gallery");
-	   $('<div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div>').appendTo("#gallery");
+
+	   $('<div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div>').appendTo("#gallery");
 	    attachments();
 	    i++;
 	    }

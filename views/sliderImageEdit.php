@@ -32,38 +32,41 @@
 				<!--<button type="button" class="pull-right btn btn-primary" id="plusButton" onclick="addImage()"><i class="fa  fa-plus"></i></button>-->
 			    </div>
 			    <div class="col-md-12" id="gallery">
+				    <?php foreach ($getslideredit as $row)
+                        
+                        $sliderimage=$row['SliderImage'];
+                        $sliderimagees=explode(",", $sliderimage);
+			$slidertitle=$row['SliderTitle'];
+			 $slidertit=explode(",", $slidertitle);
+			$sliderdescription=$row['SliderDescription'];
+			 $sliderdes=explode(",", $sliderdescription);
+			$sliderlink=$row['SliderLink'];
+			 $sliderlnk=explode(",", $sliderlink);
+			
+                        $leangth=count($sliderimagees);
+                        
+                        ?>
 				
-				
-				
+				 <?php for($i=0;$i<$leangth;$i++) {?>
 				<div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;">
-				    <img src="<?php echo site_url('uploads/'.$getslideredit[0]['SliderImage']);?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" >
+				    <img src="<?php echo site_url('uploads/'.$sliderimagees[$i]);?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" >
 					
-					 <input type="file" id="preview" name="image" onchange="attachment(this);" >
-					 <input type="hidden" id="preview" name="oldimage" value="<?php echo $getslideredit[0]['SliderImage'];?>" >
-					<!--<div class="input-group">
-					<span class="input-group-btn">
-					    <span class="btn btn-primary btn-file">
-						Browse&hellip; <input type="file" id="preview" value="<?php //echo $common[$i];?>" name="image[]" onchange="attachment(this);">
-					    </span>
-					</span>
-					<input type="text" value="<?php //echo $common[$i];?>" class="form-control" readonly>
-				    </div>	-->
+					 <input type="file" id="preview" name="image[]" onchange="attachment(this);" >
+					 <input type="hidden" id="preview" name="oldimage[]" value="<?php echo $sliderimagees[$i];?>" >
 				    <p></p>
-				    <input type="text" class="form-control input-sm" name="sliderTitle" id="id" value="<?php echo $getslideredit[0]['SliderTitle']; ?>" placeholder="Slider Title">
+				    <input type="text" class="form-control input-sm" name="sliderTitle[]" id="id" value="<?php echo $slidertit[$i]; ?>" placeholder="Slider Title">
 				   <p></p>
-				    <input type="text" class="form-control input-sm" name="subTitle" id="id" value="<?php echo $getslideredit[0]['SliderDescription']; ?>" placeholder="Slider Sub Title">
+				    <input type="text" class="form-control input-sm" name="subTitle[]" id="id" value="<?php echo $sliderdes[$i]; ?>" placeholder="Slider Sub Title">
 				  <p></p>
-				    <input type="text" class="form-control input-sm" name="sliderLink" id="id" value="<?php echo $getslideredit[0]['SliderLink']; ?>" placeholder="Slider link">                                
+				    <input type="text" class="form-control input-sm" name="sliderLink[]" id="id" value="<?php echo $sliderlnk[$i]; ?>" placeholder="Slider link">                                
 				</div>
-				<?php //}?>
+				<?php }?>
 			    </div>
 			</div>
-			<div class="col-md-offset-3 col-md-6">
-			    <div class="form-group">
-				<label class="col col-4"></label>
-				<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-				
-				<input type="submit" class="btn btn-md btn-success"  name="update" id="submit_but" value="Update" >
+			<div class="pager form-group">
+                             <div class="col-md-7 control-label">
+				<input type="submit" class="btn btn-sm btn-success"  name="update" id="submit_but" value="Update" >
+				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
 			    </div>
 			</div>
 		    </form>		    

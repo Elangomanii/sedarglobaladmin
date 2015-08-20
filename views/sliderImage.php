@@ -52,9 +52,9 @@
 			    <?php foreach($getSlider as $row) { ?>
 			    <tr>
 				<td><?php echo $row['SliderTitle']?></td>					    
-				<td><?php echo mb_strimwidth($row['SliderDescription'],0,50,"...")?></td>
+				<td><?php echo mb_strimwidth($row['SliderDescription'],0,30,"...")?></td>
 				<td><?php echo $row['SliderImage']?></td>
-				<td><?php echo mb_strimwidth($row['SliderLink'],0,50,"...");?></td>
+				<td><?php echo mb_strimwidth($row['SliderLink'],0,30,"...");?></td>
 				
 				<td>
 				<a href="<?php echo site_url('GlobalController/globalSliderEdit/'.$row['id']);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>

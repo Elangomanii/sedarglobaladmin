@@ -26,23 +26,18 @@
 		    <h4 class="panel-title">Image Gallery</h4>
 		</div>
 		<div class="panel-body">
-		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/globalMenuAdd'); ?>"" class="form-horizontal">
+		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/globalMenuAdd'); ?>" class="form-horizontal">
 			
 			<div class="row">
 			    <div class="col-md-12">
 			<legend>CHOOSE OPTION FOR CHANGE MENU.. </legend>
-			<!--<div class="btn-group m-r-5 m-b-5">-->
 			<a class="btn pull-right btn-success dropdown-toggle" data-toggle="dropdown" href="javascript:;">
 			    <i class="fa fa-cog"></i></a>
-<!--			<a class="btn btn-success dropdown-toggle"  href="javascript:;">
-				<span class="caret"></span>
-				</a>-->
 				<ul class="dropdown-menu pull-right">
 				<li class="getValue">
 				<a href="javascript:;">SHOW SUB-MENU</a>
 				</li>
 				</ul>
-			<!--</div>-->
 			    </div>
 			    </div>
 			    <div class="row">
@@ -60,7 +55,7 @@
 					<label class="col-md-4">Menu Type</label>
 				    <div class="col-md-12">
 					<select class="form-control input-sm" name="type">
-					    <option value="0">Select</option>
+					    <option>Select</option>
 					    <option value="Header">Header</option>
 					    <option value="Footer">Footer</option>
 					</select>
@@ -178,9 +173,9 @@
 			
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-				<button type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >Save</button>
-				<button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
+				<button type="submit" class="btn btn-sm btn-success" name="save" value="Save" >Save</button>
 				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
+				<button class="btn btn-sm btn-info" class="clear_data"  type="button"> Reset </button>
 			    </div>
 			</div>
 		    </form>		    
@@ -208,9 +203,10 @@
     
    });
    
-  $('#clear_data').click(function() {
-    $(':input').val('');
-    $('#formvalidation').data('bootstrapValidator').resetForm();
+  $('.clear_data').click(function() {
+    alert();
+    document.getElementById('form_validation').reset(); 
+    $('#form_validation').data('bootstrapValidator').resetForm();
 });
     
     

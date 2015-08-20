@@ -30,9 +30,9 @@
 		    </div>
 		    <h4 class="panel-title">View </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body" >
 		  <form action="<?php echo base_url(); ?>GlobalController/cityAdder" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">
-                  <legend>Add GeoLocation as your wish</legend>
+                  <legend>ADD CITY FOR CHANGE ..</legend>
                     <div class="row">
                         
 			    <div class="col-md-6">
@@ -76,8 +76,9 @@
 
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <button  class="btn btn-success" type="submit" name="save" >Save</button>
-                                <button  class="btn btn-default" onclick="window.history.back();" type="button">Cancel</button>
+                                <button  class="btn btn-success btn-sm" type="submit" name="save" >Save</button>
+				<button class="btn btn-sm btn-info" id="clear_data" type="button"> Reset </button>
+                                <button  class="btn btn-default btn-sm" onclick="window.history.back();" type="button">Cancel</button>
                              </div>
                              
                          </div>
@@ -102,7 +103,15 @@
 </html>
 
 
+
 <script>
+
+
+          $('#clear_data').click(function() {
+ 
+     $('#form_validation')[0].reset();
+   
+});
 
 function attachments()
     {

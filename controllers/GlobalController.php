@@ -652,6 +652,13 @@ class GlobalController extends CI_Controller
 	
     }
     
+       public function globalcountryDelete($id)
+    {
+	$this->GlobalModel->deletecountry($id);
+	redirect(base_url()."GlobalController/Country");
+	
+    }
+    
     function globalcountryEdit($id)
     {
 	
@@ -687,6 +694,15 @@ class GlobalController extends CI_Controller
 
     }
     
+    
+       public function globalstateDelete($id)
+    {
+	$this->GlobalModel->deletestates($id);
+	redirect(base_url()."GlobalController/State");
+	
+    }
+    
+    
      function globalstateEdit($id)
     {
 	
@@ -703,14 +719,14 @@ class GlobalController extends CI_Controller
 	
     }
     
-    function globalstateDelete($id)
-    {
-	$this->db->where('id', $id);
-	$this->db->delete('outstate');
-	
-	redirect(base_url()."GlobalController/State");   
-	
-    }
+//    function globalstateDelete($id)
+//    {
+//	$this->db->where('id', $id);
+//	$this->db->delete('outstate');
+//	
+//	redirect(base_url()."GlobalController/State");   
+//	
+//    }
     
     
     function City()
@@ -934,7 +950,6 @@ class GlobalController extends CI_Controller
     {
 	if(isset($_POST['save']))
 	{
-	    
 	 $this->GlobalModel->getMenu();  
 	 redirect(base_url()."GlobalController/Menu");   
 	    

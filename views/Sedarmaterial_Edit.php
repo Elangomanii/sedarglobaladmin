@@ -23,7 +23,7 @@
                         </div>
                         <h4 class="panel-title">Client Overview </h4>
                     </div>
-                    <div class="panel-body" id="form_validation">
+                    <div class="panel-body">
                         <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Sedarmaterial_Edit/'.$materialrow[0]['id']); ?>" class="form-horizontal form12">
                              <legend>EDIT MATERIAL FOR CHANGE</legend>
                             <div class="row">
@@ -38,10 +38,10 @@
                             </div>
                             </div>
                             
-                            <div class="pager form-group">
-                                <div class="col-md-7 control-label">
-                                    <input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Update" id="submit" value="Update" >
-                                    <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
+                  <div class="pager form-group">
+                             <div class="col-md-7 control-label">
+                                    <input type="submit" class="btn btn-sm btn-success" name="Update" value="Update" >
+                                    <button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
                                 </div>
                             </div>
                         </form>

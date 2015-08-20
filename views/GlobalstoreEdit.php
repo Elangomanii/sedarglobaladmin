@@ -32,9 +32,9 @@
 		    </div>
 		    <h4 class="panel-title">View </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body">
 		  <form action="<?php echo base_url('GlobalController/globalStoreEdit/'.$getStory[0]['id']); ?>" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">
-		    <legend>Change address</legend>
+		    <legend>EDIT COUNTRY FOR CHANGE..</legend>
                     <div class="row">
 			     <div class="col-md-4">
 				<div class="form-group">
@@ -79,7 +79,7 @@
                         </div>
 		    </div>
 
-		    <legend>Change address</legend>
+		    <legend>EDIT COUNTRY FOR CHANGE..</legend>
                     <div class="row">
 
                           <div class="col-md-4">
@@ -131,7 +131,7 @@
 		    </div>
 
 			 
-			 <legend>Change image for Store</legend>
+			 <legend>EDIT STORE FOR CHANGE ..</legend>
 			<div class="row">
 			<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                         <div class="col-md-12">
@@ -145,7 +145,7 @@
 		    </div>
 			 
 			 
-		     <legend>Click the imgage to add extra <button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
+		     <legend>EDIT EXTRA STORES FOR CHANGE ..<button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
 		   
                         
 		    <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
@@ -179,8 +179,8 @@
                     </div>
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <button  class="btn btn-success m-r-5 m-b-5" type="submit" name="update" >update</button>
-                                <button  class="btn btn-default m-r-5 m-b-5" onclick="window.history.back();" type="button">Cancel</button>
+                                <button  class="btn btn-success btn-sm" type="submit" name="update" >update</button>
+                                <button  class="btn btn-default btn-sm" onclick="window.history.back();" type="button">Cancel</button>
                              </div>
                              
                          </div>

@@ -55,9 +55,10 @@
 					<label class="col-md-4">Menu Type</label>
 				    <div class="col-md-12">
 					<select class="form-control input-sm" name="type">
-					    <?php foreach ($getMenu as $row) {?>
-					    <option  <?php if($getmenunow[0]['menuType']==$row['menuType'] ) echo "selected"; ?> value="<?php echo $row['menuType'];?>"><?php echo $row['menuType'];?></option>
-					<?php } ?>
+					    
+					<option  <?php if($getmenunow[0]['menuType']=='Header' ) echo "selected"; ?> value="Header">Header</option>
+					<option  <?php if($getmenunow[0]['menuType']=='Footer' ) echo "selected"; ?> value="Footer">Footer</option>				    
+					
 					</select>
 				    </div>
 				</div>
@@ -172,7 +173,6 @@
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
 				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-				<button class="btn btn-sm btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
 				<input type="submit" class="btn btn-sm btn-success"  name="update" id="submit_but" value="Update" >
 			    </div>
 			</div>

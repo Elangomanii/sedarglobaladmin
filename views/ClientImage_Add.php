@@ -25,7 +25,7 @@
 		    </div>
 		    <h4 class="panel-title">Image Gallery</h4>
 		</div>
-		<div class="panel-body" id="">
+		<div class="panel-body">
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/ClientImage_Add'); ?>"" class="form-horizontal">
                     <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                         <div class="page-title">
@@ -45,10 +45,9 @@
                         </div>
                     </div>
 		      <div class="pager form-group">
-                             <div class="col-md-6 control-label">
-					<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-					<!--<button class="btn btn-md btn-info " onclick=" form_reset();" id="clear_data" type="button"> Reset </button>-->
-					<input type="submit" class="btn btn-md btn-success"  name="Save" id="submit_but" value="Save" >
+                             <div class="col-md-7 control-label">
+				<input type="submit" class="btn btn-sm btn-success"  name="Save" id="submit_but" value="Save" >
+				<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
 				    </div>
 				</div>
                  </form>

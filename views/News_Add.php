@@ -26,10 +26,10 @@
 		    </div>
 		    <h4 class="panel-title"> News </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body">
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/News_Add'); ?>" class="form-horizontal form12">
-		 <legend>ADD CONTENT FOR CHANGE</legend>
+		 <legend>ADD CONTENT FOR CHANGE ..</legend>
 		 <div class="row">
 		     <div class="col-md-6">
 			    <div class="form-group">
@@ -37,7 +37,7 @@
                               <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                                 <div class="col-md-12" id="gallery">
                                     <div class="col-md-6 ImageView AdjustPadding" style="padding-bottom:20px;"  >
-                                        <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px; width: 200px;" >
+                                        <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" id="dummy1" style="height: 185px; width: 200px;" >
                                         <input type="file" id="preview" name="image" class="col-md-12 "onchange="attachment(this);" >
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                               <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                                 <div class="col-md-12" id="gallery">
                                     <div class="col-md-6 ImageView AdjustPadding" style="padding-bottom:20px;"  >
-                                        <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px; width: 200px;" >
+                                        <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px; width: 200px;" >
                                         <input type="file" id="preview" name="imagename" class="col-md-12 "onchange="attachment(this);" >
                             </div>
                         </div>
@@ -110,10 +110,10 @@
 			   
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-				
-                                <button class="btn btn-md btn-info" onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
-                                <button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
-                                <input type="submit" class="btn btn-md btn-success" name="Save" id="submit" value="Save" >
+				<input type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >
+                                <button class="btn btn-sm btn-info" onclick=" form_reset();" id="clear_data" type="button"> Reset </button>
+                                <button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+                                
                              </div>
 			</div>
 		    </form>
@@ -137,6 +137,19 @@
 </html>
 
  <script>
+      $('#clear_data').click(function() {
+    //empty();
+     $('.gott').removeAttr('src');
+      $('.gott2').removeAttr('src');
+      $('.gott').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott' id='dummy1' style='height: 185px;' >");
+      $('.gott2').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott2' id='dummy1' style='height: 185px;' >");
+     alert();
+     $('#form_validation')[0].reset();
+   
+});
+    
+    
+    
     function attachment($this) {
   
 var oFReader = new FileReader();
@@ -157,11 +170,6 @@ function attachments()
 	});
     }
 
-//scrpit for previous and next button start
-    //$(document).ready(function() {
-    //  	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-    //});
-//script for precvious and next button end
 </script>
   <script>
     function attachmentss($this) {
@@ -174,28 +182,23 @@ $($this).parents('.ImageViews').find('img').attr("src",  oFREvent.target.result)
 
 };
 };
-function attachmentsss()
-    {
-	
-	$(".removeButton").on('click',function(){
-	   
-	    var $row   = $(this).parents('.ImageViews');
-	    $row.remove();
-	});
-    }
-
-//    $(document).ready(function() {
-//      	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-//    });
-////script for precvious and next button end
+//function attachmentsss()
+//    {
+//	
+//	$(".removeButton").on('click',function(){
+//	   
+//	    var $row   = $(this).parents('.ImageViews');
+//	    $row.remove();
+//	});
+//    }
 </script>
-<script>
-function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" >  <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");
-	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");
-	    attachments();
-	    }
-	    </script>
+<!--<script>-->
+<!--function addImage(){-->
+<!--    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" >  <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");-->
+<!--	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");-->
+<!--	    attachments();-->
+<!--	    }-->
+<!--	    </script>-->
 
  <script>
 $(document).ready(function() {

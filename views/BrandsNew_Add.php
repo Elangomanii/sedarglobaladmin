@@ -31,7 +31,7 @@
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/BrandsNew_Add'); ?>" class="form-horizontal form12">
 		 <legend>ADD CONTENT FOR CHANGE</legend>
 		 <div class="row">
-		    <div class="col-md-5">
+		    <div class="col-md-6">
 				<div class="form-group">
 			     <label class="col-md-5">Brand Title</label>
 		
@@ -40,11 +40,8 @@
 				</div>
 				</div>
 		    </div>
-		 </div>
-		    
-				
-			<div class="row">
-		    <div class="col-md-5">
+
+		    <div class="col-md-6">
 				<div class="form-group">
 			     <label class="col-md-5">Brand Link</label>
 				
@@ -65,16 +62,14 @@
 				</div>
 		    </div>
 		    </div>
-			   </div>
-			   
-			<div class="row">
-			<div class="col-md-3">
+
+			<div class="col-md-3 col-md-offset-1">
 			    <div class="form-group">
                                 <label class="col-md-5">Name Image</label>
                               <div class="row AdjustPadding" id="image1">
                                 <div class="col-md-12" id="gallery">
                                     <div class="ImageView AdjustPadding" style="padding-bottom:20px;"  >
-                                        <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px; width: 200px;" >
+                                        <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px; width: 200px;" >
                                         <input type="file" id="preview" name="image" class="col-md-12 "onchange="attachment(this);" >
                             </div>
                         </div>
@@ -89,7 +84,7 @@
                               <div class="row AdjustPadding" id="image2">
                                 <div class="col-md-12" id="gallery1">
                                     <div class="ImageViews AdjustPadding" style="padding-bottom:20px;"  >
-                                        <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewsimage " id="dummy2" style="height: 185px; width: 200px;" >
+                                        <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewsimage gott" id="dummy2" style="height: 185px; width: 200px;" >
                                         <input type="file" id="previews" name="imagename" class="col-md-12 "onchange="attachmentss(this);" >
 
                             </div>
@@ -101,9 +96,9 @@
 			   
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <input type="submit" class="btn btn-md btn-success" name="Save" id="submit" value="Save" >
+                                <input type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >
 				<button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>
-				<button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+				<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
                              </div>
 			</div>
 			</form>
@@ -116,27 +111,24 @@
     </div>
     <!-- end row -->
 	</div>
-	<!-- end #content -->
-	
-	<!-- begin scroll to top btn -->
+
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 	<!-- end scroll to top btn -->
 </div>
-<!-- end page container -->
-</body>
-</html>
-
-<!--
 <script>
-    $(function(){
-	
-	<?//php $data =$this->session->userdata('ServiceEdit');
-	
-	if(//$data!="Y"){?>
-	$("#form_validation input").prop("disabled", true);
-	<?//php }?>
-	});
-</script>-->
+    
+  $('#clear_data').click(function() {
+    //empty();
+     $('.gott').removeAttr('src');
+     $('.gott2').removeAttr('src');
+      $('.gott').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott' id='dummy1' style='height: 185px;' >");
+      $('.gott2').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott2' id='dummy1' style='height: 185px;' >");
+     alert();
+     $('#form_validation')[0].reset();
+   
+});
+    
+</script>
  <script>
     function attachment($this) {
   

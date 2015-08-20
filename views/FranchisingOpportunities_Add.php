@@ -26,35 +26,35 @@
 		    </div>
 		    <h4 class="panel-title">Franchising Opportunities </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body">
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/FranchisingOpportunities_Add'); ?>" class="form-horizontal form12">
-		 <legend>Add The Content</legend>
+		 <legend>ADD CONTENT FOR CHANGE ..</legend>
 		 <div class="row">
-		    <div class="col-md-7">
-				 <div class="col-md-12">
-			     <h4 class="m-t-0">Franchising Opportunities Title</h4>
-				 </div>
+		      <div class="col-md-6">
+			    <div class="form-group">
+			     <label class="col-md-6">Franchising Opportunities Title</label>
 				<div class="col-md-12">
-				    <input type="text" name="franchisingTitle" id="franchisingTitle"  class="form-control input-lg" value="" placeholder="Franchising Opportunities Title" />
+				    <input type="text" name="franchisingTitle" id="franchisingTitle"  class="form-control input-sm" value="" placeholder="Franchising Opportunities Title" />
 				</div>
-				
-			 
-				
-			    <div class="col-md-12">
-				 <p></p>
-			    <h4 class="m-t-0">Description</h4>
 			    </div>
+		      </div>
+		 </div>
+			 <div class="row">	
+			    <div class="col-md-6">
+			    <div class="form-group">
+			    <label class="col-md-6">Description</label>
 				<div class="col-md-12">
 				<textarea id="franchisingDetails" name="franchisingDetails" placeholder="Enter your content here" cols="25" rows="5" class="ckeditor textarea form-control  textarea_middle required"> </textarea>
 				</div>
 		    </div>
 		</div>
+		 </div>
 			   
-			<div class="pager form-group">
-                             <div class="col-md-6 control-label">
-				<input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Save" id="submit" value="Save" >
-                                <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
+			 <div class="pager form-group">
+                             <div class="col-md-7 control-label">
+				<input type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >
+                                <button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
                                 
                              </div>
 			</div>
@@ -74,20 +74,3 @@
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 	<!-- end scroll to top btn -->
 </div>
-<!-- end page container -->
-</body>
-</html>
-
-<!--
-<script>
-    $(function(){
-	
-	<?//php $data =$this->session->userdata('ServiceEdit');
-	
-	if(//$data!="Y"){?>
-	$("#form_validation input").prop("disabled", true);
-	<?//php }?>
-	});
-</script>-->
-
- 

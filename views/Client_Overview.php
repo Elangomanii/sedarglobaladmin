@@ -27,7 +27,7 @@
 		    <h4 class="panel-title">Client Overview </h4>
 		</div>
 		
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body">
 		
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Client_Overview/'.$Client[0]['id']); ?>" class="form-horizontal form12">
 		 <legend>CHOOSE OPTION FOR CHANGE CLIENT OPERATION</legend>
@@ -40,9 +40,7 @@
 				</div>
 				</div>
 		   </div>
-		 </div>
-				
-			   <div class="row">
+		
 		   <div class="col-md-6">
 				<div class="form-group">
 			    <label class="col-md-6">Client Overview Sub Title</label>
@@ -66,10 +64,10 @@
 		    </div>
 		</div>
 			   
-			<div class="pager form-group">
-                             <div class="col-md-6 control-label">
-				<input type="submit" class="btn btn-md btn-success m-r-5 m-b-5" name="Save" id="submit" value="Save" >
-                                <button class="btn btn-md btn-danger m-r-5 m-b-5" onclick="window.history.back();" type="button"> Cancel </button>
+			 <div class="pager form-group">
+                             <div class="col-md-7 control-label">
+				<input type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >
+                                <button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
                                 
                              </div>
 			</div>
@@ -89,22 +87,15 @@
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 	<!-- end scroll to top btn -->
 </div>
-<!-- end page container -->
-</body>
-</html>
 
 
-<!--<script>
-    $(function(){
-	
+
 	<?php $data =$this->session->userdata('ServiceEdit');
 	
 	if($data!="Y"){?>
 	$("#form_validation input").prop("disabled", true);
 	<?php }?>
-	});
-</script>
--->
+
  
  <script>
 $(document).ready(function() {

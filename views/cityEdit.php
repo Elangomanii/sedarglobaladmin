@@ -30,7 +30,7 @@
 		    </div>
 		    <h4 class="panel-title">View </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body" >
 		  <form action="<?php echo base_url('GlobalController/globalcityEdit/'.$cityget[0]['id']); ?>" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">
                   <legend>Add GeoLocation as your wish</legend>
                     <div class="row">
@@ -76,8 +76,8 @@
 
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <button  class="btn btn-success" type="submit" name="update" >Update</button>
-                                <button  class="btn btn-default" onclick="window.history.back();" type="button">Cancel</button>
+                                <button  class="btn btn-success btn-sm" type="submit" name="update" >Update</button>
+                                <button  class="btn btn-default btn-sm" onclick="window.history.back();" type="button">Cancel</button>
                              </div>
                              
                          </div>
@@ -97,40 +97,37 @@
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 	<!-- end scroll to top btn -->
 </div>
-<!-- end page container -->
-</body>
-</html>
 
 
-<script>
-
-function attachments()
-    {
-	
-	$(".removeButton").on('click',function(){
-	   
-	    var $row = $(this).parents('.ImageView');
-	    $row.remove();
-	});
-    }
-    
-    function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><p></p><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a> </div>').appendTo("#gallery");	
-    attachments();
-    }
-    
-    function attachment($this) {
-  var imgval=$('#preview').val();
-    $('.getter').val(imgval);
-    var oFReader = new FileReader();
-    oFReader.readAsDataURL($this.files[0]);
-    oFReader.onload = function (oFREvent) {
-    $($this).parents('.ImageView').find('img').attr("src",  oFREvent.target.result);
-    
-    };
-    };
-    
-</script>
+<!--<script>-->
+<!---->
+<!--function attachments()-->
+<!--    {-->
+<!--	-->
+<!--	$(".removeButton").on('click',function(){-->
+<!--	   -->
+<!--	    var $row = $(this).parents('.ImageView');-->
+<!--	    $row.remove();-->
+<!--	});-->
+<!--    }-->
+<!--    -->
+<!--    function addImage(){-->
+<!--    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><p></p><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a> </div>').appendTo("#gallery");	-->
+<!--    attachments();-->
+<!--    }-->
+<!--    -->
+<!--    function attachment($this) {-->
+<!--  var imgval=$('#preview').val();-->
+<!--    $('.getter').val(imgval);-->
+<!--    var oFReader = new FileReader();-->
+<!--    oFReader.readAsDataURL($this.files[0]);-->
+<!--    oFReader.onload = function (oFREvent) {-->
+<!--    $($this).parents('.ImageView').find('img').attr("src",  oFREvent.target.result);-->
+<!--    -->
+<!--    };-->
+<!--    };-->
+<!--    -->
+<!--</script>-->
 
     <script>
 $(document).ready(function() {

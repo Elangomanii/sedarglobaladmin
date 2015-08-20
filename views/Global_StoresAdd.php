@@ -30,10 +30,10 @@
 		    </div>
 		    <h4 class="panel-title">View </h4>
 		</div>
-		<div class="panel-body" id="form_validationn">
+		<div class="panel-body">
 		  <form action="<?php echo base_url(); ?>GlobalController/globalStoreAdd" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">
 		    
-		    <legend>Change address</legend>
+		    <legend>ADD COUNTRY FOR CHANGE ..</legend>
                     <div class="row">
 			    <div class="col-md-4">
 				<div class="form-group">
@@ -79,7 +79,7 @@
 		    </div>	    
 		    
 		    
-		    <legend>Change address</legend>
+		    <legend>ADD COUNTRY FOR CHANGE ..</legend>
                     <div class="row">
 
 			    <div class="col-md-4">
@@ -126,19 +126,19 @@
 			  </div>
 			 </div>
 
-			<legend>Change image for Store</legend>
+			<legend>ADD STORE FOR CHANGE ..</legend>
 			<div class="row">
 			<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                         <div class="col-md-12">
                             <div class="col-md-4 viewer AdjustPadding" style="padding-bottom:20px;"  >
-				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" style="height: 185px;" >
+				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" style="height: 185px;" >
 				    <input type="file" id="previewer" name="imagetext" class="col-md-12 "onchange="attachmenter(this);" >
                             </div>
                         </div>
                     </div>
 		    </div>
 			 
-		     <legend>Click the imgage to add extra <button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
+		     <legend>ADD EXTRA STORES FOR CHANGE ..<button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
 		    <div class="row">
 		    <!--<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >-->
 			<div class="col-md-4">
@@ -152,15 +152,16 @@
 		    </div>
                         <div class="col-md-12" id="gallery">
                             <div class="col-md-4 ImageViewer AdjustPadding" style="padding-bottom:20px;"  >
-				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
+				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" >
 				    <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
                             </div>
                         </div>
                    
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <button  class="btn btn-success" type="submit" name="save" >Save</button>
-                                <button  class="btn btn-default" onclick="window.history.back();" type="button">Cancel</button>
+                                <button  class="btn btn-success btn-sm" type="submit" name="save" >Save</button>
+				<button class="btn btn-sm btn-info " id="clear_data" type="button"> Reset </button>
+                                <button  class="btn btn-default btn-sm" onclick="window.history.back();" type="button">Cancel</button>
                              </div>
                              
                          </div>
@@ -180,14 +181,25 @@
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 	<!-- end scroll to top btn -->
 </div>
-<!-- end page container -->
-</body>
-</html>
+
 <script>
+    
+      $('#clear_data').click(function() {
+    //empty();
+     $('.gott').removeAttr('src');
+      $('.gott2').removeAttr('src');
+      $('.gott').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott' id='dummy1' style='height: 185px;' >");
+    $('.gott2').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott2' id='dummy1' style='height: 185px;' >");
+     alert();
+     $('#form_validation')[0].reset();
+   
+});
+    
+    
    
    $('#country').change(function() { 
     var codecountry=$(this).find("option:selected").val();
-    alert(codecountry);
+    //alert(codecountry);
     $.ajax({
 	
 	type:'post',
@@ -203,7 +215,7 @@
     
     $('#state').change(function() { 
     var codestate=$(this).find("option:selected").val();
-    alert(codestate);
+    //alert(codestate);
     $.ajax({
 	
 	type:'post',
@@ -232,7 +244,7 @@ function attachments()
     }
     
     function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div>	').appendTo("#gallery");	
+    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div>	').appendTo("#gallery");	
     attachments();
     }
     

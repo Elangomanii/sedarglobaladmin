@@ -59,12 +59,11 @@
                         </div>
                     </div>
 		      <div class="pager form-group">
-                             <div class="col-md-6 control-label">
-					<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-					
-					<input type="submit" class="btn btn-md btn-success"  name="Update" id="submit_but" value="Update" >
-				    </div>
-				</div>
+                             <div class="col-md-7 control-label">
+				<input type="submit" class="btn btn-sm btn-success"  name="Update" id="submit_but" value="Update" >
+				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
+			    </div>
+			</div>
                  </form>
                 </div>
 	    <!-- end panel -->

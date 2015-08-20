@@ -52,12 +52,9 @@
 				{
 				?>
                             <div class="col-md-4 col-sm-4 col-xs-12 ImageView AdjustPadding"  style="padding-bottom:20px;"  >
-                           
-                                
                                 <img src="<?php echo site_url('uploads/'.$projectImage[$i]);?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
                                 <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
 				    <input type="hidden" id="preview" name="oldimage[]" value="<?php echo $projectImage[$i];?>" >
-                               <!-- <div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>-->
                             </div><?php
 			    
 			    } ?>
@@ -65,14 +62,12 @@
                     
 		    
 		    </div>
-		    <div class="col-md-offset-3 col-md-6">
-				    <div class="form-group">
-					<label class="col col-4"></label>
-					<button class="btn btn-md btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-					
-					<input type="submit" class="btn btn-md btn-success"  name="Update" id="submit_but" value="Update" >
-				    </div>
-				</div>
+		   <div class="pager form-group">
+                             <div class="col-md-7 control-label">
+				<input type="submit" class="btn btn-sm btn-success"  name="Update" id="submit_but" value="Update" >
+				<button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
+			    </div>
+		    </div>
                  </form> 
 		</div>
 		

@@ -26,7 +26,7 @@
 		    </div>
 		    <h4 class="panel-title"> Brands </h4>
 		</div>
-		<div class="panel-body" id="">
+		<div class="panel-body" >
                      <?php
 		    foreach($BrandsNewEdit as $row)
 				   
@@ -42,7 +42,7 @@
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/BrandsNew_Edit/'.$row['id']); ?>" class="form-horizontal form12">
 		<legend>EDIT CONTENT FOR CHANGE</legend>
 		 <div class="row">
-		     <div class="col-md-5">
+		     <div class="col-md-6">
 				<div class="form-group">
 			    <label class="col-md-5">Brand Title</label>
 			
@@ -51,10 +51,8 @@
 				</div>
 			    </div>
 		     </div>
-		 </div>
-				
-				<div class="row">
-		     <div class="col-md-5">
+
+		     <div class="col-md-6">
 				<div class="form-group">
 			     <label class="col-md-5">Brand Title link</label>
 				
@@ -77,11 +75,8 @@
 				</div>
 				</div>
 		     </div>
-			   </div>
-			   
-			   
-			   <div class="row">
-			<div class="col-md-3">
+
+			<div class="col-md-3 col-md-offset-1">
 			    <div class="form-group">
                                 <label class="col-md-5">Name Image</label>
                               <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
@@ -117,8 +112,8 @@
 			   
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-				<button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
-                                <input type="submit" class="btn btn-md btn-success" name="Update" id="submit" value="Update" >
+				<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+                                <input type="submit" class="btn btn-sm btn-success" name="Update" value="Update" >
                              </div>
 			</div>
 			</form>

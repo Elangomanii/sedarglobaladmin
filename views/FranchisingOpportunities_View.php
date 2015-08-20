@@ -49,7 +49,7 @@
 					    ?>
 			    <tr class="even gradeC">
 				<td><?php echo $row['franchisingTitle']; ?></td>					    
-				<td><?php echo $row['franchisingDetails']; ?></td>	
+				<td><?php echo mb_strimwidth($row['franchisingDetails'],0,50,"..."); ?></td>	
 				
 				<td>
 				<a href="<?php echo site_url('GlobalController/FranchisingOpportunities_Edit/'.$row['id'])?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
@@ -82,6 +82,12 @@
 </html>
 
 <script>
+    
+    $(document).ready(function() {
+ $("#data-table").DataTable();
+    });
+    
+    
 $('#form_validation').on('click', '#delete_box', function(e) {
  e.preventDefault();
          var link = $(this).attr('href');

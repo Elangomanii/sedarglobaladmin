@@ -26,7 +26,7 @@
 		    </div>
 		    <h4 class="panel-title"> Product Edit </h4>
 		</div>
-		<div class="panel-body" id="form_validation">
+		<div class="panel-body" >
                     <?php
 		    foreach($ProductNewEdit as $row)
 				    $ProductNewEdit= $row['name'];
@@ -37,12 +37,11 @@
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/ProductCategory_Edit/'.$row['id']); ?>" class="form-horizontal form12">
 		 <legend>Add The Content</legend>
 		 <div class="row">
-		    <div class="col-md-4">
+		   <div class="col-md-4">
 			    <div class="form-group">
-			     <label class="col-md-5">Product Title</h4>
-				
+			     <label class="col-md-5">Product Title</label>
 				<div class="col-md-12">
-				    <input type="text" name="name" id="name"  class="form-control input-lg" value="<?php echo $row['name']; ?>" placeholder="Brand Title" />
+				    <input type="text" name="name" id="name"  class="form-control input-sm" value="<?php echo $row['name']; ?>" placeholder="Brand Title" />
 				</div>
 			    </div>
 		    </div>
@@ -51,7 +50,7 @@
 				<div class="row">
 				 <div class="col-md-4">
 			    <div class="form-group">
-                                <label class="col-md-5"> Image</h4>
+                                <label class="col-md-5"> Image</label>
                               <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                                 <div class="col-md-12" id="gallery">
                                  
@@ -67,11 +66,9 @@
 		</div>
 			   
 			<div class="pager form-group">
-                             <div class="col-md-6 control-label">
-				
-                                
-                                <button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
-                                <input type="submit" class="btn btn-md btn-success" name="Update" id="submit" value="Update" >
+                             <div class="col-md-7 control-label">
+                                <button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+                                <input type="submit" class="btn btn-sm btn-success" name="Update" value="Update" >
                              </div>
 			</div>
 			</form>
@@ -90,9 +87,8 @@
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 	<!-- end scroll to top btn -->
 </div>
-<!-- end page container -->
-</body>
-</html>
+
+
 
 <script>
 $(document).ready(function() {

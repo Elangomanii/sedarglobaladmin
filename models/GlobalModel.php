@@ -781,7 +781,7 @@ class GlobalModel extends CI_Model {
 //	    
 //	}
 //	
-	
+//	
 //       function getStores($id)
 //	{
 //	    
@@ -935,7 +935,7 @@ class GlobalModel extends CI_Model {
 	  $name_array[] = $data['file_name'];
 	  }
 	 }
-	 echo $names= implode(',', $name_array);
+	  $names= implode(',', $name_array);
 	 $count=count($this->input->post('sliderTitle'));
 	    //$sliertitle=;
 	    //$subTitle=;
@@ -989,50 +989,66 @@ class GlobalModel extends CI_Model {
 	
 	{
 	    
-	    $files = $_FILES['image'];
-	    if($files['name'][$i]!=""){
-	    $config['upload_path'] = 'uploads/';
-	    $config['allowed_types'] = 'gif|jpg|png';
-	    $_FILES['image']['name'] = $files['name'];
-	    $_FILES['image']['type'] = $files['type'];
-	    $_FILES['image']['tmp_name'] = $files['tmp_name'];
-	    $_FILES['image']['error'] = $files['error'];
-	    $_FILES['image']['size'] = $files['size'];
-	    $this->load->library('upload', $config);
-	    $this->upload->initialize($config);
-	    $this->upload->do_upload('image');
-	    $data = $this->upload->data();
-	    $name_array = $data['file_name'];
+	$files = $_FILES['image'];
+	$c=count($_FILES['image']['size']);
+	//print_r($c);
+	     for($i=0; $i<$c; $i++)
+	    {
+		if($files['name'][$i]!="")
+		{
+		$config['upload_path'] = 'uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$_FILES['image']['name'] = $files['name'];
+		$_FILES['image']['type'] = $files['type'];
+		$_FILES['image']['tmp_name'] = $files['tmp_name'];
+		$_FILES['image']['error'] = $files['error'];
+		$_FILES['image']['size'] = $files['size'];
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		$this->upload->do_upload('image');
+		$data = $this->upload->data();
+		$name_array[] = $data['file_name'];
+		}
+		 else
+		{
+		 $name_array[] = $_POST['oldimage'][$i];
+		}
+		
 	    }
-	   else {
+	  
 
-	     $name_array = $_POST['oldimage'];
-	    }
-	    
-	     //$names= implode(',', $name_array);
-	    
-	    //$count=count($this->input->post('sliderTitle'));
+	     $names= implode(',', $name_array);
+	   // 	   print_r($names);
+	   //exit;
+	   // 
+	    $count=count($this->input->post('sliderTitle'));
 	    //$sliertitle=;
 	    //$subTitle=;
 	    //$sliderLink=;
 
-	    //for($i=0;$i<$count;$i++)
-	    //{
-		//$slider=$_POST['sliderTitle'];
-		//$title=$_POST['subTitle'];
-		//$link=$_POST['sliderLink'];
-		//
-	    //}
+	    for($i=0;$i<$count;$i++)
+	    {
+		$slider[]=$_POST['sliderTitle'][$i];
+		$title[]=$_POST['subTitle'][$i];
+		$link[]=$_POST['sliderLink'][$i];
+		
+	    }
+	    
+	      $slider1=implode(',', $slider);
+	     $title1=implode(',', $title);
+	     $link1=implode(',', $link);
        
 	    $data=array(
 		
-		"SliderImage"=>$name_array,
-		"SliderTitle"=>$_POST['sliderTitle'],
-		"SliderDescription"=>$_POST['subTitle'],
-		"SliderLink"=>$_POST['sliderLink'],
-		
-		
+		"SliderImage"=>$names,
+		"SliderTitle"=>$slider1,
+		"SliderDescription"=>$title1,
+		"SliderLink"=>$link1,
 	    );
+	    
+	    //print_r($data);
+	    //exit;
+	    //
 	    if($this->session->userdata('browserLanguage')=='ar')
 	    {
 		$result1=$this->db->where('id',$id);
@@ -1136,7 +1152,7 @@ class GlobalModel extends CI_Model {
 	function putProductupdate($id)
 	
 	{
-	    
+	    //exit();
 	    $files = $_FILES['image'];
 	    $c=count($_FILES['image']['size']);
 	    for($i=0; $i<$c; $i++)
@@ -1175,9 +1191,9 @@ class GlobalModel extends CI_Model {
 		
 	    }
 	
-	echo $slider=implode(',', $slider);
-	echo $title=implode(',', $title);
-	echo $link=implode(',', $link);
+	 $slider=implode(',', $slider);
+	 $title=implode(',', $title);
+	 $link=implode(',', $link);
 	
 	
 	    $data=array(
@@ -1361,59 +1377,59 @@ class GlobalModel extends CI_Model {
 	    }
 	}
 	
-	//
-	//function getcountry()
-	//
-	//{
-	//    $sql="SELECT * FROM ourcountry";
-	//    return $query = $this->db->query($sql)->result_array();
-	//
-	//}
-//       function pushcountry()
-//	{
-//	    
-//	    $data = array(
-//	    "countryName"=>$this->input->post("countryName"),
-//	    "CountryCode"=>$this->input->post("CountryCode"),
-//	    "latitude"=>$this->input->post("latitude"),
-//	    "longitude"=>$this->input->post("longitude"),
-//	    );
-//
-//	    $this->db->insert("ourcountry",$data);
-//	    
-//	}
-//       function countryget($id)
-//	{
-//	    
-//	$this->db->where("id","$id");
-//	return $this->db->get("ourcountry")->result_array(); 
-//	    
-//	}
-//       function updatecountry($id)
-//	{
-//	    $data = array(
-//	    "countryName"=>$this->input->post("countryName"),
-//	    "CountryCode"=>$this->input->post("CountryCode"),
-//	    "latitude"=>$this->input->post("latitude"),
-//	    "longitude"=>$this->input->post("longitude"),
-//	    );
-//	    //
-//	    //print_r($data);
-//	    //exit;
-//	    //
-//	    $this->db->where("id",$id);
-//	    $this->db->update("ourcountry",$data);
-//	    
-//	}
 	
-//       function getstate()
-//	
-//	{
-//	    $sql="SELECT * FROM ourstate";
-//	    return $query = $this->db->query($sql)->result_array();
-//	    
-//	}
-//	
+	function getcountry()
+	
+	{
+	    $sql="SELECT * FROM ourcountry";
+	    return $query = $this->db->query($sql)->result_array();
+	
+	}
+       function pushcountry()
+	{
+	    
+	    $data = array(
+	    "countryName"=>$this->input->post("countryName"),
+	    "CountryCode"=>$this->input->post("CountryCode"),
+	    "latitude"=>$this->input->post("latitude"),
+	    "longitude"=>$this->input->post("longitude"),
+	    );
+
+	    $this->db->insert("ourcountry",$data);
+	    
+	}
+       function countryget($id)
+	{
+	    
+	$this->db->where("id","$id");
+	return $this->db->get("ourcountry")->result_array(); 
+	    
+	}
+       function updatecountry($id)
+	{
+	    $data = array(
+	    "countryName"=>$this->input->post("countryName"),
+	    "CountryCode"=>$this->input->post("CountryCode"),
+	    "latitude"=>$this->input->post("latitude"),
+	    "longitude"=>$this->input->post("longitude"),
+	    );
+	    //
+	    //print_r($data);
+	    //exit;
+	    //
+	    $this->db->where("id",$id);
+	    $this->db->update("ourcountry",$data);
+	    
+	}
+	
+       function getstate()
+	
+	{
+	    $sql="SELECT * FROM ourstate";
+	    return $query = $this->db->query($sql)->result_array();
+	    
+	}
+	
 	
        function getcity()
 	
@@ -1432,57 +1448,57 @@ class GlobalModel extends CI_Model {
 	}
 	
 	
-	// function gettState()
-	//
-	//{
-	//    $sql="SELECT * FROM ourstate";
-	//    return $query = $this->db->query($sql)->result_array();
-	//    
-	//}
+	 function gettState()
 	
-//	
-//       function pushstate()
-//	{
-//	    
-//	    $data = array(
-//	    "stateName"=>$this->input->post("stateName"),
-//	    "stateCode"=>$this->input->post("stateCode"),
-//	    "countryCode"=>$this->input->post("countryCode"),
-//	
-//	    );
-//
-//	    $this->db->insert("ourstate",$data);
-//	}
-//	
-//       function stateget($id)
-//	{
-//	    
-//	$this->db->where("id","$id");
-//	return $this->db->get("ourstate")->result_array(); 
-//	    
-//	}
-//	
-//       function updatestate($id)
-//	{
-//	    $data = array(
-//	    "stateName"=>$this->input->post("stateName"),
-//	    "stateCode"=>$this->input->post("stateCode"),
-//	    "countryCode"=>$this->input->post("countryCode"),
-//	    //"latitude"=>$this->input->post("latitude"),
-//	    //"longitude"=>$this->input->post("longitude"),
-//	    );
-//	    $this->db->where("id",$id);
-//	    $this->db->update("ourstate",$data);
-//	    
-//	}
-//	
-//	function getCityy()
-//	{
-//	$sql="select * from ourcity";
-//	 return $result=$this->db->query($sql)->result_array();
-//	    
-//	}
-//	
+	{
+	    $sql="SELECT * FROM ourstate";
+	    return $query = $this->db->query($sql)->result_array();
+	    
+	}
+	
+	
+       function pushstate()
+	{
+	    
+	    $data = array(
+	    "stateName"=>$this->input->post("stateName"),
+	    "stateCode"=>$this->input->post("stateCode"),
+	    "countryCode"=>$this->input->post("countryCode"),
+	
+	    );
+
+	    $this->db->insert("ourstate",$data);
+	}
+	
+       function stateget($id)
+	{
+	    
+	$this->db->where("id","$id");
+	return $this->db->get("ourstate")->result_array(); 
+	    
+	}
+	
+       function updatestate($id)
+	{
+	    $data = array(
+	    "stateName"=>$this->input->post("stateName"),
+	    "stateCode"=>$this->input->post("stateCode"),
+	    "countryCode"=>$this->input->post("countryCode"),
+	    //"latitude"=>$this->input->post("latitude"),
+	    //"longitude"=>$this->input->post("longitude"),
+	    );
+	    $this->db->where("id",$id);
+	    $this->db->update("ourstate",$data);
+	    
+	}
+	
+	function getCityy()
+	{
+	$sql="select * from ourcity";
+	 return $result=$this->db->query($sql)->result_array();
+	    
+	}
+	
 	function cityget($id)
 	{
 	    if($this->session->userdata('browserLanguage')=='ar')
@@ -1540,174 +1556,199 @@ class GlobalModel extends CI_Model {
 	    
 	}
 	
-//      function getStores($id)
-//	{
-//	    
-//	    $sql="select * from store_image where id='$id'";
-//	    return $result=$this->db->query($sql)->result_array();
-//	       
-//	}
-//	
-//       function getStores1()
-//	{
-//	    
-//	    $sql="select * from store_image";
-//	    return $result=$this->db->query($sql)->result_array();
-//	       
-//	}
-//	
+      function getStores($id)
+	{
+	    
+	    $sql="select * from store_image where id='$id'";
+	    return $result=$this->db->query($sql)->result_array();
+	       
+	}
 	
-//       function putStores($id)
-//	{
-//	    
-//	   //$var = $_POST['oldimagee'];
-//	   //print_r($var);
-//	   //exit;
-//	    
-//	   $files = $_FILES['image'];
-//	    
-//	    $c=count($_FILES['image']['size']);
-//	    for($i=0; $i<$c; $i++)
-//	    {
-//	    if($files['name'][$i]!=""){
-//	    $config['upload_path'] = 'uploads/';
-//	    $config['allowed_types'] = 'gif|jpg|png';
-//	    $_FILES['image']['name'] = $files['name'][$i];
-//	    $_FILES['image']['type'] = $files['type'][$i];
-//	    $_FILES['image']['tmp_name'] = $files['tmp_name'][$i];
-//	    $_FILES['image']['error'] = $files['error'][$i];
-//	    $_FILES['image']['size'] = $files['size'][$i];
-//	    $this->load->library('upload', $config);
-//	    $this->upload->initialize($config);
-//	    $this->upload->do_upload('image');
-//	    $data = $this->upload->data();
-//	    $name_array[] = $data['file_name'];
-//	    }
-//	    else {
-//
-//		$name_array[] = $_POST['oldimage'][$i];
-//		}
-//	    
-//	    }
-//
-//	    $filedata = $_FILES;
-//
-//	    if($filedata['imagetext']['name']!="")
-//	    {
-//		
-//	    $config['upload_path'] = 'uploads/';
-//	    $config['allowed_types'] = 'gif|jpg|png';
-//	    $_FILES['image']['name'] = $filedata['imagetext']['name'];
-//	    $_FILES['image']['type'] = $filedata['imagetext']['type'];
-//	    $_FILES['image']['tmp_name'] = $filedata['imagetext']['tmp_name'];
-//	    $_FILES['image']['error'] = $filedata['imagetext']['error'];
-//	    $_FILES['image']['size'] = $filedata['imagetext']['size'];
-//	   $this->load->library('upload', $config);
-//	   $this->upload->initialize($config);
-//	    $this->upload->do_upload('image');
-//	    $data= $this->upload->data();
-//	    $imageName = $data['file_name'];
-//	    }
-//	   else
-//	   {
-//		$imageName = $_POST['oldimagee'];
-//	    }
-//	    
-//	    
-//	$names= implode(',', $name_array);
-//	$data= array(
-//	"textImage"=>$imageName,
-//	"image"=>$names,
-//	"title"=>$this->input->post("title"),
-//	"addresstitle"=>$this->input->post("address1"),
-//	"address1"=>$this->input->post("address2"),
-//	"address2"=>$this->input->post("address3"),
-//	"fax"=>$this->input->post("fax"),
-//	"phone"=>$this->input->post("phone"),
-//	"country"=>$this->input->post("country"),
-//	"state"=>$this->input->post("state"),
-//	"imagedescription"=>$this->input->post("imagedescription")
-//	   );
-//
-//	$result1=$this->db->where('id',$id);
-//        $result= $this->db->update('store_image',$data);
-//	}
-//	
-//       function storesImage()
-//	{
-//	    
-//
-//	  //print_r($imageName);
-//	  //exit;
-//	  //   
-//	  //multiple image gallery
-//	  
-//	    $files = $_FILES['image'];
-//	    
-//	    $c=count($_FILES['image']['size']);
-//	    for($i=0; $i<$c; $i++)
-//	    {
-//	    if($files['name'][$i]!="")
-//	    {
-//	    
-//	    $config['upload_path'] = 'uploads/';
-//	    $config['allowed_types'] = 'gif|jpg|png';
-//	    $_FILES['image']['name'] = $files['name'][$i];
-//	    $_FILES['image']['type'] = $files['type'][$i];
-//	    $_FILES['image']['tmp_name'] = $files['tmp_name'][$i];
-//	    $_FILES['image']['error'] = $files['error'][$i];
-//	    $_FILES['image']['size'] = $files['size'][$i];
-//	    $this->load->library('upload', $config);
-//	    $this->upload->initialize($config);
-//	    $this->upload->do_upload('image');
-//	    $data = $this->upload->data();
-//	    $name_array[] = $data['file_name'];
-//	    }
-//	    
-//	    }
-//	    $names= implode(",", $name_array);
-//	    
-//	    
-//	    $filedata = $_FILES;
-//
-//	    if($filedata['imagetext']!="")
-//	    {
-//		
-//	    $config['upload_path'] = 'uploads/';
-//	    $config['allowed_types'] = 'gif|jpg|png';
-//	    $_FILES['image']['name'] = $filedata['imagetext']['name'];
-//	    $_FILES['image']['type'] = $filedata['imagetext']['type'];
-//	    $_FILES['image']['tmp_name'] = $filedata['imagetext']['tmp_name'];
-//	    $_FILES['image']['error'] = $filedata['imagetext']['error'];
-//	    $_FILES['image']['size'] = $filedata['imagetext']['size'];
-//	   $this->load->library('upload', $config);
-//	   $this->upload->initialize($config);
-//	    $this->upload->do_upload('image');
-//	    $data3 = $this->upload->data();
-//	    $imageName = $data3['file_name'];
-//	    }
-//	    
-//	    $data= array(
-//	    "textImage"=>$imageName,
-//	   "image"=>$names,
-//	   "title"=>$this->input->post("title"),
-//	    "addresstitle"=>$this->input->post("address1"),
-//	    "address1"=>$this->input->post("address2"),
-//	    "address2"=>$this->input->post("address3"),
-//	    "fax"=>$this->input->post("fax"),
-//	    "phone"=>$this->input->post("phone"),
-//	    "description"=>$this->input->post("description"),
-//	    "country"=>$this->input->post("country"),
-//	    "state"=>$this->input->post("state"),
-//	    "imagedescription"=>$this->input->post("imgdesciption")
-//	   );
-//	    //print_r($data);
-//	    //exit;
-//	    
-//	    $this->db->insert("store_image",$data);
-//	    
-//	    
-//	}
+       function getStores1()
+	{
+	    
+	    $sql="select * from store_image";
+	    return $result=$this->db->query($sql)->result_array();
+	       
+	}
+	
+	
+       function putStores($id)
+	{
+	    
+	   //$var = $_POST['oldimagee'];
+	   //print_r($var);
+	   //exit;
+	    
+	   $files = $_FILES['image'];
+	    
+	    $c=count($_FILES['image']['size']);
+	    
+	    //print_r($c);
+	    for($i=0; $i<$c; $i++)
+	    {
+	    if($files['name'][$i]!=""){
+	    $config['upload_path'] = 'uploads/';
+	    $config['allowed_types'] = 'gif|jpg|png';
+	    $_FILES['image']['name'] = $files['name'][$i];
+	    $_FILES['image']['type'] = $files['type'][$i];
+	    $_FILES['image']['tmp_name'] = $files['tmp_name'][$i];
+	    $_FILES['image']['error'] = $files['error'][$i];
+	    $_FILES['image']['size'] = $files['size'][$i];
+	    $this->load->library('upload', $config);
+	    $this->upload->initialize($config);
+	    $this->upload->do_upload('image');
+	    $data = $this->upload->data();
+	    $name_array[] = $data['file_name'];
+	    }
+	    else {
+
+		$name_array[] = $_POST['oldimage'][$i];
+		}
+	    
+	    }
+	    
+
+	    $filedata = $_FILES;
+
+	    if($filedata['imagetext']['name']!="")
+	    {
+		
+	    $config['upload_path'] = 'uploads/';
+	    $config['allowed_types'] = 'gif|jpg|png';
+	    $_FILES['image']['name'] = $filedata['imagetext']['name'];
+	    $_FILES['image']['type'] = $filedata['imagetext']['type'];
+	    $_FILES['image']['tmp_name'] = $filedata['imagetext']['tmp_name'];
+	    $_FILES['image']['error'] = $filedata['imagetext']['error'];
+	    $_FILES['image']['size'] = $filedata['imagetext']['size'];
+	   $this->load->library('upload', $config);
+	   $this->upload->initialize($config);
+	    $this->upload->do_upload('image');
+	    $data= $this->upload->data();
+	    $imageName = $data['file_name'];
+	    }
+	   else
+	   {
+		$imageName = $_POST['oldimagee'];
+	    }
+	    
+	    
+	$names= implode(',', $name_array);
+
+	
+	$data= array(
+	"textImage"=>$imageName,
+	"image"=>$names,
+	"title"=>$this->input->post("title"),
+	"addresstitle"=>$this->input->post("address1"),
+	"address1"=>$this->input->post("address2"),
+	"address2"=>$this->input->post("address3"),
+	"fax"=>$this->input->post("fax"),
+	"phone"=>$this->input->post("phone"),
+	"country"=>$this->input->post("country"),
+	"state"=>$this->input->post("state"),
+	"imagedescription"=>$this->input->post("imagedescription")
+	   );
+
+	$result1=$this->db->where('id',$id);
+        $result= $this->db->update('store_image',$data);
+	}
+	
+       function storesImage()
+	{
+	    
+
+	  //print_r($imageName);
+	  //exit;
+	  //   
+	  //multiple image gallery
+	  
+	    $files = $_FILES['image'];
+	    
+	    $c=count($_FILES['image']['size']);
+	    for($i=0; $i<$c; $i++)
+	    {
+	    if($files['name'][$i]!="")
+	    {
+	    
+	    $config['upload_path'] = 'uploads/';
+	    $config['allowed_types'] = 'gif|jpg|png';
+	    $_FILES['image']['name'] = $files['name'][$i];
+	    $_FILES['image']['type'] = $files['type'][$i];
+	    $_FILES['image']['tmp_name'] = $files['tmp_name'][$i];
+	    $_FILES['image']['error'] = $files['error'][$i];
+	    $_FILES['image']['size'] = $files['size'][$i];
+	    $this->load->library('upload', $config);
+	    $this->upload->initialize($config);
+	    $this->upload->do_upload('image');
+	    $data = $this->upload->data();
+	    $name_array[] = $data['file_name'];
+	    }
+	    
+	    }
+	    $names= implode(",", $name_array);
+	    
+	    
+	    $filedata = $_FILES;
+
+	    if($filedata['imagetext']!="")
+	    {
+		
+	    $config['upload_path'] = 'uploads/';
+	    $config['allowed_types'] = 'gif|jpg|png';
+	    $_FILES['image']['name'] = $filedata['imagetext']['name'];
+	    $_FILES['image']['type'] = $filedata['imagetext']['type'];
+	    $_FILES['image']['tmp_name'] = $filedata['imagetext']['tmp_name'];
+	    $_FILES['image']['error'] = $filedata['imagetext']['error'];
+	    $_FILES['image']['size'] = $filedata['imagetext']['size'];
+	   $this->load->library('upload', $config);
+	   $this->upload->initialize($config);
+	    $this->upload->do_upload('image');
+	    $data3 = $this->upload->data();
+	    $imageName = $data3['file_name'];
+	    }
+	    
+	    $data= array(
+	    "textImage"=>$imageName,
+	   "image"=>$names,
+	   "title"=>$this->input->post("title"),
+	    "addresstitle"=>$this->input->post("address1"),
+	    "address1"=>$this->input->post("address2"),
+	    "address2"=>$this->input->post("address3"),
+	    "fax"=>$this->input->post("fax"),
+	    "phone"=>$this->input->post("phone"),
+	    "description"=>$this->input->post("description"),
+	    "country"=>$this->input->post("country"),
+	    "state"=>$this->input->post("state"),
+	    "imagedescription"=>$this->input->post("imgdesciption")
+	   );
+	    //print_r($data);
+	    //exit;
+	    
+	    $this->db->insert("store_image",$data);
+	    
+	    
+	}
+	
+	
+	function deletecountry($id)
+	 {
+
+	    $this->db->where("id",$id);
+	$this->db->delete("ourcountry");	
+
+	  
+	 }
+	
+	
+	function deletestates($id)
+	 {
+
+	    $this->db->where("id",$id);
+	$this->db->delete("ourstate");	
+
+	  
+	 }
 	
 	
 	

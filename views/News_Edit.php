@@ -26,7 +26,7 @@
 		    </div>
 		    <h4 class="panel-title"> News </h4>
 		</div>
-		<div class="panel-body" id="">
+		<div class="panel-body">
                       <?php
 		    foreach($newsEdit as $row)
 				    $newsEdit= $row['newsType'];
@@ -37,7 +37,7 @@
 				    ?>
                                     
 		<form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/News_Edit/'.$row['id']); ?>" class="form-horizontal form12">
-		 <legend>EDIT CONTENT FOR CHANGE</legend>
+		 <legend>EDIT CONTENT FOR CHANGE ..</legend>
 		<div class="row">
 		     <div class="col-md-6">
 			    <div class="form-group">
@@ -118,8 +118,8 @@
 			   
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-                                <button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
-                                <input type="submit" class="btn btn-md btn-success" name="Update" id="submit" value="Update" >
+                                <button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+                                <input type="submit" class="btn btn-sm btn-success" name="Update" value="Update" >
                              </div>
 			</div>
 		    </form>
@@ -174,11 +174,7 @@ function attachments()
 	});
     }
 
-//scrpit for previous and next button start
-    //$(document).ready(function() {
-    //  	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-    //});
-//script for precvious and next button end
+
 </script>
   <script>
     function attachmentss($this) {
@@ -191,30 +187,25 @@ $($this).parents('.ImageViews').find('img').attr("src",  oFREvent.target.result)
 
 };
 };
-function attachmentsss()
-    {
-	
-	$(".removeButton").on('click',function(){
-	   
-	    var $row   = $(this).parents('.ImageViews');
-	    $row.remove();
-	});
-    }
+//function attachmentsss()
+//    {
+//	
+//	$(".removeButton").on('click',function(){
+//	   
+//	    var $row   = $(this).parents('.ImageViews');
+//	    $row.remove();
+//	});
+//    }
 
-//scrpit for previous and next button start
-    //$(document).ready(function() {
-    //  	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-    //});
-//script for precvious and next button end
 </script>
-<script>
-function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" >  <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");
-	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");
-	    attachments();
-	    }
-	    </script>
-
+<!--<script>-->
+<!--function addImage(){-->
+<!--    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" >  <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");-->
+<!--	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");-->
+<!--	    attachments();-->
+<!--	    }-->
+<!--	    </script>-->
+<!---->
  <script>
 $(document).ready(function() {
     $('#form_validation').bootstrapValidator({
