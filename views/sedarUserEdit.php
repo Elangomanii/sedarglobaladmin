@@ -50,7 +50,7 @@
                        <div class="pager form-group">
                              <div class="col-md-7 control-label">
                                 <button class="btn btn-sm btn-danger " onclick="window.history.back();" type="button"> Cancel </button>
-                                <button class="btn btn-sm btn-info" id="clear_data" disabled  type="button"> Reset </button>
+           <!--                     <button class="btn btn-sm btn-info" id="clear_data" disabled  type="button"> Reset </button>-->
                                 <button type="submit" class="btn btn-sm btn-success" name="submit_form" id="submit_but" value="update" >Update</button>
                             </div>
                         </div>
@@ -88,11 +88,15 @@ $(document).ready(function() {
                     }
                 }
             },
-            sedarEmail: {
+        sedarEmail: {
 
                 validators: {
-                     emailAddress: {
-                        message: 'The value is not a valid email address'
+                     notEmpty: {
+                        message: 'Mail id is required'
+                    },
+		     regexp: {
+                        regexp: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})+$/,
+                        message: 'Enter Valid Emnil address'
                     }
                 }
             },

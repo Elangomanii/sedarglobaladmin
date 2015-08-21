@@ -25,10 +25,10 @@
                 </div>
                 <div class="panel-body" >
                     <form action="<?php echo base_url('GlobalController/sedarUserAdd'); ?>" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">                   
-                        <legend>User Details</legend>
+                        <legend>ADD USER DETAILS FOR CHANGE</legend>
                         <div class="row">			   
                             <div class="col-md-4">
-                                <h4 class="m-t-0">Name</h4>
+                                <h4 class="m-t-0">User Name</h4>
                                 <input class="form-control input-md" name="sedarName" value="" type="text" placeholder="Name">
                                 <p></p>
                                 

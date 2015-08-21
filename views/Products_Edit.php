@@ -37,7 +37,7 @@
 		    //$length = count($productsEdit);
 		    ?>
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/Products_Edit/'.$row['id']); ?>" class="form-horizontal form12">
-		    <legend>Edit The Content</legend>
+		    <legend>EDIT CONTENT FOR CHANGE</legend>
 		    <div class="row">
 				 <div class="col-md-6">
 			    <div class="form-group">
@@ -208,8 +208,8 @@
 			   
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
-				<button class="btn btn-md btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
-				<input type="submit" class="btn btn-md btn-success" name="Update" id="submit" value="Update" >
+				<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
+				<input type="submit" class="btn btn-sm btn-success" name="Update" value="Update" >
 			     </div>
 			</div>
 			</form>
@@ -227,9 +227,6 @@
 <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 <!-- end scroll to top btn -->
 </div>
-<!-- end page container -->
-</body>
-</html>
 
  <script>
  function attachment($this) {
@@ -246,11 +243,7 @@
 	$row.remove();
     });
  }
-//scrpit for previous and next button start
- //$(document).ready(function() {
- //     	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
- //   });
-//script for precvious and next button end
+
 </script>
    <script>
     function attachmentss($this) {

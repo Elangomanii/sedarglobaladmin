@@ -1063,9 +1063,26 @@ class GlobalController extends CI_Controller
 	    <?php 
 	}
 	
+    }
+    
+    function SedaruserCheck()
+    
+    {
 	
+	$userName=$_POST['sedarName'];
+	$sql="select * from user where username='$userName'";
+	$result=$this->db->query($sql)->result_array();
+	
+	//print_r($result);
+	//exit;
+	if(count($result)==1){
+	    echo json_encode(array('valid'=>'false'));
+	}else{
+	    echo json_encode(array('valid'=>'true'));
+	}
 	
     }
+    
     
     ////////////////////////////////////////////////Hakkaim controller End*****************************************************
    

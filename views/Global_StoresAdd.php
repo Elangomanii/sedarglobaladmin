@@ -192,6 +192,7 @@
     $('.gott2').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott2' id='dummy1' style='height: 185px;' >");
      alert();
      $('#form_validation')[0].reset();
+      $('#form_validation').data('bootstrapValidator').resetForm();
    
 });
     

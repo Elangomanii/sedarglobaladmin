@@ -25,11 +25,11 @@
                 </div>
                 <div class="panel-body" >
                     <form action="<?php echo base_url('GlobalController/sedarUserAdd'); ?>" class="form-horizontal"  id="form_validation" method="post" name="form_validation" enctype="multipart/form-data">                   
-                        <legend>USER DETAILS</legend>
+                        <legend>ADD USER DETAILS FOR CHANGE</legend>
                         <div class="row">
 				<div class="col-md-4">
 				    <div class="form-group">
-					    <label class="col-md-4">Name</label>
+					    <label class="col-md-4">User Name</label>
 					<div class="col-md-12">
 					    <input class="form-control input-sm" name="sedarName" value="" type="text" placeholder="Name">
 					</div>
@@ -95,26 +95,37 @@ $(document).ready(function() {
             validating: 'fa fa-refresh'
         },
         fields: {
+	    
             sedarName: {
-
+		trigger:'blur',
                 validators: {
                     notEmpty: {
-                        message: 'The username is required'
-                    }
+                        message: 'Username is required'
+                    },
+		     remote: {
+		    message: 'User Name Already Existed',
+                    url: '<?php echo base_url('GlobalController/SedaruserCheck')?>',
+                    type: 'POST'
+		   
+                }
                 }
             },
             sedarEmail: {
 
                 validators: {
-                     emailAddress: {
-                        message: 'The value is not a valid email address'
+                     notEmpty: {
+                        message: 'Mail id is required'
+                    },
+		     regexp: {
+                        regexp: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})+$/,
+                        message: 'Enter Valid Emnil address'
                     }
                 }
             },
 	     sedarPassword: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
+                        message: 'Password is required'
                     }
                 }
             }

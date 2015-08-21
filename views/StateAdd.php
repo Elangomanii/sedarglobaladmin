@@ -97,7 +97,7 @@
 <script>
 
           $('#clear_data').click(function() {
- 
+  $('#form_validation').data('bootstrapValidator').resetForm();
      $('#form_validation')[0].reset();
    
 });
