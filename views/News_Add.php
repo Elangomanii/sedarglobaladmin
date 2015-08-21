@@ -45,8 +45,9 @@
 		    </div>
 		     </div>
 		    
-		     <div class="form-group">
+		     
 		     <div class="col-md-6">
+			<div class="form-group">
 			       <label class="col-md-5">Image Inside</label>
                               <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                                 <div class="col-md-12" id="gallery">
@@ -183,23 +184,8 @@ $($this).parents('.ImageViews').find('img').attr("src",  oFREvent.target.result)
 
 };
 };
-//function attachmentsss()
-//    {
-//	
-//	$(".removeButton").on('click',function(){
-//	   
-//	    var $row   = $(this).parents('.ImageViews');
-//	    $row.remove();
-//	});
-//    }
+
 </script>
-<!--<script>-->
-<!--function addImage(){-->
-<!--    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" >  <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");-->
-<!--	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");-->
-<!--	    attachments();-->
-<!--	    }-->
-<!--	    </script>-->
 
  <script>
 $(document).ready(function() {
@@ -226,7 +212,36 @@ $(document).ready(function() {
                         message: 'The sub title is required'
                     }
                 }
-            }
+            },
+	     image:{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    },
+	     imagename:{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    }
+	    
         }
     });
 });

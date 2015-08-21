@@ -46,13 +46,11 @@
 				 <div class="col-md-4">
 			    <div class="form-group">
                                 <label class="col-md-5">Name Image</label>
-                              <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                                 <div class="col-md-12" id="gallery">
                                     <div class="ImageView AdjustPadding" style="padding-bottom:20px;"  >
                                         <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" id="dummy1" style="height: 185px; width: 200px;" >
                                         <input type="file" id="preview" name="image" class="col-md-12 "onchange="attachment(this);" >
                             </div>
-				    </div>
                         </div>
                     </div>
 		</div>
@@ -111,14 +109,30 @@ $(document).ready(function() {
             validating: 'fa fa-refresh'
         },
         fields: {
-            name	: {
+            name: {
 
                 validators: {
                     notEmpty: {
                         message: 'The username is required'
                     }
                 }
-            }
+            },
+	    
+	    image:{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    }
+	     
         }
     });
 });

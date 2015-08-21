@@ -130,17 +130,19 @@
 			<div class="row">
 			<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                         <div class="col-md-12">
+			     <div class="form-group">
                             <div class="col-md-4 viewer AdjustPadding" style="padding-bottom:20px;"  >
 				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" style="height: 185px;" >
 				    <input type="file" id="previewer" name="imagetext" class="col-md-12 "onchange="attachmenter(this);" >
                             </div>
+			     </div>
                         </div>
                     </div>
 		    </div>
 			 
 		     <legend>ADD EXTRA STORES FOR CHANGE ..<button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
 		    <div class="row">
-		    <!--<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >-->
+
 			<div class="col-md-4">
 				<div class="form-group">
                                 <label class="col-md-6">Image Name</label>
@@ -150,12 +152,18 @@
 				</div>
 			</div>
 		    </div>
+			<div class="row">
+			<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                         <div class="col-md-12" id="gallery">
                             <div class="col-md-4 ImageViewer AdjustPadding" style="padding-bottom:20px;"  >
+				 <div class="form-group">
 				<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" >
-				    <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
-                            </div>
-                        </div>
+				    <input type="file" id="preview" name="image[]" class="col-md-12" onchange="attachment(this);" >
+				 </div>
+				 </div>
+		     </div>
+			</div>
+		     </div>
                    
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
@@ -245,7 +253,10 @@ function attachments()
     }
     
     function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div>	').appendTo("#gallery");	
+    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><div class="form-group"><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div>').appendTo("#gallery");	
+    
+      var $clone = $('[name="image[]"]');
+	    $('#form_validation').bootstrapValidator('addField', $clone);
     attachments();
     }
     
@@ -344,7 +355,35 @@ $(document).ready(function() {
                         message: 'The phone is required'
                     }
                 }
-            }
+            },
+	     imagetext:{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    },
+	     'image[]':{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    }
         }
     });
 });

@@ -32,9 +32,14 @@
 				<button type="button" class="pull-right btn btn-primary" id="plusButton" onclick="addImage()"><i class="fa  fa-plus"></i></button>
 			    </div>
 			    <div class="col-md-12" id="gallery">
-				<div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  >                                                           
+				<div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  >
+				     <div class="form-group">
+					<div class="col-md-12">
 				    <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" id="dummy1" style="height: 185px;" >
+				   
 				    <input type="file" id="preview" name="image[]" onchange="attachment(this);" >
+					</div>
+				    </div>
 					<p></p>
 				    <input type="text" class="form-control input-sm" name="sliderTitle[]" id="id" value="" placeholder="Slider Title">
 				   <p></p>
@@ -79,6 +84,7 @@
       $('.gott').replaceWith("<img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott' id='dummy1' style='height: 185px;' >");
      alert();
      $('#form_validation')[0].reset();
+     $('#form_validation').data('bootstrapValidator').resetForm();
    
 });
 
@@ -98,7 +104,12 @@
 	if (imageCount < 4)
 	{	
 	    //alert(imageCount);    
-	    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><p></p><input type="text" class="form-control input-sm" name="sliderTitle[]" id="id" value="" placeholder="Slider Title"><p></p><input type="text" class="form-control input-sm" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title"><p></p><div class="row"><div class="col-md-12"><div class="input-group"><input type="text" class="form-control input-sm" name="sliderLink[]" id="id" value="" placeholder="Slider link"><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div> </div>').appendTo("#gallery");	
+	    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView" style="padding-bottom:20px;"  ><div class="form-group"><div class="col-md-12"><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" id="dummy1" style="height: 185px;" ><input type="file" id="preview" name="image[]" onchange="attachment(this)" ></div></div><p></p><input type="text" class="form-control input-sm" name="sliderTitle[]" id="id" value="" placeholder="Slider Title"><p></p><input type="text" class="form-control input-sm" name="subTitle[]" id="id" value="" placeholder="Slider Sub Title"><p></p><div class="row"><div class="col-md-12"><div class="input-group"><input type="text" class="form-control input-sm" name="sliderLink[]" id="id" value="" placeholder="Slider link"><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div> </div>').appendTo("#gallery");	
+	    var $clone = $('[name="image[]"]');
+	    //alert($clone);
+	     //var $name   = $clone.find('[name="image[]"]');
+	    $('#form_validation').bootstrapValidator('addField', $clone);
+	    
 	    attachments();
 	    imageCount ++;
 	}else
@@ -126,3 +137,56 @@
 
 </script>
 
+<script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+	    'image[]':{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    }
+	    
+//	    'sliderTitle[]':{
+//		validators: {
+//		 notEmpty: {
+//                        message: 'The password is required'
+//                    }
+//		}
+//	    },
+//	     'subTitle[]':{
+//		validators: {
+//		 notEmpty: {
+//                        message: 'The password is required'
+//                    }
+//		}
+//	    },
+//	     'sliderLink[]':{
+//		validators: {
+//		 notEmpty: {
+//                        message: 'The password is required'
+//                    }
+//		}
+//	    }
+	}
+    });
+});
+
+</script>

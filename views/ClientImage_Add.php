@@ -28,25 +28,29 @@
 		<div class="panel-body">
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/ClientImage_Add'); ?>"" class="form-horizontal">
                     <div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
-                        <div class="page-title">
-			      <div class="col-md-3" style="padding:10px">
-                                <label>Image Name</label>
-                                <input type="text" name="aboutClientTitle" id=""  class="form-control input-sm" value="" placeholder="Image Name" />
+                       <div class="col-md-4">
+			    <div class="form-group">
+                                 <label class="col-md-4">Image Name</label>
+				   <div class="col-md-12">
+                                <input type="text" name="aboutClientTitle" class="form-control input-sm" value="" placeholder="Image Name" />
                             </div>
+			    </div>
 			</div>
 		
                         <div class="col-md-12" id="gallery">
-                            <div class="col-md-4 col-sm-4 col-xs-12 ImageView AdjustPadding" style="padding-bottom:20px;"  >
+                            <div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  >
                           
-                                
+                                 <div class="form-group">
                                 <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage " id="dummy1" style="height: 185px;" >
                                 <input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
                             </div>
                         </div>
+			</div>
                     </div>
 		      <div class="pager form-group">
                              <div class="col-md-7 control-label">
 				<input type="submit" class="btn btn-sm btn-success"  name="Save" id="submit_but" value="Save" >
+				    <button class="btn btn-sm btn-info " id="clear_data" type="button"> Reset </button>
 				<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>
 				    </div>
 				</div>
@@ -64,12 +68,21 @@
 	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 	<!-- end scroll to top btn -->
 </div>
-<!-- end page container -->
-
-</body>
-</html>
 
 
+<script>
+    
+      $('#clear_data').click(function() {
+     $('.gott').removeAttr('src');
+      $('.gott').replaceWith(" <img src='<?php echo site_url('assets/img/no-image.png');?>' class='col-md-12 previewimage gott' id='dummy1' style='height: 185px;' >");
+     //alert();
+     $('#form_validation')[0].reset();
+    $('#form_validation').data('bootstrapValidator').resetForm();
+   
+});
+    
+    
+</script>
  
  
  <script>
@@ -93,18 +106,56 @@ function attachments()
 	});
     }
 
-//scrpit for previous and next button start
-    $(document).ready(function() {
-      	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-    });
-//script for precvious and next button end
 </script>
  
- 
-<script>
-function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" > <div class="input-group" style="padding:10px;"><span class="input-group-btn"><span class="btn btn-primary btn-file">Browse<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ></span></span><input type="text" id="" name="userfile1[]" value="" placeholder="" class="form-control" readonly></div><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");
-	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");
-	    attachments();
+ <script>
+$(document).ready(function() {
+    $('#form_validation').bootstrapValidator({
+	message: 'This value is not valid',
+	//excluded:[':disabled'],
+	//container: 'tooltip',
+	feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+	    
+	    aboutClientTitle:{
+		
+		validators: {
+		    
+		     notEmpty: {
+                        message: 'Image is required'
+                    }
+		}
+		
+	    },
+	    
+	    'image[]':{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
 	    }
-	    </script>
+	}
+    });
+});
+
+</script>
+ 
+<!--<script>-->
+<!--function addImage(){-->
+<!--    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" > <div class="input-group" style="padding:10px;"><span class="input-group-btn"><span class="btn btn-primary btn-file">Browse<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ></span></span><input type="text" id="" name="userfile1[]" value="" placeholder="" class="form-control" readonly></div><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");-->
+<!--	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");-->
+<!--	    attachments();-->
+<!--	    }-->
+<!--	    </script>-->

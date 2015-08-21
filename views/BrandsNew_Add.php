@@ -64,18 +64,22 @@
 		    </div>
 
 			<div class="col-md-3 col-md-offset-1">
-			    <div class="form-group">
+			   
                                 <label class="col-md-5">Name Image</label>
-                              <div class="row AdjustPadding" id="image1">
+                              <!--<div class="row AdjustPadding" id="image1">-->
+				 <div class="form-group">
                                 <div class="col-md-12" id="gallery">
                                     <div class="ImageView AdjustPadding" style="padding-bottom:20px;"  >
+					
                                         <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px; width: 200px;" >
-                                        <input type="file" id="preview" name="image" class="col-md-12 "onchange="attachment(this);" >
-                            </div>
+                          
+					<input type="file" id="preview" name="image" class="col-md-12 "onchange="attachment(this);" >
+				    </div>
+				    
                         </div>
                     </div>
 			    </div>
-			</div>
+			<!--</div>-->
 			    
 			    
 			    <div class="col-md-3">
@@ -83,10 +87,12 @@
                                <label class="col-md-5">Brand Image</label>
                               <div class="row AdjustPadding" id="image2">
                                 <div class="col-md-12" id="gallery1">
+				     
                                     <div class="ImageViews AdjustPadding" style="padding-bottom:20px;"  >
+					
                                         <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewsimage gott" id="dummy2" style="height: 185px; width: 200px;" >
                                         <input type="file" id="previews" name="imagename" class="col-md-12 "onchange="attachmentss(this);" >
-
+					
                             </div>
                         </div>
                     </div>
@@ -141,15 +147,15 @@ $($this).parents('.ImageView').find('img').attr("src",  oFREvent.target.result);
 
 };
 };
-function attachments()
-    {
-	
-	$(".removeButton").on('click',function(){
-	   
-	    var $row   = $(this).parents('.ImageView');
-	    $row.remove();
-	});
-    }
+//function attachments()
+//    {
+//	
+//	$(".removeButton").on('click',function(){
+//	   
+//	    var $row   = $(this).parents('.ImageView');
+//	    $row.remove();
+//	});
+//    }
 
 </script>
   <script>
@@ -188,7 +194,8 @@ $(document).ready(function() {
             validating: 'fa fa-refresh'
         },
         fields: {
-            name: {
+	    
+	    name: {
 
                 validators: {
                     notEmpty: {
@@ -203,9 +210,39 @@ $(document).ready(function() {
                         message: 'The product category is required'
                     }
                 }
-            }
-        }
+            },
+	    
+	image:{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    },
+	     
+	imagename:{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    }
+	}
     });
 });
+
 </script>
- 

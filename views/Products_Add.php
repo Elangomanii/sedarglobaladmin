@@ -158,13 +158,11 @@
 				 <div class="col-md-4 col-md-offset-1">
 			    <div class="form-group">
 			<label class="col-md-4">Product Image</label>
-			 <div class="row AdjustPadding" id="image2" style="padding-bottom:20px;" >
+
                                 <div class="col-md-12" id="gallery1">
-                                    <div class="col-md-4 ImageViews AdjustPadding" style="padding-bottom:20px;"  >
+                                    <div class="col-md-12 ImageViews AdjustPadding" style="padding-bottom:20px;"  >
                                         <img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewsimage gott" id="dummy2" style="height: 185px; width: 200px;" >
                                         <input type="file" id="previews" name="imagename" class="col-md-12 "onchange="attachmentss(this);" >
-        
-                            </div>
                         </div>
                     </div>
 		    </div>
@@ -184,8 +182,10 @@
 			 
 				<div class="col-md-12" id="gallery">
 				    <div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  >
+					 <div class="form-group">
 					<img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" >
 					<input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" >
+				    </div>
 				    </div>
 				</div>
 			     
@@ -269,8 +269,9 @@ function attachmentsss()
 </script>
 <script>
 function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div>').appendTo("#gallery");
-	    
+    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><div class="form-group"><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div></div>').appendTo("#gallery");
+	   var $clone = $('[name="image[]"]');
+	    $('#form_validation').bootstrapValidator('addField', $clone);   
 	    attachments();
 	    }
 
@@ -330,7 +331,36 @@ $(document).ready(function() {
                         message: 'The product accessory is required'
                     }
                 }
-            }
+            },
+	    
+	      imagename:{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    },
+	      'image[]':{
+		validators: {
+
+		   file: {
+			extension: 'jpg,png,gif',
+			type: 'image/jpeg,image/png,image/gif',
+			
+			message: 'The file must not exceed 100kb in size'
+                        },
+			 notEmpty: {
+                        message: 'Image is required'
+                    }
+                }
+	    }
         }
     });
 });
