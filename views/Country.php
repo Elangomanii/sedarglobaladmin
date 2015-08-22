@@ -58,7 +58,7 @@
 				<td>
 				<a href="<?php echo site_url('GlobalController/globalcountryEdit/'.$row['id']);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> </a>
 				
-				  <a href="<?php echo site_url('GlobalController/globalcountryDelete/'.$row['id']);?>" class="btn btn-xs btn-danger"><i class="fa  fa-trash-o"></i> </a>
+				  <a href="<?php echo site_url('GlobalController/globalcountryDelete/'.$row['id']);?>" id="delete_box" class="btn btn-xs btn-danger"><i class="fa  fa-trash-o"></i> </a>
     
 				</td>
 			    </tr>

@@ -40,7 +40,7 @@
 				    <label for="inputEmail" class="col-md-2">Country</label>
 					<div class="col-md-12">
 					<select class="form-control input-sm" id="country" name="country">
-					<option>select Country</option>
+					<option selected disabled>select Country</option>
 					<?php foreach ($country as $row) {?>
 					<option value="<?php echo $row['CountryCode']?>"><?php echo $row['CountryName']?></option>
 					<?php }?>
@@ -54,7 +54,7 @@
 			    <label for="inputEmail" class="col-md-2">State</label>
 			    <div class="col-md-12">
 			    <select class="form-control input-sm" id="state" name="state">
-				<option>select State</option>
+				<option selected disabled>select State</option>
 				<?php foreach ($state as $row) {?>
 				<option value="<?= $row['StateCode']?>"><?= $row['StateName']?></option>
 				<?php }?>
@@ -68,7 +68,7 @@
 			    <label for="inputEmail" class="col-md-2">City</label>
 			    <div class="col-md-12">
 			    <select class="form-control input-sm" id="city" name="city">
-				<option>select City</option>
+				<option selected disabled>select City</option>
 				<?php foreach ($city as $row) {?>
 				<option value="<?= $row['CityCode']?>"><?= $row['CityName']?></option>
 				<?php }?>

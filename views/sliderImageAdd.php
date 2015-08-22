@@ -29,7 +29,7 @@
 		    <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/globalSliderAdd'); ?>"" class="form-horizontal">
 			<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
 			    <div class="page-title">
-				<button type="button" class="pull-right btn btn-primary" id="plusButton" onclick="addImage()"><i class="fa  fa-plus"></i></button>
+				<!--<button type="button" class="pull-right btn btn-primary" id="plusButton" onclick="addImage()"><i class="fa  fa-plus"></i></button>-->
 			    </div>
 			    <div class="col-md-12" id="gallery">
 				<div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  >
