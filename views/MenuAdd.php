@@ -55,7 +55,7 @@
 					<label class="col-md-4">Menu Type</label>
 				    <div class="col-md-12">
 					<select class="form-control input-sm" name="type">
-					    <option>Select</option>
+					    <option disabled selected>Select</option>
 					    <option value="Header">Header</option>
 					    <option value="Footer">Footer</option>
 					</select>
@@ -122,7 +122,7 @@
 				<div class="form-group">
 					<label class="col-md-12">Sub-Menu Description</label>
 				     <div class="col-md-12">
-					<textarea class="form-control" name="subcontent" rows="5" placeholder="Textarea"></textarea>
+					<textarea class="form-control" name="subcontent" rows="3" placeholder="Textarea"></textarea>
 				    </div>
 				</div>
 				</div>
