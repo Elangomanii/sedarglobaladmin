@@ -58,12 +58,77 @@
 				</div>
 				</div>
 				</div>
+				
+				<div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Footer Title</label>
+				 <div class="col-md-12">
+				    <input type="text" name="footertitle" class="form-control input-sm" value="<?php echo $contact[0]['footertitle']?>" placeholder="Contact Sub Title" />
+				</div>
+				</div>
+				</div>
 			    </div>
+			    
+			    <div class="row">
+			    <div class="col-md-6">
+				<div class="form-group">
+				<label class="col-md-6">Footer sub Title</label>
+				 <div class="col-md-12">
+				    <textarea class="form-control" name="footersubtitle"  class="form-control input-sm" value="" rows="2" placeholder="Textarea"><?php echo $contact[0]['footersubtitle']?></textarea>
+			    
+				</div>
+				 </div>
+				</div>
+				<div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Footer user name</label>
+				 <div class="col-md-12">
+				    <input type="text" name="footerusername"  class="form-control input-sm" value="<?php echo $contact[0]['footerusername']?>" placeholder="Contact Sub Title" />
+				</div>
+				</div>
+				</div>
+			    </div>
+			    
+			    <div class="row">
+			    <div class="col-md-6">
+				<div class="form-group">
+				<label class="col-md-6">Footer email</label>
+				 <div class="col-md-12">
+				    <input type="text" name="footerpassword"  class="form-control input-sm" value="<?php echo $contact[0]['footerpassword']?>" placeholder="Contact Title" />
+				</div>
+				 </div>
+				</div>
+				<div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Footer phone no</label>
+				 <div class="col-md-12">
+				    <input type="text" name="footerphone" class="form-control input-sm" value="<?php echo $contact[0]['footerphone']?>" placeholder="Contact Sub Title" />
+				</div>
+				</div>
+				</div>
+			    </div>
+			    <div class="row">
+			    <div class="col-md-6">
+				<div class="form-group">
+				<label class="col-md-6">Footer feedback reson</label>
+				 <div class="col-md-12">
+				    <input type="text" name="footereason" class="form-control input-sm" value="<?php echo $contact[0]['footereason']?>" placeholder="Contact Title" />
+				</div>
+				 </div>
+				</div>
+				<div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Footer feedback</label>
+				 <div class="col-md-12">
+				    <input type="text" name="footerfeedback"  class="form-control input-sm" value="<?php echo $contact[0]['footerfeedback']?>" placeholder="Contact Sub Title" />
+				</div>
+				</div>
+				</div>
+			    </div>
+			    
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">
 				<button type="submit" class="btn btn-sm btn-success" name="Save" value="Save" >Save</button>
-			<!--	<button class="btn btn-sm btn-info" id="clear_data"  type="button"> Reset </button>-->
-				<!--<button class="btn btn-sm btn-danger" onclick="window.history.back();" type="button"> Cancel </button>-->
                              </div>
                         </div>
 		    </form>

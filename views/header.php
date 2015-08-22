@@ -317,11 +317,16 @@
 		</li>
 		
 		<li class="has-sub" id="page8">
-		    <a href="<?php echo base_url(); ?>GlobalController/FranchisingOpportunities_View">
+		    <a href="#">
 			
 			<i class="fa fa-align-left text-warning"></i> 
-			<span>FranchisingOpportunities</span>
-		    </a>		    
+			<span>FranchiseInformation</span>
+		    </a>
+		     <ul class="sub-menu">
+			<li><a href="<?php echo base_url(); ?>GlobalController/FranchisingOpportunities_View">FranchisingOpportunities</a></li>
+			<li><a href="<?php echo base_url(); ?>GlobalController/FranchisingRegisterform">FranchisingForm</a></li>
+		     </ul>
+		    
 		</li>
 		
 		

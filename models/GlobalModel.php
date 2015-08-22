@@ -204,7 +204,15 @@ class GlobalModel extends CI_Model {
 	     
 	     "contactTitle"=>$this->input->post("contactTitle"),
 	     "contactSubTitle"=>$this->input->post("contactSubTitle"),
-	     "description"=>$this->input->post("description")
+	     "description"=>$this->input->post("description"),
+	     
+	     "footertitle"=>$this->input->post("footertitle"),
+	     "footersubtitle"=>$this->input->post("footersubtitle"),
+	     "footerusername"=>$this->input->post("footerusername"),
+	     "footerpassword"=>$this->input->post("footerpassword"),
+	     "footerphone"=>$this->input->post("footerphone"),
+	     "footereason"=>$this->input->post("footereason"),
+	     "footerfeedback"=>$this->input->post("footerfeedback")
 	 );
 	 $this->db->where('id',1);
 	    if($this->session->userdata('browserLanguage')=='ar')
@@ -898,6 +906,31 @@ class GlobalModel extends CI_Model {
 //	    
 //	    
 //	}
+	
+	
+	function FormDetails()
+	{
+	    $sql="select * from oppertunityform where id=1";
+	    return $result=$this->db->query($sql)->result_array();   
+	    
+	    
+	}
+	
+	function FranchiseFormDetails()
+	{
+	    
+	     $data = array(
+		 "formtitle"=>$this->input->post("formtitle"),
+		 "formname"=>$this->input->post("formname"),
+		 "formmobile"=>$this->input->post("formmobile"),
+		  "formemail"=>$this->input->post("formemail"),
+		   "formabout"=>$this->input->post("formabout")
+		 );
+
+	$this->db->where('id',1);
+	return $this->db->update("oppertunityform",$data);        
+	    
+	}
 	
        function getslider()
 	{

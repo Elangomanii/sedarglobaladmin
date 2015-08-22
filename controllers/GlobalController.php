@@ -1427,7 +1427,18 @@ class GlobalController extends CI_Controller
 	    //$this -> load -> view('footer');
 	}
 	 
-	
+	function FranchisingRegisterform()
+	{
+	     if(isset($_POST["Save"])){
+		  $this->GlobalModel->FranchiseFormDetails();  
+		}
+	    
+	    $data['franchiseform']=$this->GlobalModel->FormDetails();   
+	    $this -> load -> view('header');
+	    $this -> load -> view('FranchisingRegisterform', $data);
+	    
+	    
+	}
     //Sedar contact page End
     
 

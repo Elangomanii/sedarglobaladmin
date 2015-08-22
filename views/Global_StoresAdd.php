@@ -141,7 +141,7 @@
 		    </div>
 			 
 		     <legend>ADD EXTRA STORES FOR CHANGE ..<button type="button" onclick="addImage()" class="pull-right btn btn-primary"><i class="fa  fa-plus"></i></button></legend>
-		    <div class="row">
+		  <!--  <div class="row">
 
 			<div class="col-md-4">
 				<div class="form-group">
@@ -151,7 +151,7 @@
                             </div>
 				</div>
 			</div>
-		    </div>
+		    </div>-->
 			<div class="row">
 			<div class="row AdjustPadding" id="image1" style="padding-bottom:20px;" >
                         <div class="col-md-12" id="gallery">
@@ -253,7 +253,7 @@ function attachments()
     }
     
     function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><div class="form-group"><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" onchange="attachment(this)" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div>').appendTo("#gallery");	
+    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageViewer" style="padding-bottom:20px;"  ><div class="form-group"><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott2" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" class="col-md-12" onchange="attachment(this)" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div>').appendTo("#gallery");	
     
       var $clone = $('[name="image[]"]');
 	    $('#form_validation').bootstrapValidator('addField', $clone);

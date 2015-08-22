@@ -35,17 +35,28 @@
 		    
 		  <form id="form_validation" method="POST" enctype="multipart/form-data" action="<?php echo base_url('GlobalController/ProjectImage_Edit/'.$row['id']); ?>" class="form-horizontal">
                     
-		   
-		    
-		    <div class="row AdjustPadding" style="padding-bottom:20px;" >
-			  
-                        <div class="page-title">
-                             <div class="col-md-6" style="padding:10px; ">
-                                <label>Image Name</label>
-                                <input type="text" name="projectImgTitle" id=""  class="form-control input-md" value="<?php echo $row['projectImgTitle']?>" placeholder="Image Name" />
+		    <div class="row">
+				 <div class="col-md-4">
+			    <div class="form-group">
+                               <label class="col-md-4">Image Name</label>
+			       <div class="col-md-12">
+                                <input type="text"name="projectImgTitle" id=""  class="form-control input-sm" value="<?php echo $row['projectImgTitle']?>" placeholder="Image Name" />
+				
                             </div>
-                            <!--<button type="button" class="pull-right btn btn-primary" onclick="addImage()"><i class="fa  fa-plus"></i></button>-->
+			    </div>
+				 </div>
+
+                            <button type="button" class="pull-right btn btn-primary" onclick="addImage()"><i class="fa  fa-plus"></i></button>
 			</div>
+		    
+		<!--    <div class="row AdjustPadding" style="padding-bottom:20px;" >-->
+			  
+<!--                        <div class="page-title">
+                             <div class="col-md-4" style="padding:10px; ">
+                                <label>Image Name</label>
+                                <input type="text" name="projectImgTitle" id=""  class="form-control input-sm" value="<?php echo $row['projectImgTitle']?>" placeholder="Image Name" />
+                            </div>
+			</div>-->
                         <div class="col-md-12" id="gallery">
 				<?php
 				for($i =0; $i <$length; $i++)
@@ -61,7 +72,7 @@
                         </div>
                     
 		    
-		    </div>
+		    
 		   <div class="pager form-group">
                              <div class="col-md-7 control-label">
 				<input type="submit" class="btn btn-sm btn-success"  name="Update" id="submit_but" value="Update" >
@@ -94,9 +105,10 @@
 
  
  
+ 
  <script>
     function attachment($this) {
-  
+
 var oFReader = new FileReader();
 oFReader.readAsDataURL($this.files[0]);
 oFReader.onload = function (oFREvent) {
@@ -104,7 +116,11 @@ oFReader.onload = function (oFREvent) {
 $($this).parents('.ImageView').find('img').attr("src",  oFREvent.target.result);
 
 };
+
 };
+
+    
+    
 function attachments()
     {
 	
@@ -115,37 +131,22 @@ function attachments()
 	});
     }
 
-//scrpit for previous and next button start
-    $(document).ready(function() {
-      	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-    });
-//script for precvious and next button end
 </script>
  
  
 <script>
-function addImage(){
-    $('<div class="col-md-4 col-sm-4 col-xs-12 ImageView " style="padding-bottom:20px;"  ><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 185px;" ><input type="file"class="col-md-12 " id="preview" name="image[]" onchange="attachment(this)" ><div class="col-md-12 " ><a  onclick="" class=" pull-right btn btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></div>	').appendTo("#gallery");
-	    //$('<div class="col-md-6" ><img src="<?php echo site_url('assets/images/no.png');?>" class="col-md-12 previewimage" id="dummy1" style="height: 250px;" >	<input type="file" id="preview" name="image" onchange="attachment();" >	 <button type="button" onclick="" class="btn btn-add btn-sm btn-primary" data-template="textbox">Add</button></div>').apppendTo("#gallery");
-	    attachments();
-	    }
-	    </script>  
-<!--<script type="text/javascript">
- $(document).ready(function() {
+    var i=0;	
    
-         $('#form_validation').on('change', '[name="userfile[]"]', function() {
-      
-      var $row=$(this).parents(".odd_file");  
-      var imgpath=$(this).val();
-      if (!imgpath==""){
-        var img=this.files[0].size;
-  var name=this.files[0].name;
-        //var imgsize=img/1024;
- $row.find("input[name='filesize[]']").val(img);
- $row.find("input[name='userfile1[]']").val(name);
- 
-      
-      }
-    });
- });
-</script>-->
+function addImage(){
+    if (i<3) {
+
+	   $('<div class="col-md-4 ImageView AdjustPadding" style="padding-bottom:20px;"  > <div class="form-group"><img src="<?php echo site_url('assets/img/no-image.png');?>" class="col-md-12 previewimage gott" id="dummy1" style="height: 185px;" ><div class="input-group"><input type="file" id="preview" name="image[]" class="col-md-12 "onchange="attachment(this);" ><span class="input-group-btn"><a  onclick="" class="btn btn-sm btn-danger removeButton" data-template="textbox"><i class="fa fa-trash"></i></a></span></div></div></div>').appendTo("#gallery");
+	     var $clone = $('[name="image[]"]');
+	    $('#form_validation').bootstrapValidator('addField', $clone);
+	    attachments();
+	    i++;
+	    }
+	   
+}
+</script>
+
