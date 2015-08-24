@@ -125,6 +125,18 @@
 				</div>
 				</div>
 			    </div>
+			    <div class="row">
+				
+				<div class="col-md-6">
+				<div class="form-group">
+			     <label class="col-md-6">Footer feedback</label>
+				 <div class="col-md-12">
+				    <input type="text" name="footerhead"  class="form-control input-sm" value="<?php echo $contact[0]['footerhead']?>" placeholder="Contact Sub Title" />
+				</div>
+				</div>
+				</div>
+				
+			    </div>
 			    
 			<div class="pager form-group">
                              <div class="col-md-7 control-label">

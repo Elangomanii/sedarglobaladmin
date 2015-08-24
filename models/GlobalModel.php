@@ -212,7 +212,8 @@ class GlobalModel extends CI_Model {
 	     "footerpassword"=>$this->input->post("footerpassword"),
 	     "footerphone"=>$this->input->post("footerphone"),
 	     "footereason"=>$this->input->post("footereason"),
-	     "footerfeedback"=>$this->input->post("footerfeedback")
+	     "footerfeedback"=>$this->input->post("footerfeedback"),
+	      "footerhead"=>$this->input->post("footerhead")
 	 );
 	 $this->db->where('id',1);
 	    if($this->session->userdata('browserLanguage')=='ar')
